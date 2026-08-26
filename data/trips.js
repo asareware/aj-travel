@@ -81,10 +81,10 @@ window.TRIPS = [
     /* ---- the day-nav strip. `pending: true` renders it dimmed ---- */
     nav: [
       { label: 'Day 1 · Thu', title: 'Arrival',           href: 'day-1' },
-      { label: 'Day 2 · Fri', title: 'Icons &amp; river',     pending: true },
-      { label: 'Day 3 · Sat', title: 'Peckham + Brixton', pending: true },
-      { label: 'Day 4 · Sun', title: 'Match day',         pending: true },
-      { label: 'Day 5 · Mon', title: 'Departure',         pending: true }
+      { label: 'Day 2 · Fri', title: 'Icons &amp; river',     href: 'day-2' },
+      { label: 'Day 3 · Sat', title: 'Peckham + Brixton', href: 'day-3' },
+      { label: 'Day 4 · Sun', title: 'Match day',         href: 'day-4' },
+      { label: 'Day 5 · Mon', title: 'Departure',         href: 'day-5' }
     ],
 
     /* ---- the written days ----
@@ -123,16 +123,189 @@ window.TRIPS = [
             body: 'Walk back along the river — Parliament and the Eye are lit up after dark and the crowds thin out. Aim to be back and asleep at a reasonable hour to get ahead of jet lag before the bigger days start.'
           }
         ]
+      },
+      {
+        id: 'day-2',
+        counter: 'Day 2 / 5',
+        date: 'Friday, September 4',
+        title: 'Big Ben, the two bridges, and the river by boat',
+        lede: 'The "postcard London" day — Parliament, Borough Market, Tower Bridge, and the Uber Boat your friends told you about, used exactly the way it\'s best used: as a scenic shortcut between sights, not a full-day cruise.',
+        rows: [
+          {
+            time: '9:00 AM',
+            title: 'Houses of Parliament &amp; Big Ben, up close',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: 'Go early to beat the crowds. Walk the full length of Parliament Square, get the close-up shots of the Elizabeth Tower, and swing past Westminster Abbey\'s exterior on your way back toward the river.'
+          },
+          {
+            time: '10:15 AM',
+            title: 'Board the Uber Boat at Westminster Pier',
+            chips: [{ label: 'Uber Boat', tone: 'grey' }],
+            body: 'This is the ferry your friends meant. Tap in with the same contactless card you\'re using on the Tube, and ride it from <strong>Westminster Pier</strong> to <strong>Bankside Pier</strong> (or on to <strong>London Bridge City Pier</strong>) — about 15–20 minutes on the water past the London Eye, the Oxo Tower, and the Millennium Bridge, with a totally different perspective on the skyline than you get on foot.'
+          },
+          {
+            time: '11:00 AM',
+            title: 'Borough Market',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'One of London\'s oldest food markets, right by the pier. Graze rather than sit — this is the spot for an early, unhurried lunch: try a few stalls instead of committing to one restaurant.',
+            address: '8 Southwark St, SE1 1TL'
+          },
+          {
+            time: '1:00 PM',
+            title: 'London Bridge vs. Tower Bridge — see both, know the difference',
+            body: 'Quick myth-buster before you walk it: <strong>London Bridge</strong> (the plain concrete one you\'re standing near now) is the famously unglamorous crossing — it\'s <strong>Tower Bridge</strong>, 10 minutes further east, with the twin Victorian towers, that\'s the one on all the postcards. Walk the riverside path from London Bridge past HMS Belfast to reach it.'
+          },
+          {
+            time: '1:45 PM',
+            title: 'Tower Bridge &amp; Tower of London (exterior)',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: 'Walk across Tower Bridge itself, then decide on the spot whether the Tower Bridge Exhibition (glass floor, engine rooms) or just the view is enough for you — either works. The Tower of London\'s walls and moat are worth a slow look even without going inside.'
+          },
+          {
+            time: '3:30 PM',
+            title: 'Boat back west: Tower Pier → Westminster or Waterloo',
+            chips: [{ label: 'Uber Boat', tone: 'grey' }],
+            body: 'Ride the river back in the golden-hour light — same ticketing, same card. This time you\'ll recognise everything you\'re passing.'
+          },
+          {
+            time: '7:00 PM',
+            title: 'Evening in Covent Garden: dinner + The Lamb &amp; Flag',
+            chips: [{ label: 'Food', tone: 'amber' }, { label: 'Historic pub', tone: 'grey' }],
+            body: 'Street performers, market stalls, and one of London\'s oldest pubs tucked down a side alley — a 300-year-old spot with a genuinely rough history (illegal boxing matches used to be held upstairs). Good for a nightcap pint after dinner.',
+            address: '33 Rose St, Covent Garden, WC2E 9EB'
+          }
+        ]
+      },
+      {
+        id: 'day-3',
+        counter: 'Day 3 / 5',
+        date: 'Saturday, September 5',
+        title: 'Peckham &amp; Brixton — West African &amp; Windrush London',
+        lede: 'A worthwhile clarification up front: London\'s biggest West African hub is actually <strong>Peckham</strong>, not Brixton — Rye Lane is where the Ghanaian and Nigerian communities really concentrate, with kente cloth stalls next to kenkey and waakye vendors. Brixton\'s story is different and just as important: it\'s the heart of Black British and Windrush-generation history, plus a couple of excellent standalone Ghanaian restaurants. Today does both, back to back.',
+        rows: [
+          {
+            time: '10:00 AM',
+            title: 'Waterloo → Peckham Rye',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'Southeastern train from Waterloo East, roughly 15–20 minutes direct to Peckham Rye station.'
+          },
+          {
+            time: '10:30 AM',
+            title: 'Rye Lane market walk',
+            chips: [{ label: 'Culture', tone: 'blue' }],
+            body: 'This street is where West African London actually lives day to day: fabric shops selling kente cloth alongside Ankara prints, hair and beauty stores, and food stalls with kelewele (spiced fried plantain), waakye, and kenkey. It\'s not a tourist attraction with opening hours — it\'s just walk-and-browse, so wander at your own pace and don\'t be shy about asking vendors what something is.'
+          },
+          {
+            time: '12:15 PM',
+            title: 'Peckham → Brixton',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'No direct rail link, so it\'s bus (322 or a combination via Denmark Hill/Herne Hill) or a taxi/rideshare — budget 25–35 minutes. Worth double-checking the exact route in a journey planner on the day, since bus routings shift.'
+          },
+          {
+            time: '1:00 PM',
+            title: 'Lunch: Asafo Ghanaian Restaurant',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'A proper sit-down Ghanaian restaurant right in Brixton — known for being authentic and for booking up quickly, so it\'s worth calling ahead or booking a table before you arrive rather than just walking in.',
+            address: 'Brixton Hill, SW2'
+          },
+          {
+            time: '2:30 PM',
+            title: 'Windrush Square &amp; the Black Cultural Archives building',
+            chips: [{ label: 'History', tone: 'blue' }],
+            body: 'Windrush Square is the civic heart of Black British Brixton, named for the Empire Windrush generation. The Black Cultural Archives sits right on the square — worth knowing its reading room runs by appointment only (Wed–Fri), so treat this as a look at the building and square rather than a planned museum visit unless you\'ve booked ahead at <a href="https://blackculturalarchives.org">blackculturalarchives.org</a>.'
+          },
+          {
+            time: '3:15 PM',
+            title: 'Brixton Village &amp; Electric Avenue',
+            chips: [{ label: 'Food', tone: 'amber' }, { label: 'Culture', tone: 'blue' }],
+            body: 'Brixton Village Market is a covered arcade of stalls spanning Caribbean, Asian, and South American food — a good spot to graze even right after lunch. Electric Avenue next door was the first market street in London lit by electricity and is still a working Afro-Caribbean market by day.'
+          },
+          {
+            time: '4:15 PM',
+            title: 'David Bowie mural &amp; Pop Brixton',
+            body: 'The Bowie memorial mural sits right opposite Brixton tube station (he was born locally) and has become an informal shrine. Pop Brixton, a short walk away, is a shipping-container market of independent shops and food stalls if you want one more stop before heading back.'
+          },
+          {
+            time: '6:00 PM',
+            title: 'Head back toward the hotel before dark',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'Victoria line direct from Brixton to Waterloo (change at Green Park or Oxford Circus for the Bakerloo/Jubilee) or a straightforward taxi — either way, plan to be out of Brixton by early evening as scheduled above. A quiet dinner near the hotel or South Bank is the easy close to today.'
+          }
+        ]
+      },
+      {
+        id: 'day-4',
+        counter: 'Day 4 / 5',
+        date: 'Sunday, September 6',
+        title: 'Match day: Arsenal v Chelsea, 4:30pm KO',
+        lede: 'Chelsea are away at the Emirates, so the goal isn\'t getting <em>into</em> a stadium — it\'s getting into a room full of Chelsea supporters. The move for that is a Stamford Bridge-area pub, where fans without an away ticket gather for every game, home or away.',
+        rows: [
+          {
+            time: '10:00 AM',
+            title: 'Easy morning: Columbia Road Flower Market',
+            chips: [{ label: 'Sunday-only', tone: 'grey' }],
+            body: 'Sundays-only flower and plant market in East London — colourful, low-key, and a good way to fill the morning without tiring yourself out before kickoff. Optional; sleeping in and having a slow brunch near the hotel works just as well.'
+          },
+          {
+            time: '1:30 PM',
+            title: 'Head to Fulham / Stamford Bridge early',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'District line to Fulham Broadway (roughly 30–35 minutes from Waterloo, one change). Arriving 2.5–3 hours before a 4:30pm kickoff isn\'t overkill here — these pubs are described as "crazy busy" before kickoff and fill up fast, even for away games.'
+          },
+          {
+            time: '2:00 PM',
+            title: 'Claim a spot: The Butcher\'s Hook',
+            chips: [{ label: 'Chelsea pub', tone: 'amber' }],
+            body: 'Directly opposite the Stamford Gate entrance to Stamford Bridge — and the actual pub where Chelsea FC was founded in 1905. Widely considered the number-one spot for fans without a ticket: big screens, wall-to-wall Chelsea supporters, and the loudest atmosphere in the area for kickoff.',
+            address: 'Fulham Rd, Fulham, SW6 1HS'
+          },
+          {
+            time: '4:30 PM',
+            title: 'Kickoff',
+            chips: [{ label: 'Match', tone: 'amber' }],
+            body: 'Backup options two minutes away if The Butcher\'s Hook is rammed: <strong>McGettigan\'s</strong> (opposite Fulham Broadway station) or <strong>The Tommy Tucker</strong> (between Fulham Rd and King\'s Rd) — both reliably full of Chelsea supporters on matchday.'
+          },
+          {
+            time: '~6:15 PM',
+            title: 'Post-match dinner in the same neighbourhood',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'Whatever the result, this stretch of Fulham Road has plenty of casual dinner options within a five-minute walk — an easy way to keep the matchday energy going a little longer before heading back.'
+          },
+          {
+            time: '8:30 PM',
+            title: 'Back to Waterloo',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'District line back to Embankment, then Bakerloo/Northern one stop to Waterloo — about 30 minutes door to door.'
+          }
+        ]
+      },
+      {
+        id: 'day-5',
+        counter: 'Day 5 / 5',
+        date: 'Monday, September 7',
+        title: 'One last look, then home',
+        lede: 'A short, flexible morning built around checkout — scale it to your actual flight time.',
+        rows: [
+          {
+            time: '8:00 AM',
+            title: 'Breakfast near the hotel, pack, check out',
+            body: 'Park Plaza Waterloo\'s location means you can leave bags with the front desk and still have a couple of free hours before heading to the airport.'
+          },
+          {
+            time: '9:00 AM',
+            title: 'Ride the London Eye, or one more walk across Westminster Bridge',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: 'If you haven\'t gone up yet, mornings are the quietest time to ride — it\'s right by the hotel. If you\'d rather not spend the money on a repeat view, one more slow walk across Westminster Bridge is a fitting bookend to Day 1\'s first look at Big Ben.'
+          },
+          {
+            time: 'time to airport',
+            title: 'Head to the airport with a buffer',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'From Waterloo: Bakerloo line to Paddington then Elizabeth line/Heathrow Express for Heathrow (~55–70 min total); or Northern/Victoria line connections to Victoria for the Gatwick Express (~50–60 min total). Build in extra time on a Monday morning for possible Tube delays.'
+          }
+        ]
       }
     ],
-
-    /* ---- the "still to come" block. delete it once every day is written ---- */
-    pending: {
-      counter: 'Days 2–5',
-      date: 'Friday 4 – Monday 7 September',
-      title: 'Icons &amp; river, Peckham + Brixton, Match day, Departure',
-      lede: 'Days 2–5 are waiting on the text from your Claude itinerary — paste it in and they drop straight into this pattern.'
-    },
 
     /* ---- the photo grid ---- */
     photosIntro: {
