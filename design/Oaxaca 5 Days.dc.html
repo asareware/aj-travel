@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin:0; padding:0; background:oklch(0.968 0.003 250); }
+  body { -webkit-font-smoothing:antialiased; }
+  a { color:#b06845; text-decoration:none; }
+  a:hover { color:oklch(0.245 0.018 255); }
+  @keyframes lbin { from { opacity:0 } to { opacity:1 } }
+  @keyframes lbphoto { from { opacity:0; transform:scale(0.985) } to { opacity:1; transform:none } }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:oklch(0.968 0.003 250);color:oklch(0.245 0.018 255);font-family:'Helvetica Neue',Helvetica,'Segoe UI',sans-serif;font-size:16px;line-height:1.5;text-wrap:pretty">
+
+  <div style="max-width:1080px;margin:0 auto;padding:0 40px">
+
+    <div style="display:flex;justify-content:space-between;align-items:baseline;padding:26px 0;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.52 0.014 255)">
+      <div>Itinerary</div>
+      <div>Oaxaca de Juárez, MX</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:32px;padding:96px 0 104px;border-top:1px solid oklch(0.87 0.006 255)">
+      <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.52 0.014 255);padding-top:14px">22–26 Oct<br>2026</div>
+      <div>
+        <h1 style="margin:0;font-family:'Libre Caslon Display',Georgia,serif;font-weight:400;font-size:96px;line-height:0.92;letter-spacing:-0.015em">Oaxaca</h1>
+        <p style="margin:28px 0 0;font-size:19px;line-height:1.6;max-width:46ch;color:oklch(0.34 0.016 255)">Five days in the valley: one market, three ruins, and as much time on foot as the afternoon heat allows. Mornings start early, afternoons stay open.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:36px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.52 0.014 255)">
+          <div>Two travelling</div>
+          <div>Base: Centro</div>
+          <div>No car until Day 4</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:32px;padding:52px 0;border-top:1px solid oklch(0.87 0.006 255)">
+      <div style="position:sticky;top:32px;align-self:start">
+        <div style="font-family:'Libre Caslon Display',Georgia,serif;font-size:76px;line-height:0.78;color:var(--accent,#b06845)">01</div>
+        <div style="margin-top:16px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.52 0.014 255)">Thu 22 Oct</div>
+      </div>
+      <div>
+        <h2 style="margin:0 0 12px;font-family:'Libre Caslon Display',Georgia,serif;font-weight:400;font-size:30px;line-height:1.15">Arrive, and one slow lap of Centro</h2>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">15:00</div>
+          <div>
+            <div style="font-size:19px">Barrio de Jalatlaco</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Drop the bags and walk the cobbles east of Centro — murals, low colour-washed walls, almost no traffic.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">17:00</div>
+          <div>
+            <div style="font-size:19px">Templo de Santo Domingo de Guzmán</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Gilded ceiling, and the Dominican family tree branching over the entrance. Late light on the stone outside.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">19:30</div>
+          <div>
+            <div style="font-size:19px">Mezcalería In Situ</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">A flight of wild-agave mezcal poured with an explanation of each. Ask what came in this month.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">21:00</div>
+          <div>
+            <div style="font-size:19px">Dinner — Los Danzantes</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Courtyard tables under the brick pillars. Book ahead; ask for the patio, not the mezzanine.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:32px;padding:52px 0;border-top:1px solid oklch(0.87 0.006 255)">
+      <div style="position:sticky;top:32px;align-self:start">
+        <div style="font-family:'Libre Caslon Display',Georgia,serif;font-size:76px;line-height:0.78;color:var(--accent,#b06845)">02</div>
+        <div style="margin-top:16px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.52 0.014 255)">Fri 23 Oct</div>
+      </div>
+      <div>
+        <h2 style="margin:0 0 12px;font-family:'Libre Caslon Display',Georgia,serif;font-weight:400;font-size:30px;line-height:1.15">Markets, then the ex-convent</h2>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">08:00</div>
+          <div>
+            <div style="font-size:19px">Coffee at Café Brújula</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Oaxacan beans, courtyard seating, open before the city is.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">09:30</div>
+          <div>
+            <div style="font-size:19px">Mercado Benito Juárez &amp; 20 de Noviembre</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Mole pastes, chapulines, drinking chocolate ground to order. End in the pasillo de humo for grilled tasajo.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">12:00</div>
+          <div>
+            <div style="font-size:19px">Museo de las Culturas de Oaxaca</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">The Tomb 7 gold from Monte Albán, held in the old Dominican convent beside Santo Domingo.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">16:00</div>
+          <div>
+            <div style="font-size:19px">Jardín Etnobotánico</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Guided visits only — book the English tour that morning. Agaves, cochineal, and a wall of cactus.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">20:00</div>
+          <div>
+            <div style="font-size:19px">Dinner — Levadura de Olla</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Thalía Barrios García cooking from her village. The small-plates menu of the day is the one to take.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:32px;padding:52px 0;border-top:1px solid oklch(0.87 0.006 255)">
+      <div style="position:sticky;top:32px;align-self:start">
+        <div style="font-family:'Libre Caslon Display',Georgia,serif;font-size:76px;line-height:0.78;color:var(--accent,#b06845)">03</div>
+        <div style="margin-top:16px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.52 0.014 255)">Sat 24 Oct</div>
+      </div>
+      <div>
+        <h2 style="margin:0 0 12px;font-family:'Libre Caslon Display',Georgia,serif;font-weight:400;font-size:30px;line-height:1.15">Monte Albán early, clay in the afternoon</h2>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">08:00</div>
+          <div>
+            <div style="font-size:19px">Monte Albán</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Be at the gate when it opens. A Zapotec capital on a levelled ridge, with the whole valley below it. Two hours, hat on.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">13:30</div>
+          <div>
+            <div style="font-size:19px">Comida at Itanoní</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Heirloom corn, ground and cooked in the open. Order the memelas and whatever the day's tortilla is.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">16:30</div>
+          <div>
+            <div style="font-size:19px">San Bartolo Coyotepec</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Barro negro — black burnished pottery, thrown on two saucers instead of a wheel. Watch it made, then buy directly.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">19:00</div>
+          <div>
+            <div style="font-size:19px">Drinks at Selva</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Upstairs, small room, a menu built on Oaxacan botanicals. Go before nine to get a seat.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:32px;padding:52px 0;border-top:1px solid oklch(0.87 0.006 255)">
+      <div style="position:sticky;top:32px;align-self:start">
+        <div style="font-family:'Libre Caslon Display',Georgia,serif;font-size:76px;line-height:0.78;color:var(--accent,#b06845)">04</div>
+        <div style="margin-top:16px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.52 0.014 255)">Sun 25 Oct</div>
+      </div>
+      <div>
+        <h2 style="margin:0 0 12px;font-family:'Libre Caslon Display',Georgia,serif;font-weight:400;font-size:30px;line-height:1.15">The valley, east — a full day with a car</h2>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">07:30</div>
+          <div>
+            <div style="font-size:19px">Tlacolula Sunday market</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">The big one, and only on Sundays. Zapotec spoken over every stall; barbacoa for breakfast at the back.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">10:30</div>
+          <div>
+            <div style="font-size:19px">Teotitlán del Valle</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Wool rugs on pedal looms, dyed with cochineal, indigo and pericón. Ask for a dye demonstration.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">13:00</div>
+          <div>
+            <div style="font-size:19px">Hierve el Agua</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Mineral terraces over the ravine, and a spring-fed pool at the top. Swim before the tour vans arrive.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">16:00</div>
+          <div>
+            <div style="font-size:19px">Mitla</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Geometric fretwork set without mortar — thousands of cut stones held by fit alone.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">18:00</div>
+          <div>
+            <div style="font-size:19px">A palenque near Santiago Matatlán</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">On the road home. Roasting pit, tahona, copper stills — whoever is open, one taste, then drive.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:32px;padding:52px 0;border-top:1px solid oklch(0.87 0.006 255)">
+      <div style="position:sticky;top:32px;align-self:start">
+        <div style="font-family:'Libre Caslon Display',Georgia,serif;font-size:76px;line-height:0.78;color:var(--accent,#b06845)">05</div>
+        <div style="margin-top:16px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.52 0.014 255)">Mon 26 Oct</div>
+      </div>
+      <div>
+        <h2 style="margin:0 0 12px;font-family:'Libre Caslon Display',Georgia,serif;font-weight:400;font-size:30px;line-height:1.15">Slow morning, then the airport</h2>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">09:00</div>
+          <div>
+            <div style="font-size:19px">Breakfast at Boulenc</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Bread out of the oven, eggs, and the last good coffee of the trip.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">10:30</div>
+          <div>
+            <div style="font-size:19px">Museo Textil de Oaxaca</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Small, free, and the best-hung rooms in the city. Forty minutes is enough.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">12:30</div>
+          <div>
+            <div style="font-size:19px">La Cosecha</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Last lunch and last bottles — an organic market yard with mezcal worth carrying home.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:74px 1fr;gap:26px;padding:var(--pad,20px) 0;border-top:1px solid oklch(0.91 0.005 255)">
+          <div style="font-size:12px;letter-spacing:0.05em;color:oklch(0.52 0.014 255);padding-top:5px;font-variant-numeric:tabular-nums">15:00</div>
+          <div>
+            <div style="font-size:19px">OAX — Aeropuerto Xoxocotlán</div>
+            <div style="margin-top:5px;font-size:14.5px;line-height:1.55;color:oklch(0.52 0.014 255);max-width:54ch">Twenty-five minutes from Centro. Leave earlier than that on a Monday.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:190px 1fr;gap:32px;padding:88px 0 40px;border-top:1px solid oklch(0.87 0.006 255)">
+      <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.52 0.014 255);padding-top:10px">Photographs</div>
+      <div>
+        <h2 style="margin:0;font-family:'Libre Caslon Display',Georgia,serif;font-weight:400;font-size:44px;line-height:1.05">From the trip</h2>
+        <p style="margin:14px 0 0;font-size:14.5px;color:oklch(0.52 0.014 255);max-width:48ch">Drag a photo onto any frame. Click a filled frame to open it full-screen.</p>
+      </div>
+    </div>
+
+    <div onClick="{{ onGridClick }}" style="display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));gap:14px;padding-bottom:40px">
+      <div data-caption="Day 4 · Hierve el Agua" style="grid-column:span 2;grid-row:span 2;position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;cursor:zoom-in">
+        <image-slot id="oax-01" shape="rect" placeholder="Drop your best frame"></image-slot>
+      </div>
+      <div data-caption="Day 1 · Barrio de Jalatlaco" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;cursor:zoom-in">
+        <image-slot id="oax-02" shape="rect" placeholder="Drop a photo"></image-slot>
+      </div>
+      <div data-caption="Day 1 · Santo Domingo" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;cursor:zoom-in">
+        <image-slot id="oax-03" shape="rect" placeholder="Drop a photo"></image-slot>
+      </div>
+      <div data-caption="Day 2 · Mercado 20 de Noviembre" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;cursor:zoom-in">
+        <image-slot id="oax-04" shape="rect" placeholder="Drop a photo"></image-slot>
+      </div>
+      <div data-caption="Day 2 · Jardín Etnobotánico" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;cursor:zoom-in">
+        <image-slot id="oax-05" shape="rect" placeholder="Drop a photo"></image-slot>
+      </div>
+      <div data-caption="Day 3 · Monte Albán" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;cursor:zoom-in">
+        <image-slot id="oax-06" shape="rect" placeholder="Drop a photo"></image-slot>
+      </div>
+      <div data-caption="Day 3 · Barro negro, San Bartolo" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;cursor:zoom-in">
+        <image-slot id="oax-07" shape="rect" placeholder="Drop a photo"></image-slot>
+      </div>
+      <div data-caption="Day 4 · Teotitlán del Valle" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;cursor:zoom-in">
+        <image-slot id="oax-08" shape="rect" placeholder="Drop a photo"></image-slot>
+      </div>
+      <div data-caption="Day 5 · Museo Textil de Oaxaca" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;cursor:zoom-in">
+        <image-slot id="oax-09" shape="rect" placeholder="Drop a photo"></image-slot>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 56px;border-top:1px solid oklch(0.87 0.006 255);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.52 0.014 255)">
+      <div>Oaxaca 2026</div>
+      <div>Five days</div>
+    </div>
+
+  </div>
+
+  <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ onBackdrop }}" style="position:fixed;inset:0;z-index:80;background:oklch(0.17 0.012 255 / 0.975);display:grid;grid-template-rows:1fr auto;animation:lbin 0.2s ease-out">
+      <div style="position:relative;display:grid;place-items:center;padding:56px 84px 20px;min-height:0">
+        <div data-keep="1" style="display:grid;place-items:center;max-width:100%;max-height:100%;min-height:0">{{ photo }}</div>
+        <button data-keep="1" onClick="{{ prev }}" aria-label="Previous photo" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);width:52px;height:52px;display:grid;place-items:center;background:none;border:0;cursor:pointer;color:oklch(0.86 0.01 255);opacity:0.65" style-hover="opacity:1">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.2"><polyline points="14,4 6,11 14,18"></polyline></svg>
+        </button>
+        <button data-keep="1" onClick="{{ next }}" aria-label="Next photo" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);width:52px;height:52px;display:grid;place-items:center;background:none;border:0;cursor:pointer;color:oklch(0.86 0.01 255);opacity:0.65" style-hover="opacity:1">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.2"><polyline points="8,4 16,11 8,18"></polyline></svg>
+        </button>
+        <button data-keep="1" onClick="{{ close }}" aria-label="Close" style="position:absolute;right:22px;top:20px;width:40px;height:40px;display:grid;place-items:center;background:none;border:0;cursor:pointer;color:oklch(0.86 0.01 255);opacity:0.6;font-size:22px;font-family:'Helvetica Neue',Helvetica,sans-serif;line-height:1" style-hover="opacity:1">×</button>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:0 84px 40px;color:oklch(0.78 0.01 255);font-family:'Helvetica Neue',Helvetica,sans-serif">
+        <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase">{{ caption }}</div>
+        <div style="font-size:11px;letter-spacing:0.16em;font-variant-numeric:tabular-nums;color:oklch(0.62 0.012 255)">{{ counter }}</div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#b06845&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#b06845&quot;,&quot;#6d7648&quot;,&quot;#3f5f8f&quot;,&quot;#2b2f36&quot;],&quot;section&quot;:&quot;Look&quot;},&quot;photoCols&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:4,&quot;min&quot;:2,&quot;max&quot;:5,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Photographs&quot;},&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Airy&quot;,&quot;options&quot;:[&quot;Airy&quot;,&quot;Compact&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Look&quot;}}">
+class Component extends DCLogic {
+  state = { open: false, i: 0, items: [] };
+
+  componentDidMount() {
+    this._key = (e) => {
+      if (!this.state.open) return;
+      if (e.key === 'Escape') this.close();
+      else if (e.key === 'ArrowRight') { e.preventDefault(); this.step(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); this.step(-1); }
+    };
+    document.addEventListener('keydown', this._key);
+    this.applyVars();
+  }
+
+  componentDidUpdate() { this.applyVars(); }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this._key);
+    document.body.style.overflow = '';
+  }
+
+  applyVars() {
+    const s = document.documentElement.style;
+    s.setProperty('--accent', this.props.accent || '#b06845');
+    s.setProperty('--cols', String(this.props.photoCols || 4));
+    s.setProperty('--pad', this.props.density === 'Compact' ? '12px' : '20px');
+    document.body.style.overflow = this.state.open ? 'hidden' : '';
+  }
+
+  srcOf(slot) {
+    const r = slot.shadowRoot;
+    const img = r && r.querySelector('.frame img');
+    return img && img.getAttribute('src') ? img.src : null;
+  }
+
+  openFrom(e) {
+    const path = (e.nativeEvent && e.nativeEvent.composedPath) ? e.nativeEvent.composedPath() : [];
+    for (let i = 0; i < path.length; i++) {
+      const n = path[i];
+      if (n && n.getAttribute && n.getAttribute('data-act')) return; // Replace / Edit controls
+    }
+    const slot = e.target && e.target.closest ? e.target.closest('image-slot') : null;
+    if (!slot || !slot.hasAttribute('data-filled') || slot.hasAttribute('data-reframe')) return;
+    const slots = Array.prototype.slice.call(e.currentTarget.querySelectorAll('image-slot'));
+    const items = [];
+    let idx = 0;
+    slots.forEach((s) => {
+      const src = this.srcOf(s);
+      if (!src) return;
+      if (s === slot) idx = items.length;
+      const cell = s.closest('[data-caption]');
+      items.push({ src: src, cap: cell ? cell.getAttribute('data-caption') : '' });
+    });
+    if (!items.length) return;
+    this.setState({ open: true, i: idx, items: items });
+  }
+
+  step(d) {
+    this.setState((st) => {
+      const n = st.items.length;
+      return n ? { i: (st.i + d + n) % n } : {};
+    });
+  }
+
+  close() { this.setState({ open: false }); }
+
+  pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  renderVals() {
+    const st = this.state;
+    const cur = st.items[st.i] || { src: '', cap: '' };
+    return {
+      open: st.open,
+      src: cur.src,
+      caption: cur.cap,
+      counter: st.items.length ? this.pad(st.i + 1) + ' / ' + this.pad(st.items.length) : '',
+      photo: cur.src ? React.createElement('img', {
+        key: cur.src,
+        src: cur.src,
+        alt: cur.cap || '',
+        'data-keep': '1',
+        style: {
+          maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block',
+          boxShadow: '0 30px 90px oklch(0 0 0 / 0.5)', animation: 'lbphoto 0.28s ease-out'
+        }
+      }) : null,
+      onGridClick: (e) => this.openFrom(e),
+      onBackdrop: (e) => {
+        if (e.target && e.target.closest && e.target.closest('[data-keep]')) return;
+        this.close();
+      },
+      prev: (e) => { e.stopPropagation(); this.step(-1); },
+      next: (e) => { e.stopPropagation(); this.step(1); },
+      close: (e) => { e.stopPropagation(); this.close(); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Lato:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin:0; padding:0; background:#0e1317; }
+  body { -webkit-font-smoothing:antialiased; }
+  a { color:#74b6d4; text-decoration:none; }
+  a:hover { color:#a5d3e6; }
+  @keyframes lbin { from { opacity:0 } to { opacity:1 } }
+  @keyframes lbphoto { from { opacity:0; transform:scale(0.985) } to { opacity:1; transform:none } }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#0e1317;color:#e8ecef;font-family:Lato,'Helvetica Neue',Helvetica,sans-serif;font-size:17px;line-height:1.6;text-wrap:pretty">
+  <div style="max-width:940px;margin:0 auto;padding:0 32px">
+
+    <div style="display:flex;justify-content:space-between;align-items:baseline;padding:24px 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#7d888f">
+      <div onClick="{{ goHome }}" style="cursor:pointer" style-hover="color:#d8a34a">Travel log</div>
+      <div>2026</div>
+    </div>
+
+    <sc-if value="{{ showIndex }}" hint-placeholder-val="{{ true }}">
+      <div>
+        <div style="padding:76px 0 64px">
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent,#d8a34a)">Trips · 2026</div>
+          <h1 style="margin:20px 0 0;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:64px;line-height:1.05;letter-spacing:-0.01em;color:#f2f5f7">Where we have been</h1>
+          <p style="margin:22px 0 0;font-size:19px;line-height:1.65;max-width:44ch;color:#b9c2c9">Itineraries as they were planned, photographs as they came back. Pick a trip to open it.</p>
+        </div>
+
+        <div onClick="{{ openTrip }}" data-trip="london" style="display:grid;grid-template-columns:300px 1fr;gap:32px;padding:26px 0;border-top:1px solid #232b33;cursor:pointer" style-hover="background:#121820">
+          <div style="position:relative;aspect-ratio:3/2;min-width:0;overflow:hidden;border:1px solid #232b33">
+            <image-slot id="cover-ldn" shape="rect" radius="0" placeholder="Drop a cover photo"></image-slot>
+          </div>
+          <div style="display:flex;flex-direction:column;justify-content:space-between;gap:22px;padding:4px 0 10px">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px">
+                <h2 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:40px;line-height:1.05;color:#f2f5f7">Aj's First London</h2>
+                <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7d888f;white-space:nowrap">5 days</div>
+              </div>
+              <div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent,#d8a34a)">3–7 Sept 2026 · England</div>
+              <p style="margin:14px 0 0;font-size:15px;line-height:1.6;max-width:48ch;color:#b9c2c9">Bridges and boats, a Chelsea away-day watch party, and the West African corners of South London.</p>
+            </div>
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#74b6d4">Open itinerary →</div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:30px 0 56px;border-top:1px solid #232b33;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#7d888f">
+          <div>Travel log</div>
+          <div>One trip</div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showLondon }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div onClick="{{ goHome }}" style="display:inline-block;margin-top:26px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7d888f;cursor:pointer" style-hover="color:#74b6d4">← All trips</div>
+
+        <div style="padding:60px 0 54px">
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent,#d8a34a)">First time in London · 3–7 Sept 2026</div>
+          <h1 style="margin:22px 0 0;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:64px;line-height:1.05;letter-spacing:-0.01em;color:#f2f5f7">Aj's London, Sorted Day by Day</h1>
+          <p style="margin:24px 0 0;font-size:19px;line-height:1.65;max-width:44ch;color:#b9c2c9">Four nights, five days — bridges and boats, a Chelsea away-day watch party, and the West African corners of South London. Built around the Park Plaza Waterloo.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #232b33;background:#121820">
+          <div style="padding:22px 24px 24px;border-right:1px solid #232b33;border-bottom:1px solid #232b33">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#7d888f">Base camp</div>
+            <div style="margin-top:10px;font-size:17px;font-weight:700;color:#f2f5f7">Park Plaza London Waterloo</div>
+            <div style="margin-top:6px;font-size:14.5px;line-height:1.55;color:#98a2aa">6 Hercules Rd, SE1 7DP — steps from Waterloo &amp; Lambeth North</div>
+          </div>
+          <div style="padding:22px 24px 24px;border-bottom:1px solid #232b33">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#7d888f">Getting around</div>
+            <div style="margin-top:10px;font-size:17px;font-weight:700;color:#f2f5f7">Contactless tap-in/out</div>
+            <div style="margin-top:6px;font-size:14.5px;line-height:1.55;color:#98a2aa">Same card on Tube, bus, rail &amp; Uber Boat — daily fares auto-cap</div>
+          </div>
+          <div style="padding:22px 24px 24px;border-right:1px solid #232b33">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#7d888f">Match</div>
+            <div style="margin-top:10px;font-size:17px;font-weight:700;color:#f2f5f7">Arsenal v Chelsea, Sun 6 Sept</div>
+            <div style="margin-top:6px;font-size:14.5px;line-height:1.55;color:#98a2aa">4:30pm KO — Emirates Stadium (away day)</div>
+          </div>
+          <div style="padding:22px 24px 24px">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#7d888f">Weather</div>
+            <div style="margin-top:10px;font-size:17px;font-weight:700;color:#f2f5f7">Early autumn, ~15–20°C</div>
+            <div style="margin-top:6px;font-size:14.5px;line-height:1.55;color:#98a2aa">Pack a light rain layer — always a fair bet in London</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:44px 1fr;gap:8px;margin-top:26px;padding:20px 24px 22px;border:1px solid #4a3a14;background:#1e1809">
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.14em;color:#d8a34a;padding-top:3px">Fix</div>
+          <div style="font-size:16px;line-height:1.6;color:#d9dfe4"><strong style="color:#f2f5f7">Ticket sale date correction:</strong> Chelsea's members' sale for the Arsenal away tickets is <strong style="color:#f2f5f7">Wednesday 26 August</strong> (not the 25th) — three loyalty-point windows at 10am, 12pm and 2pm, then any leftover tickets open to all members from 4pm. Away allocations are small and go fast, so realistically don't bank on a ticket — see Day 4 for the backup plan that doesn't need one.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:44px 1fr;gap:8px;margin-top:14px;padding:20px 24px 22px;border:1px solid #23414c;background:#0d1a20">
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;color:#74b6d4;padding-top:1px">+</div>
+          <div style="font-size:16px;line-height:1.6;color:#d9dfe4"><strong style="color:#f2f5f7">It's Arsenal <em>away</em>, not Stamford Bridge:</strong> kickoff is at the Emirates Stadium in North London, so there's no "go to the ground" option even with a ticket in hand — away allocations are tiny. The move that actually gets you around a wall of Chelsea fans is watching from a pub right by Stamford Bridge, where the crowd gathers for away games too. Full plan on Day 4.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:44px 1fr;gap:8px;margin-top:14px;padding:20px 24px 22px;border:1px solid #43262a;background:#1c1214">
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;color:#d98a86;padding-top:1px">!</div>
+          <div style="font-size:16px;line-height:1.6;color:#d9dfe4"><strong style="color:#f2f5f7">Brixton, daytime only:</strong> everything below in Brixton is scheduled before ~6:30pm. It's a completely normal, well-visited part of London by day — just use the same street sense you would anywhere with a lively nightlife scene after dark, and this itinerary has you gone before then.</div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px 44px;margin:56px 0 0;padding:22px 0;border-top:1px solid #232b33;border-bottom:1px solid #232b33">
+          <a href="#ldn-day-1" style="text-decoration:none" style-hover="color:#74b6d4">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#7d888f">Day 1 · Thu</div>
+            <div style="margin-top:5px;font-size:16px;font-weight:700;color:#e8ecef">Arrival</div>
+          </a>
+          <div title="Waiting on the itinerary text">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#7d888f;color:#5b656c">Day 2 · Fri</div>
+            <div style="margin-top:5px;font-size:16px;font-weight:700;color:#6b757c">Icons &amp; river</div>
+          </div>
+          <div title="Waiting on the itinerary text">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#7d888f;color:#5b656c">Day 3 · Sat</div>
+            <div style="margin-top:5px;font-size:16px;font-weight:700;color:#6b757c">Peckham + Brixton</div>
+          </div>
+          <div title="Waiting on the itinerary text">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#7d888f;color:#5b656c">Day 4 · Sun</div>
+            <div style="margin-top:5px;font-size:16px;font-weight:700;color:#6b757c">Match day</div>
+          </div>
+          <div title="Waiting on the itinerary text">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#7d888f;color:#5b656c">Day 5 · Mon</div>
+            <div style="margin-top:5px;font-size:16px;font-weight:700;color:#6b757c">Departure</div>
+          </div>
+        </div>
+
+        <div id="ldn-day-1" style="padding:64px 0 0">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase">
+            <div style="color:var(--accent,#d8a34a)">Day 1 / 5</div>
+            <div style="color:#7d888f;letter-spacing:0.08em;text-transform:none">Thursday, September 3</div>
+          </div>
+          <h2 style="margin:16px 0 0;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:42px;line-height:1.1;color:#f2f5f7">Landing &amp; first steps into London</h2>
+          <p style="margin:18px 0 0;font-size:17px;line-height:1.65;max-width:46ch;color:#b9c2c9">A deliberately light day — get settled, get your bearings, and see Big Ben lit up after dark. Times below assume a mid-afternoon landing; slide the whole block earlier or later to match your actual flight.</p>
+
+          <div style="display:grid;grid-template-columns:88px 1fr;gap:28px;padding:var(--pad,26px) 0 var(--pad,26px);margin-top:22px;border-top:1px solid #1d242b">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;line-height:1.35;color:#74b6d4;padding-top:3px">on land</div>
+            <div>
+              <div style="font-size:18px;font-weight:700;color:#f2f5f7">Airport → Park Plaza London Waterloo</div>
+              <div style="margin-top:10px;font-size:16px;line-height:1.6;color:#b9c2c9"><span style="display:inline-block;margin-right:10px;padding:3px 8px;border-radius:3px;background:#1c2329;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#9aa4ab;vertical-align:2px">Transit</span>Heathrow: Elizabeth line or Heathrow Express to Paddington, then Bakerloo line direct to Waterloo (~55–70 min total). Gatwick: Gatwick Express to Victoria, then District/Circle line to Waterloo or a short taxi (~50 min). Check in when you arrive — bags can usually be dropped even before the official 3pm check-in.</div>
+              <div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;color:#7d888f">6 Hercules Rd, Lambeth, London SE1 7DP</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:88px 1fr;gap:28px;padding:var(--pad,26px) 0;border-top:1px solid #1d242b">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;line-height:1.35;color:#74b6d4;padding-top:3px">4:30 PM</div>
+            <div>
+              <div style="font-size:18px;font-weight:700;color:#f2f5f7">Orientation walk: Westminster Bridge → Big Ben → South Bank</div>
+              <div style="margin-top:10px;font-size:16px;line-height:1.6;color:#b9c2c9"><span style="display:inline-block;margin-right:10px;padding:3px 8px;border-radius:3px;background:#12222b;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#74b6d4;vertical-align:2px">Sightseeing</span>Ten minutes on foot from the hotel gets you onto Westminster Bridge with the Houses of Parliament and the Elizabeth Tower (Big Ben) right in front of you — genuinely one of the best free views in London, and a gentle way to shake off travel legs. Cross back over and wander the South Bank promenade past the London Eye toward the National Theatre.</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:88px 1fr;gap:28px;padding:var(--pad,26px) 0;border-top:1px solid #1d242b">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;line-height:1.35;color:#74b6d4;padding-top:3px">6:30 PM</div>
+            <div>
+              <div style="font-size:18px;font-weight:700;color:#f2f5f7">Dinner + first proper London pint: Founders Arms</div>
+              <div style="margin-top:10px;font-size:16px;line-height:1.6;color:#b9c2c9"><span style="display:inline-block;margin-right:8px;padding:3px 8px;border-radius:3px;background:#221b0e;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#d8a34a;vertical-align:2px">Food</span><span style="display:inline-block;margin-right:10px;padding:3px 8px;border-radius:3px;background:#1c2329;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#9aa4ab;vertical-align:2px">Historic pub</span>A riverside pub on Bankside with a terrace looking straight across at St Paul's Cathedral — pub food, a good pint, and a view that does a lot of the "wow, I'm actually in London" work for you. About a 25-minute riverside walk from the hotel, or hop the bus.</div>
+              <div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;color:#7d888f">52 Hopton St, Bankside, SE1 9JH</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:88px 1fr;gap:28px;padding:var(--pad,26px) 0;border-top:1px solid #1d242b;border-bottom:1px solid #1d242b">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;line-height:1.35;color:#74b6d4;padding-top:3px">8:30 PM</div>
+            <div>
+              <div style="font-size:18px;font-weight:700;color:#f2f5f7">Big Ben by night, then early to bed</div>
+              <div style="margin-top:10px;font-size:16px;line-height:1.6;color:#b9c2c9">Walk back along the river — Parliament and the Eye are lit up after dark and the crowds thin out. Aim to be back and asleep at a reasonable hour to get ahead of jet lag before the bigger days start.</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="ldn-day-2" style="padding:64px 0 40px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:0.16em;text-transform:uppercase">
+            <div style="color:#7d888f">Days 2–5</div>
+            <div style="color:#7d888f;letter-spacing:0.08em;text-transform:none">Friday 4 – Monday 7 September</div>
+          </div>
+          <h2 style="margin:16px 0 0;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:42px;line-height:1.1;color:#6b757c">Icons &amp; river, Peckham + Brixton, Match day, Departure</h2>
+          <p style="margin:18px 0 0;font-size:17px;line-height:1.65;max-width:46ch;color:#7d888f">Days 2–5 are waiting on the text from your Claude itinerary — paste it in and they drop straight into this pattern.</p>
+        </div>
+
+        <div style="padding:40px 0 34px;border-top:1px solid #232b33">
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent,#d8a34a)">Photographs</div>
+          <h2 style="margin:16px 0 0;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:42px;line-height:1.05;color:#f2f5f7">From the trip</h2>
+          <p style="margin:14px 0 0;font-size:16px;line-height:1.6;max-width:46ch;color:#b9c2c9">Drag a photo onto any frame. Click a filled frame to open it full-screen.</p>
+        </div>
+
+        <div onClick="{{ onGridClick }}" style="display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));gap:12px;padding-bottom:44px">
+          <div data-caption="Day 1 · Westminster Bridge" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;border:1px solid #232b33;cursor:zoom-in">
+            <image-slot id="ldn-01" shape="rect" radius="0" placeholder="Drop a photo"></image-slot>
+          </div>
+          <div data-caption="Day 1 · South Bank" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;border:1px solid #232b33;cursor:zoom-in">
+            <image-slot id="ldn-02" shape="rect" radius="0" placeholder="Drop a photo"></image-slot>
+          </div>
+          <div data-caption="Day 1 · Founders Arms" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;border:1px solid #232b33;cursor:zoom-in">
+            <image-slot id="ldn-03" shape="rect" radius="0" placeholder="Drop a photo"></image-slot>
+          </div>
+          <div data-caption="Day 2 · Icons &amp; river" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;border:1px solid #232b33;cursor:zoom-in">
+            <image-slot id="ldn-04" shape="rect" radius="0" placeholder="Drop a photo"></image-slot>
+          </div>
+          <div data-caption="Day 3 · Peckham" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;border:1px solid #232b33;cursor:zoom-in">
+            <image-slot id="ldn-05" shape="rect" radius="0" placeholder="Drop a photo"></image-slot>
+          </div>
+          <div data-caption="Day 3 · Brixton" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;border:1px solid #232b33;cursor:zoom-in">
+            <image-slot id="ldn-06" shape="rect" radius="0" placeholder="Drop a photo"></image-slot>
+          </div>
+          <div data-caption="Day 4 · Match day" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;border:1px solid #232b33;cursor:zoom-in">
+            <image-slot id="ldn-07" shape="rect" radius="0" placeholder="Drop a photo"></image-slot>
+          </div>
+          <div data-caption="Day 5 · Last morning" style="position:relative;aspect-ratio:1/1;min-width:0;overflow:hidden;border:1px solid #232b33;cursor:zoom-in">
+            <image-slot id="ldn-08" shape="rect" radius="0" placeholder="Drop a photo"></image-slot>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:28px 0 56px;border-top:1px solid #232b33;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#7d888f">
+          <div>Aj's First London</div>
+          <div>3–7 Sept 2026</div>
+        </div>
+      </div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ onBackdrop }}" style="position:fixed;inset:0;z-index:80;background:#080b0dfa;display:grid;grid-template-rows:1fr auto;animation:lbin 0.2s ease-out">
+      <div style="position:relative;display:grid;place-items:center;padding:56px 84px 20px;min-height:0">
+        <div data-keep="1" style="display:grid;place-items:center;max-width:100%;max-height:100%;min-height:0">{{ photo }}</div>
+        <button data-keep="1" onClick="{{ prev }}" aria-label="Previous photo" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);width:52px;height:52px;display:grid;place-items:center;background:none;border:0;cursor:pointer;color:#c8d0d6;opacity:0.6" style-hover="opacity:1">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.2"><polyline points="14,4 6,11 14,18"></polyline></svg>
+        </button>
+        <button data-keep="1" onClick="{{ next }}" aria-label="Next photo" style="position:absolute;right:18px;top:50%;transform:translateY(-50%);width:52px;height:52px;display:grid;place-items:center;background:none;border:0;cursor:pointer;color:#c8d0d6;opacity:0.6" style-hover="opacity:1">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.2"><polyline points="8,4 16,11 8,18"></polyline></svg>
+        </button>
+        <button data-keep="1" onClick="{{ close }}" aria-label="Close" style="position:absolute;right:22px;top:18px;width:40px;height:40px;display:grid;place-items:center;background:none;border:0;cursor:pointer;color:#c8d0d6;opacity:0.6;font-family:Lato,Helvetica,sans-serif;font-size:22px;line-height:1" style-hover="opacity:1">×</button>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:0 84px 40px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase">
+        <div style="color:#c8d0d6">{{ caption }}</div>
+        <div style="color:#7d888f;letter-spacing:0.14em">{{ counter }}</div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#d8a34a&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#d8a34a&quot;,&quot;#74b6d4&quot;,&quot;#c98a7a&quot;,&quot;#8fae7a&quot;],&quot;section&quot;:&quot;Look&quot;},&quot;photoCols&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:4,&quot;min&quot;:2,&quot;max&quot;:5,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Photographs&quot;},&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Airy&quot;,&quot;options&quot;:[&quot;Airy&quot;,&quot;Compact&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Look&quot;}}">
+class Component extends DCLogic {
+  state = { open: false, i: 0, items: [], trip: null };
+
+  componentDidMount() {
+    this._key = (e) => {
+      if (!this.state.open) return;
+      if (e.key === 'Escape') this.close();
+      else if (e.key === 'ArrowRight') { e.preventDefault(); this.step(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); this.step(-1); }
+    };
+    document.addEventListener('keydown', this._key);
+    this.applyVars();
+  }
+
+  componentDidUpdate() { this.applyVars(); }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this._key);
+    document.body.style.overflow = '';
+  }
+
+  applyVars() {
+    const s = document.documentElement.style;
+    s.setProperty('--accent', this.props.accent || '#d8a34a');
+    s.setProperty('--cols', String(this.props.photoCols || 4));
+    s.setProperty('--pad', this.props.density === 'Compact' ? '16px' : '26px');
+    document.body.style.overflow = this.state.open ? 'hidden' : '';
+  }
+
+  srcOf(slot) {
+    const r = slot.shadowRoot;
+    const img = r && r.querySelector('.frame img');
+    return img && img.getAttribute('src') ? img.src : null;
+  }
+
+  openFrom(e) {
+    const path = (e.nativeEvent && e.nativeEvent.composedPath) ? e.nativeEvent.composedPath() : [];
+    for (let i = 0; i < path.length; i++) {
+      const n = path[i];
+      if (n && n.getAttribute && n.getAttribute('data-act')) return;
+    }
+    const slot = e.target && e.target.closest ? e.target.closest('image-slot') : null;
+    if (!slot || !slot.hasAttribute('data-filled') || slot.hasAttribute('data-reframe')) return;
+    const slots = Array.prototype.slice.call(e.currentTarget.querySelectorAll('image-slot'));
+    const items = [];
+    let idx = 0;
+    slots.forEach((s) => {
+      const src = this.srcOf(s);
+      if (!src) return;
+      if (s === slot) idx = items.length;
+      const cell = s.closest('[data-caption]');
+      items.push({ src: src, cap: cell ? cell.getAttribute('data-caption') : '' });
+    });
+    if (!items.length) return;
+    this.setState({ open: true, i: idx, items: items });
+  }
+
+  step(d) {
+    this.setState((st) => {
+      const n = st.items.length;
+      return n ? { i: (st.i + d + n) % n } : {};
+    });
+  }
+
+  close() { this.setState({ open: false }); }
+
+  pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  renderVals() {
+    const st = this.state;
+    const cur = st.items[st.i] || { src: '', cap: '' };
+    return {
+      showIndex: !st.trip,
+      showLondon: st.trip === 'london',
+      openTrip: (e) => {
+        if (e.target && e.target.closest && e.target.closest('image-slot')) return;
+        const trip = e.currentTarget.getAttribute('data-trip');
+        this.setState({ trip: trip }, () => window.scrollTo(0, 0));
+      },
+      goHome: () => this.setState({ trip: null }, () => window.scrollTo(0, 0)),
+      open: st.open,
+      caption: cur.cap,
+      counter: st.items.length ? this.pad(st.i + 1) + ' / ' + this.pad(st.items.length) : '',
+      photo: cur.src ? React.createElement('img', {
+        key: cur.src,
+        src: cur.src,
+        alt: cur.cap || '',
+        'data-keep': '1',
+        style: {
+          maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block',
+          boxShadow: '0 30px 90px rgba(0,0,0,0.6)', animation: 'lbphoto 0.28s ease-out'
+        }
+      }) : null,
+      onGridClick: (e) => this.openFrom(e),
+      onBackdrop: (e) => {
+        if (e.target && e.target.closest && e.target.closest('[data-keep]')) return;
+        this.close();
+      },
+      prev: (e) => { e.stopPropagation(); this.step(-1); },
+      next: (e) => { e.stopPropagation(); this.step(1); },
+      close: (e) => { e.stopPropagation(); this.close(); }
+    };
+  }
+}
+</script>
+</body>
+</html>
