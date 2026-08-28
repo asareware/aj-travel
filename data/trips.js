@@ -35,12 +35,17 @@ window.TRIPS = [
     title: "Aj's London, Sorted Day by Day",
     lede: 'Four nights, five days — bridges and boats, a Chelsea away-day watch party, and the West African corners of South London. Built around the Park Plaza Waterloo.',
 
-    /* ---- the four-cell info grid ---- */
+    /* ---- the info grid ---- */
     info: [
       {
         label: 'Base camp',
         value: 'Park Plaza London Waterloo',
         detail: '6 Hercules Rd, SE1 7DP — steps from Waterloo &amp; Lambeth North'
+      },
+      {
+        label: 'Work (Thu–Fri)',
+        value: '2:30–10:30pm London',
+        detail: '= 9:30am–5:30pm Eastern — London runs 5h ahead this time of year'
       },
       {
         label: 'Getting around',
@@ -59,12 +64,17 @@ window.TRIPS = [
       }
     ],
 
-    /* ---- the three callouts. tone: 'fix' | 'note' | 'warn' ---- */
+
     callouts: [
       {
         tone: 'fix',
-        mark: 'Fix',
-        text: '<strong>Ticket sale date correction:</strong> Chelsea\'s members\' sale for the Arsenal away tickets is <strong>Wednesday 26 August</strong> (not the 25th) — three loyalty-point windows at 10am, 12pm and 2pm, then any leftover tickets open to all members from 4pm. Away allocations are small and go fast, so realistically don\'t bank on a ticket — see Day 4 for the backup plan that doesn\'t need one.'
+        mark: 'TZ',
+        text: '<strong>The time-zone math is 5 hours, not 4:</strong> both the US and UK are in their own daylight-saving time in September, so London runs a full 5 hours ahead of Eastern. Your 9:30am–5:30pm Eastern workday lands as <strong>2:30pm–10:30pm London time</strong> — it eats the entire afternoon and evening of Thursday and Friday. Days 1 and 2 are built around that: sightseeing before you log on, and Tower Bridge moved to Sunday morning, where the weekend is work-free. Nothing got cut, just reshuffled into the hours you actually have.'
+      },
+      {
+        tone: 'fix',
+        mark: 'Sale',
+        text: '<strong>The ticket window has closed:</strong> Chelsea\'s members\' sale for the Arsenal away tickets ran on <strong>Wednesday 26 August</strong> — loyalty-point windows at 10am, 12pm and 2pm, then any leftovers to all members from 4pm. Away allocations are tiny, and this itinerary never depended on landing one: <strong>Day 4 is built around the pub, not the turnstile</strong>. If you did get a ticket, the Emirates is on the Piccadilly line — Arsenal station sits practically at the ground — and The Butcher\'s Hook still works as the post-match stop.'
       },
       {
         tone: 'note',
@@ -74,17 +84,17 @@ window.TRIPS = [
       {
         tone: 'warn',
         mark: '!',
-        text: '<strong>Brixton, daytime only:</strong> everything below in Brixton is scheduled before ~6:30pm. It\'s a completely normal, well-visited part of London by day — just use the same street sense you would anywhere with a lively nightlife scene after dark, and this itinerary has you gone before then.'
+        text: '<strong>Brixton after dark, with one exception:</strong> the outdoor stretch — Electric Avenue, Windrush Square, wandering the streets — is scheduled in daylight, same street sense as anywhere with a lively nightlife scene after dusk. The one thing that runs into evening is dinner, and that\'s inside <strong>Brixton Village Market</strong> — a busy, covered, well-lit arcade, not open street. Head there and out again by taxi or tube rather than lingering outside afterward.'
       }
     ],
 
-    /* ---- the day-nav strip. `pending: true` renders it dimmed ---- */
+
     nav: [
-      { label: 'Day 1 · Thu', title: 'Arrival',           href: 'day-1' },
-      { label: 'Day 2 · Fri', title: 'Icons &amp; river',     href: 'day-2' },
-      { label: 'Day 3 · Sat', title: 'Peckham + Brixton', href: 'day-3' },
-      { label: 'Day 4 · Sun', title: 'Match day',         href: 'day-4' },
-      { label: 'Day 5 · Mon', title: 'Departure',         href: 'day-5' }
+      { label: 'Day 1 · Thu', title: 'Arrival',              href: 'day-1' },
+      { label: 'Day 2 · Fri', title: 'Icons &amp; river',        href: 'day-2' },
+      { label: 'Day 3 · Sat', title: 'Peckham → Brixton → Soho', href: 'day-3' },
+      { label: 'Day 4 · Sun', title: 'Tower Bridge + match',  href: 'day-4' },
+      { label: 'Day 5 · Mon', title: 'Departure',             href: 'day-5' }
     ],
 
     /* ---- the written days ----
@@ -94,8 +104,8 @@ window.TRIPS = [
         id: 'day-1',
         counter: 'Day 1 / 5',
         date: 'Thursday, September 3',
-        title: 'Landing &amp; first steps into London',
-        lede: 'A deliberately light day — get settled, get your bearings, and see Big Ben lit up after dark. Times below assume a mid-afternoon landing; slide the whole block earlier or later to match your actual flight.',
+        title: 'Landing, a quick look around, then straight to work',
+        lede: 'An overnight flight out on the 2nd lands you in London the morning of the 3rd — before your Eastern workday even starts. That gap is today\'s whole sightseeing window, so it\'s deliberately light: land, drop bags, one iconic walk, then you\'re logged on by 2:30pm London time.',
         rows: [
           {
             time: 'on land',
@@ -105,22 +115,27 @@ window.TRIPS = [
             address: '6 Hercules Rd, Lambeth, London SE1 7DP'
           },
           {
-            time: '4:30 PM',
-            title: 'Orientation walk: Westminster Bridge → Big Ben → South Bank',
+            time: '11:00 AM',
+            title: 'Freshen up, then Westminster Bridge → Big Ben → South Bank',
             chips: [{ label: 'Sightseeing', tone: 'blue' }],
             body: 'Ten minutes on foot from the hotel gets you onto Westminster Bridge with the Houses of Parliament and the Elizabeth Tower (Big Ben) right in front of you — genuinely one of the best free views in London, and a gentle way to shake off travel legs. Cross back over and wander the South Bank promenade past the London Eye toward the National Theatre.'
           },
           {
-            time: '6:30 PM',
-            title: 'Dinner + first proper London pint: Founders Arms',
-            chips: [{ label: 'Food', tone: 'amber' }, { label: 'Historic pub', tone: 'grey' }],
-            body: 'A riverside pub on Bankside with a terrace looking straight across at St Paul\'s Cathedral — pub food, a good pint, and a view that does a lot of the "wow, I\'m actually in London" work for you. About a 25-minute riverside walk from the hotel, or hop the bus.',
-            address: '52 Hopton St, Bankside, SE1 9JH'
+            time: '1:00 PM',
+            title: 'Casual lunch on the South Bank',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'Plenty of quick, no-reservation options right along the river walk — keep it simple, you\'re on the clock. Aim to be back at the hotel and logged in with a few minutes to spare.'
           },
           {
-            time: '8:30 PM',
-            title: 'Big Ben by night, then early to bed',
-            body: 'Walk back along the river — Parliament and the Eye are lit up after dark and the crowds thin out. Aim to be back and asleep at a reasonable hour to get ahead of jet lag before the bigger days start.'
+            time: '2:30–10:30 PM',
+            title: 'Working (9:30am–5:30pm Eastern)',
+            chips: [{ label: 'Working', tone: 'grey' }],
+            body: 'From the hotel room or a nearby café with decent wifi. This is the trade-off for the overnight flight landing you a free morning — the whole afternoon and evening are spoken for.'
+          },
+          {
+            time: '10:30 PM',
+            title: 'Off the clock — dinner near the hotel, then bed',
+            body: 'Keep it low-key: Lower Marsh and the streets around Waterloo have easy late options. If you\'ve genuinely got the energy after a red-eye plus a full workday, Big Ben is lit up and 10 minutes away on foot — but there\'s no shame in an early night here. Days 3 and 4 are the big ones.'
           }
         ]
       },
@@ -128,8 +143,8 @@ window.TRIPS = [
         id: 'day-2',
         counter: 'Day 2 / 5',
         date: 'Friday, September 4',
-        title: 'Big Ben, the two bridges, and the river by boat',
-        lede: 'The "postcard London" day — Parliament, Borough Market, Tower Bridge, and the Uber Boat your friends told you about, used exactly the way it\'s best used: as a scenic shortcut between sights, not a full-day cruise.',
+        title: 'Parliament, the river, and Borough Market — before 2:30',
+        lede: 'Same work window as yesterday, so today\'s sightseeing is a tight, self-contained morning loop: Parliament up close, the Uber Boat your friends told you about, and Borough Market for lunch. Tower Bridge, which would\'ve followed this afternoon, now lives on Sunday morning instead. Once you\'re off the clock at 10:30 there\'s a short window to go see Shoreditch, which is worth taking — just kept brief on purpose, since Saturday is the big night.',
         rows: [
           {
             time: '9:00 AM',
@@ -147,32 +162,38 @@ window.TRIPS = [
             time: '11:00 AM',
             title: 'Borough Market',
             chips: [{ label: 'Food', tone: 'amber' }],
-            body: 'One of London\'s oldest food markets, right by the pier. Graze rather than sit — this is the spot for an early, unhurried lunch: try a few stalls instead of committing to one restaurant.',
+            body: 'One of London\'s oldest food markets, right by the pier. Graze rather than sit — this is the spot for an early, unhurried lunch: try a few stalls instead of committing to one restaurant. As a bonus, you\'re standing right by <strong>London Bridge</strong> — the plain concrete one — which gets confused for Tower Bridge constantly; the one with the twin Victorian towers is 10 minutes further east and is properly visited on Sunday morning, see Day 4.',
             address: '8 Southwark St, SE1 1TL'
           },
           {
             time: '1:00 PM',
-            title: 'London Bridge vs. Tower Bridge — see both, know the difference',
-            body: 'Quick myth-buster before you walk it: <strong>London Bridge</strong> (the plain concrete one you\'re standing near now) is the famously unglamorous crossing — it\'s <strong>Tower Bridge</strong>, 10 minutes further east, with the twin Victorian towers, that\'s the one on all the postcards. Walk the riverside path from London Bridge past HMS Belfast to reach it.'
+            title: 'Head back to the hotel',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'Walk back along the river (~25 min) or hop a bus/tube if you\'re cutting it close — either way, leave enough buffer to be settled in before 2:30.'
           },
           {
-            time: '1:45 PM',
-            title: 'Tower Bridge &amp; Tower of London (exterior)',
-            chips: [{ label: 'Sightseeing', tone: 'blue' }],
-            body: 'Walk across Tower Bridge itself, then decide on the spot whether the Tower Bridge Exhibition (glass floor, engine rooms) or just the view is enough for you — either works. The Tower of London\'s walls and moat are worth a slow look even without going inside.'
+            time: '2:30–10:30 PM',
+            title: 'Working (9:30am–5:30pm Eastern)',
+            chips: [{ label: 'Working', tone: 'grey' }],
+            body: 'Second and last work day of the trip — the weekend from here on is completely free.'
           },
           {
-            time: '3:30 PM',
-            title: 'Boat back west: Tower Pier → Westminster or Waterloo',
-            chips: [{ label: 'Uber Boat', tone: 'grey' }],
-            body: 'Ride the river back in the golden-hour light — same ticketing, same card. This time you\'ll recognise everything you\'re passing.'
+            time: '10:30 PM',
+            title: 'Off the clock — quick dinner, then Shoreditch',
+            body: 'Something fast near the hotel first — don\'t lose more time than you have to. Northern line from Waterloo to Old Street (~20 min) gets you into Shoreditch by around 11:15.'
           },
           {
-            time: '7:00 PM',
-            title: 'Evening in Covent Garden: dinner + The Lamb &amp; Flag',
-            chips: [{ label: 'Food', tone: 'amber' }, { label: 'Historic pub', tone: 'grey' }],
-            body: 'Street performers, market stalls, and one of London\'s oldest pubs tucked down a side alley — a 300-year-old spot with a genuinely rough history (illegal boxing matches used to be held upstairs). Good for a nightcap pint after dinner.',
-            address: '33 Rose St, Covent Garden, WC2E 9EB'
+            time: '11:15 PM',
+            title: 'One stop, just to see it: Callooh Callay',
+            chips: [{ label: 'Nightlife', tone: 'blue' }],
+            body: 'A quirky, well-loved cocktail bar just off Shoreditch High Street with a secret room hidden behind a wardrobe — a good one-stop way to get a real feel for the neighbourhood\'s energy without committing to a full night out. Walk up and down Redchurch Street or toward Brick Lane first to take in the street art and late-night food stalls.',
+            address: '65 Rivington St, EC2A 3AY'
+          },
+          {
+            time: '~1:00 AM',
+            title: 'Head back — tonight is the preview, tomorrow\'s the main event',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'Night bus or a taxi back to Waterloo. The Northern line does run Night Tube on a Friday, but only down the Charing Cross branch — Old Street is on the Bank branch, which shuts as normal, so don\'t count on riding back the way you came. Call it a night here on purpose: Saturday is the one with the big Peckham/Brixton day <em>and</em> the night out in Soho.'
           }
         ]
       },
@@ -180,8 +201,8 @@ window.TRIPS = [
         id: 'day-3',
         counter: 'Day 3 / 5',
         date: 'Saturday, September 5',
-        title: 'Peckham &amp; Brixton — West African &amp; Windrush London',
-        lede: 'A worthwhile clarification up front: London\'s biggest West African hub is actually <strong>Peckham</strong>, not Brixton — Rye Lane is where the Ghanaian and Nigerian communities really concentrate, with kente cloth stalls next to kenkey and waakye vendors. Brixton\'s story is different and just as important: it\'s the heart of Black British and Windrush-generation history, plus a couple of excellent standalone Ghanaian restaurants. Today does both, back to back.',
+        title: 'Peckham first and longest, Brixton in the afternoon, Soho at night',
+        lede: 'The biggest day of the trip, split deliberately in Peckham\'s favour — it\'s genuinely London\'s biggest West African hub, where the Ghanaian and Nigerian communities concentrate, so it gets the morning, the long browse, and lunch. Brixton is a different story — Black British and Windrush-generation history — and gets the afternoon plus a Caribbean dinner instead of a second Ghanaian meal, since you\'ve already got that covered in Peckham. Then straight out to Soho for the night.',
         rows: [
           {
             time: '10:00 AM',
@@ -191,45 +212,65 @@ window.TRIPS = [
           },
           {
             time: '10:30 AM',
-            title: 'Rye Lane market walk',
+            title: 'Rye Lane, at length',
             chips: [{ label: 'Culture', tone: 'blue' }],
-            body: 'This street is where West African London actually lives day to day: fabric shops selling kente cloth alongside Ankara prints, hair and beauty stores, and food stalls with kelewele (spiced fried plantain), waakye, and kenkey. It\'s not a tourist attraction with opening hours — it\'s just walk-and-browse, so wander at your own pace and don\'t be shy about asking vendors what something is.'
+            body: 'This street is where West African London actually lives day to day: fabric shops selling kente cloth alongside Ankara prints, hair and beauty stores, and food stalls with kelewele (spiced fried plantain), waakye, and kenkey. It\'s not a tourist attraction with opening hours — it\'s just walk-and-browse, so take your time here rather than rushing through; this is the part of today built to linger in.'
           },
           {
-            time: '12:15 PM',
+            time: '12:45 PM',
+            title: 'Lunch: Agrobeso African Cuisine',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'A proper sit-down West African restaurant right on Peckham High Street — bright, lively, and highly rated for hearty, generous plates. This is the trip\'s main Ghanaian meal.',
+            address: '139 Peckham High St, SE15 5SL'
+          },
+          {
+            time: '2:00 PM',
+            title: 'More Peckham: Peckham Levels or Bussey Building',
+            chips: [{ label: 'Culture', tone: 'blue' }],
+            body: 'Since you\'ve got the extra time, use it here rather than rushing to Brixton — Peckham Levels (a converted multi-storey car park turned food hall, studios, and bars) or the Bussey Building (arts and events space in a converted Victorian factory) are both a short walk from the high street and worth a browse.'
+          },
+          {
+            time: '3:30 PM',
             title: 'Peckham → Brixton',
             chips: [{ label: 'Transit', tone: 'grey' }],
             body: 'No direct rail link, so it\'s bus (322 or a combination via Denmark Hill/Herne Hill) or a taxi/rideshare — budget 25–35 minutes. Worth double-checking the exact route in a journey planner on the day, since bus routings shift.'
           },
           {
-            time: '1:00 PM',
-            title: 'Lunch: Asafo Ghanaian Restaurant',
-            chips: [{ label: 'Food', tone: 'amber' }],
-            body: 'A proper sit-down Ghanaian restaurant right in Brixton — known for being authentic and for booking up quickly, so it\'s worth calling ahead or booking a table before you arrive rather than just walking in.',
-            address: 'Brixton Hill, SW2'
-          },
-          {
-            time: '2:30 PM',
-            title: 'Windrush Square &amp; the Black Cultural Archives building',
-            chips: [{ label: 'History', tone: 'blue' }],
-            body: 'Windrush Square is the civic heart of Black British Brixton, named for the Empire Windrush generation. The Black Cultural Archives sits right on the square — worth knowing its reading room runs by appointment only (Wed–Fri), so treat this as a look at the building and square rather than a planned museum visit unless you\'ve booked ahead at <a href="https://blackculturalarchives.org">blackculturalarchives.org</a>.'
-          },
-          {
-            time: '3:15 PM',
-            title: 'Brixton Village &amp; Electric Avenue',
-            chips: [{ label: 'Food', tone: 'amber' }, { label: 'Culture', tone: 'blue' }],
-            body: 'Brixton Village Market is a covered arcade of stalls spanning Caribbean, Asian, and South American food — a good spot to graze even right after lunch. Electric Avenue next door was the first market street in London lit by electricity and is still a working Afro-Caribbean market by day.'
-          },
-          {
             time: '4:15 PM',
-            title: 'David Bowie mural &amp; Pop Brixton',
-            body: 'The Bowie memorial mural sits right opposite Brixton tube station (he was born locally) and has become an informal shrine. Pop Brixton, a short walk away, is a shipping-container market of independent shops and food stalls if you want one more stop before heading back.'
+            title: 'Windrush Square &amp; the Black Cultural Archives',
+            chips: [{ label: 'History', tone: 'blue' }],
+            body: 'Windrush Square is the civic heart of Black British Brixton, named for the Empire Windrush generation. On the appointment question: the reading room/research library really is booking-only (Wed–Fri) — and given you land Thursday and work both those afternoons, there\'s no clean way to use it this trip. The ground-floor exhibition space is a separate, walk-in area, though — worth just showing up for. Current hours are worth a quick check at <a href="https://blackculturalarchives.org">blackculturalarchives.org</a> before you go.'
           },
           {
-            time: '6:00 PM',
-            title: 'Head back toward the hotel before dark',
+            time: '5:00 PM',
+            title: 'Brixton Village, Electric Avenue &amp; the David Bowie mural',
+            chips: [{ label: 'Culture', tone: 'blue' }],
+            body: 'Electric Avenue was the first market street in London lit by electricity and is still a working Afro-Caribbean market by day. The Bowie memorial mural sits opposite Brixton tube station (he was born locally) and has become an informal shrine — a quick stop on the way toward dinner.'
+          },
+          {
+            time: '7:00 PM',
+            title: 'Dinner: Fish, Wings &amp; Tings',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'A Brixton institution inside Brixton Village Market — modern Caribbean cooking (think jerk, saltfish, spiced wings) in a small, always-buzzing spot. This is inside the covered market itself, not out on the open street — see the note above on Brixton after dark.',
+            address: 'Unit 21, Brixton Village Market, SW9 8PS'
+          },
+          {
+            time: '8:45 PM',
+            title: 'Brixton → Soho',
             chips: [{ label: 'Transit', tone: 'grey' }],
-            body: 'Victoria line direct from Brixton to Waterloo (change at Green Park or Oxford Circus for the Bakerloo/Jubilee) or a straightforward taxi — either way, plan to be out of Brixton by early evening as scheduled above. A quiet dinner near the hotel or South Bank is the easy close to today.'
+            body: 'Victoria line from Brixton to Oxford Circus (~20 min), then a 5-minute walk into Soho — straight from the market to the tube, no lingering on the street.'
+          },
+          {
+            time: '9:15 PM',
+            title: 'The big night out: Soho',
+            chips: [{ label: 'Nightlife', tone: 'blue' }],
+            body: 'Soho over Shoreditch tonight — it\'s the better fit for what you actually described wanting: dance floors, chart and pop hits, and a crowd that\'s there to mingle, all walkable to each other around Greek Street. <strong>Soho Zebrano</strong> (cocktail bar upstairs, dancefloor basement) and <strong>Thirst Soho</strong> (intimate, buzzy, always packed) are both right there; <strong>Bar Soho</strong> nearby leans more playful if you want a change of scene. Cover charges and queues pick up after 11 — earlier arrival means an easier door.'
+          },
+          {
+            time: 'late',
+            title: 'Whenever you\'re done',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'It\'s a Saturday, so the Night Tube is running: walk ten minutes west to <strong>Bond Street</strong> and the Jubilee line drops you at Waterloo in four stops. A night bus or taxi works too — but the Bakerloo from Oxford Circus, the obvious daytime route, doesn\'t run overnight. Sunday\'s plan starts a little later than it otherwise would, on purpose.'
           }
         ]
       },
@@ -237,20 +278,26 @@ window.TRIPS = [
         id: 'day-4',
         counter: 'Day 4 / 5',
         date: 'Sunday, September 6',
-        title: 'Match day: Arsenal v Chelsea, 4:30pm KO',
-        lede: 'Chelsea are away at the Emirates, so the goal isn\'t getting <em>into</em> a stadium — it\'s getting into a room full of Chelsea supporters. The move for that is a Stamford Bridge-area pub, where fans without an away ticket gather for every game, home or away.',
+        title: 'Tower Bridge, then match day: Arsenal v Chelsea, 4:30pm KO',
+        lede: 'Chelsea are away at the Emirates, so the goal isn\'t getting <em>into</em> a stadium — it\'s getting into a room full of Chelsea supporters. The move for that is a Stamford Bridge-area pub, where fans without an away ticket gather for every game, home or away. This is also where the Tower Bridge visit bumped from Friday lands — it sits on the same District line as Fulham, so the morning flows straight into the afternoon. Start time is pushed back an hour from the original plan, given last night.',
         rows: [
           {
-            time: '10:00 AM',
-            title: 'Easy morning: Columbia Road Flower Market',
-            chips: [{ label: 'Sunday-only', tone: 'grey' }],
-            body: 'Sundays-only flower and plant market in East London — colourful, low-key, and a good way to fill the morning without tiring yourself out before kickoff. Optional; sleeping in and having a slow brunch near the hotel works just as well.'
+            time: '10:30 AM',
+            title: 'Tower Bridge &amp; Tower of London (exterior)',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: 'Sleep in a bit after Soho — this is deliberately an hour later than it would otherwise be. Walk across Tower Bridge itself, then decide on the spot whether the Tower Bridge Exhibition (glass floor, engine rooms) or just the view is enough for you — either works. The Tower of London\'s walls and moat are worth a slow look even without going inside.'
           },
           {
-            time: '1:30 PM',
-            title: 'Head to Fulham / Stamford Bridge early',
+            time: '12:15 PM',
+            title: 'Tower Hill → Fulham Broadway',
             chips: [{ label: 'Transit', tone: 'grey' }],
-            body: 'District line to Fulham Broadway (roughly 30–35 minutes from Waterloo, one change). Arriving 2.5–3 hours before a 4:30pm kickoff isn\'t overkill here — these pubs are described as "crazy busy" before kickoff and fill up fast, even for away games.'
+            body: 'One line, no changes: the District line runs the full width of London from Tower Hill to Fulham Broadway, about 45–50 minutes.'
+          },
+          {
+            time: '1:10 PM',
+            title: 'Lunch near Fulham Broadway',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'Grab something to eat before the pre-match crowds build — you\'ll want your hands free and a seat claimed well before kickoff. Keep it quick given the tighter window today.'
           },
           {
             time: '2:00 PM',
@@ -314,14 +361,14 @@ window.TRIPS = [
       lede: 'Click any photograph to open it full-screen.'
     },
     photos: [
-      { caption: 'Day 1 · Westminster Bridge', src: null },
-      { caption: 'Day 1 · South Bank',         src: null },
-      { caption: 'Day 1 · Founders Arms',      src: null },
-      { caption: 'Day 2 · Icons &amp; river',      src: null },
-      { caption: 'Day 3 · Peckham',            src: null },
-      { caption: 'Day 3 · Brixton',            src: null },
-      { caption: 'Day 4 · Match day',          src: null },
-      { caption: 'Day 5 · Last morning',       src: null }
+      { caption: 'Day 1 · Westminster Bridge',  src: null },
+      { caption: 'Day 2 · Uber Boat on the Thames', src: null },
+      { caption: 'Day 2 · Borough Market',      src: null },
+      { caption: 'Day 3 · Rye Lane, Peckham',   src: null },
+      { caption: 'Day 3 · Brixton Village',     src: null },
+      { caption: 'Day 3 · Soho at night',       src: null },
+      { caption: 'Day 4 · Tower Bridge',        src: null },
+      { caption: 'Day 4 · Match day',           src: null }
     ],
 
     /* ---- the strip that closes the trip page ---- */

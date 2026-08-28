@@ -226,9 +226,13 @@ a:hover { color: #a5d3e6; }
 }
 
 .info-cell { padding: 22px 24px 24px; }
-.info-cell:nth-child(odd) { border-right: 1px solid var(--rule); }
-.info-cell:nth-child(1),
-.info-cell:nth-child(2) { border-bottom: 1px solid var(--rule); }
+.info-cell:nth-child(odd):not(:last-child) { border-right: 1px solid var(--rule); }
+.info-cell:not(:nth-last-child(-n+2)) { border-bottom: 1px solid var(--rule); }
+/* an odd number of cells: the last one spans the full row instead of leaving a gap */
+.info-cell:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--rule);
+}
 
 .info-label {
   font-family: var(--mono);
@@ -563,8 +567,12 @@ body.lb-open { overflow: hidden; }
   .trip-hero { padding: 44px 0 40px; }
 
   .info-grid { grid-template-columns: 1fr; }
-  .info-cell { border-right: 0 !important; border-bottom: 1px solid var(--rule); }
-  .info-cell:last-child { border-bottom: 0; }
+  .info-cell {
+    border-right: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 1px solid var(--rule) !important;
+  }
+  .info-cell:last-child { border-bottom: 0 !important; }
 
   .callout { grid-template-columns: 28px 1fr; padding: 18px 18px 20px; }
 
