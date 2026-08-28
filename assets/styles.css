@@ -3,10 +3,15 @@
    Values transcribed from the Claude Design source (Travel Log.dc.html).
 
    THEME
-   The page follows the reader's system setting: :root carries the light
-   palette, and the prefers-color-scheme block below restates the same token
-   names in the original dark values. Nothing outside these two blocks names
-   a colour directly — style through the tokens and both themes stay in step.
+   Every colour is declared once, as light-dark(light, dark), and resolves
+   against the root color-scheme. Left alone that is "light dark", so the
+   reader's system setting decides — macOS Auto included, which turns the
+   site over at dusk on its own.
+
+   The topbar control writes data-theme on <html>, and the two rules under
+   the palette flip color-scheme to match. That is the whole override: every
+   light-dark() pair below re-resolves against it, so a manual choice needs
+   no second copy of the palette to keep in step.
    =========================================================================== */
 
 :root {
@@ -25,67 +30,72 @@
   --lb-fg:      #c8d0d6;
   --lb-fg-dim:  #8b959c;
 
-  /* ---- light: printed paper, cool neutral, ink-on-stock ---- */
-  --accent:     #8a5d18;   /* amber, darkened to hold on paper */
-  --ink:        #1a2126;
-  --ink-bright: #0d1317;
-  --ink-soft:   #3a464f;
-  --ink-mute:   #4f5c65;
-  --ink-faint:  #64717a;
-  --ink-dim:    #77838b;
-  --ink-dimmer: #8c979e;
-  --link:       #1d6484;
-  --link-hover: #124f6b;
-  --rule:       #d7dee2;
-  --rule-soft:  #e6ebee;
-  --bg:         #f5f7f8;
-  --bg-raised:  #ffffff;
+  /*                          light      dark        */
+  --accent:     light-dark(#8a5d18,  #d8a34a);  /* amber, darkened for paper */
+  --ink:        light-dark(#1a2126,  #e8ecef);
+  --ink-bright: light-dark(#0d1317,  #f2f5f7);
+  --ink-soft:   light-dark(#3a464f,  #b9c2c9);
+  --ink-mute:   light-dark(#4f5c65,  #98a2aa);
+  --ink-faint:  light-dark(#64717a,  #7d888f);
+  --ink-dim:    light-dark(#77838b,  #6b757c);
+  --ink-dimmer: light-dark(#8c979e,  #5b656c);
+  --link:       light-dark(#1d6484,  #74b6d4);
+  --link-hover: light-dark(#124f6b,  #a5d3e6);
+  --rule:       light-dark(#d7dee2,  #232b33);
+  --rule-soft:  light-dark(#e6ebee,  #1d242b);
+  --bg:         light-dark(#f5f7f8,  #0e1317);
+  --bg-raised:  light-dark(#ffffff,  #121820);
 
-  --callout-fg:      #3a464f;
-  --callout-fix-bg:  #fbf6e8;
-  --callout-fix-rule:#e3d3a4;
-  --callout-note-bg: #eef6fa;
-  --callout-note-rule:#bcd7e2;
-  --callout-warn-bg: #fcefee;
-  --callout-warn-rule:#e6c6c3;
-  --callout-warn-mark:#a4423b;
+  --callout-fg:        light-dark(#3a464f, #d9dfe4);
+  --callout-fix-bg:    light-dark(#fbf6e8, #1e1809);
+  --callout-fix-rule:  light-dark(#e3d3a4, #4a3a14);
+  --callout-note-bg:   light-dark(#eef6fa, #0d1a20);
+  --callout-note-rule: light-dark(#bcd7e2, #23414c);
+  --callout-warn-bg:   light-dark(#fcefee, #1c1214);
+  --callout-warn-rule: light-dark(#e6c6c3, #43262a);
+  --callout-warn-mark: light-dark(#a4423b, #d98a86);
 
-  --chip-grey-bg:  #e5eaed;
-  --chip-grey-fg:  #56636b;
-  --chip-blue-bg:  #e0eef5;
-  --chip-amber-bg: #f7edd9;
+  --chip-grey-bg:  light-dark(#e5eaed, #1c2329);
+  --chip-grey-fg:  light-dark(#56636b, #9aa4ab);
+  --chip-blue-bg:  light-dark(#e0eef5, #12222b);
+  --chip-amber-bg: light-dark(#f7edd9, #221b0e);
 }
 
-@media (prefers-color-scheme: dark) {
+/* The manual override, written by the topbar control. */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"]  { color-scheme: dark; }
+
+/* Browsers predating light-dark() (pre-2024) would resolve every token above
+   to nothing, so restate the light palette flat for them. Modern browsers
+   skip this block entirely — it is the fallback, never the live value. */
+@supports not (color: light-dark(#000, #fff)) {
   :root {
-    --accent:     #d8a34a;   /* amber — swap for #74b6d4 / #c98a7a / #8fae7a */
-    --ink:        #e8ecef;
-    --ink-bright: #f2f5f7;
-    --ink-soft:   #b9c2c9;
-    --ink-mute:   #98a2aa;
-    --ink-faint:  #7d888f;
-    --ink-dim:    #6b757c;
-    --ink-dimmer: #5b656c;
-    --link:       #74b6d4;
-    --link-hover: #a5d3e6;
-    --rule:       #232b33;
-    --rule-soft:  #1d242b;
-    --bg:         #0e1317;
-    --bg-raised:  #121820;
-
-    --callout-fg:      #d9dfe4;
-    --callout-fix-bg:  #1e1809;
-    --callout-fix-rule:#4a3a14;
-    --callout-note-bg: #0d1a20;
-    --callout-note-rule:#23414c;
-    --callout-warn-bg: #1c1214;
-    --callout-warn-rule:#43262a;
-    --callout-warn-mark:#d98a86;
-
-    --chip-grey-bg:  #1c2329;
-    --chip-grey-fg:  #9aa4ab;
-    --chip-blue-bg:  #12222b;
-    --chip-amber-bg: #221b0e;
+    --accent: #8a5d18;
+    --ink: #1a2126;
+    --ink-bright: #0d1317;
+    --ink-soft: #3a464f;
+    --ink-mute: #4f5c65;
+    --ink-faint: #64717a;
+    --ink-dim: #77838b;
+    --ink-dimmer: #8c979e;
+    --link: #1d6484;
+    --link-hover: #124f6b;
+    --rule: #d7dee2;
+    --rule-soft: #e6ebee;
+    --bg: #f5f7f8;
+    --bg-raised: #ffffff;
+    --callout-fg: #3a464f;
+    --callout-fix-bg: #fbf6e8;
+    --callout-fix-rule: #e3d3a4;
+    --callout-note-bg: #eef6fa;
+    --callout-note-rule: #bcd7e2;
+    --callout-warn-bg: #fcefee;
+    --callout-warn-rule: #e6c6c3;
+    --callout-warn-mark: #a4423b;
+    --chip-grey-bg: #e5eaed;
+    --chip-grey-fg: #56636b;
+    --chip-blue-bg: #e0eef5;
+    --chip-amber-bg: #f7edd9;
   }
 }
 
@@ -152,7 +162,7 @@ a:hover { color: var(--link-hover); }
 .topbar {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   padding: 24px 0;
   font-family: var(--mono);
   font-size: 11px;
@@ -163,6 +173,45 @@ a:hover { color: var(--link-hover); }
 
 .topbar-home { color: var(--ink-faint); cursor: pointer; }
 .topbar-home:hover { color: var(--accent); }
+
+.topbar-end { display: flex; align-items: center; gap: 18px; }
+
+/* The theme control reads as a brightness dial rather than a switch: the
+   ring is the constant, and how much of it is filled is the setting. */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px 5px 9px;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--ink-dimmer); }
+.theme-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+
+.theme-icon { display: block; width: 13px; height: 13px; }
+.theme-icon .ti-ring { fill: none; stroke: currentColor; stroke-width: 1.4; }
+.theme-icon .ti-fill { fill: currentColor; }
+
+.theme-toggle[data-state="light"] .ti-half,
+.theme-toggle[data-state="light"] .ti-full { display: none; }
+.theme-toggle[data-state="auto"]  .ti-full { display: none; }
+.theme-toggle[data-state="dark"]  .ti-half { display: none; }
+
+/* Fixed width so cycling the label does not shuffle the topbar. */
+.theme-label { min-width: 4.1em; text-align: left; }
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle { transition: none; }
+}
 
 .noscript { padding: 76px 0; }
 .noscript h1 { font-family: var(--serif); font-weight: 500; font-size: 48px; color: var(--ink-bright); }
