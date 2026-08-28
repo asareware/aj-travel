@@ -162,7 +162,7 @@ a:hover { color: var(--link-hover); }
 .topbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding: 24px 0;
   font-family: var(--mono);
   font-size: 11px;
@@ -174,43 +174,61 @@ a:hover { color: var(--link-hover); }
 .topbar-home { color: var(--ink-faint); cursor: pointer; }
 .topbar-home:hover { color: var(--accent); }
 
-.topbar-end { display: flex; align-items: center; gap: 18px; }
+/* --- theme control -------------------------------------------------------
+   Sits at the foot of every page, outside the routed view so it never gets
+   torn down. The pressed button is whichever mode is actually showing —
+   the system's answer until the reader overrides it, theirs afterwards. */
 
-/* The theme control reads as a brightness dial rather than a switch: the
-   ring is the constant, and how much of it is filled is the setting. */
-.theme-toggle {
-  display: inline-flex;
+.theme-bar {
+  display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 5px 11px 5px 9px;
-  background: none;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  cursor: pointer;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 4px;
+  padding: 28px 0 44px;
+  border-top: 1px solid var(--rule-soft);
   font-family: var(--mono);
   font-size: 10px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-faint);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  color: var(--ink-dimmer);
 }
-.theme-toggle:hover { color: var(--accent); border-color: var(--ink-dimmer); }
-.theme-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
 
-.theme-icon { display: block; width: 13px; height: 13px; }
-.theme-icon .ti-ring { fill: none; stroke: currentColor; stroke-width: 1.4; }
-.theme-icon .ti-fill { fill: currentColor; }
+.theme-buttons { display: flex; gap: 6px; }
 
-.theme-toggle[data-state="light"] .ti-half,
-.theme-toggle[data-state="light"] .ti-full { display: none; }
-.theme-toggle[data-state="auto"]  .ti-full { display: none; }
-.theme-toggle[data-state="dark"]  .ti-half { display: none; }
+.theme-btn {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  color: var(--ink-faint);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.theme-btn:hover { color: var(--accent); border-color: var(--ink-dimmer); }
+.theme-btn:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+.theme-btn[aria-pressed="true"] {
+  color: var(--bg);
+  background: var(--ink);
+  border-color: var(--ink);
+}
 
-/* Fixed width so cycling the label does not shuffle the topbar. */
-.theme-label { min-width: 4.1em; text-align: left; }
+.theme-ico {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .theme-toggle { transition: none; }
+  .theme-btn { transition: none; }
 }
 
 .noscript { padding: 76px 0; }

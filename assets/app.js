@@ -305,74 +305,90 @@
 
   /* =====================================================================
      THEME
-     Three states, cycled by the topbar control: auto (follow the system),
-     light, dark. Auto is the default and stores nothing — only a deliberate
-     override is written down, so a reader who never touches the control
-     keeps tracking their system setting forever.
+     Two buttons, sun and moon. Until one is pressed nothing is stored and
+     the site simply follows the operating system — including a system that
+     switches itself at dusk, which is why the media query is listened to
+     rather than only read once at load.
 
-     The stored choice is applied before first paint by the inline script in
-     index.html. Everything here is the parts that can wait: the control's
-     own state, and the browser-chrome colour.
+     A press stores an override that outlives the visit. Pressing the button
+     that is already lit clears it again, which is what the caption spells
+     out, so there is a way back to the system without a third button.
+
+     A stored override is applied before first paint by the inline script in
+     index.html. What is left for here is the part that can wait: which
+     button is lit, the caption, and the browser-chrome colour.
      ===================================================================== */
 
   var THEME_KEY = 'travellog-theme';
-  var THEME_CYCLE = ['auto', 'light', 'dark'];
   var THEME_GROUND = { light: '#f5f7f8', dark: '#0e1317' };
   var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
   /* localStorage throws outright in some privacy modes, so every touch of it
-     is guarded and simply falls back to auto. */
+     is guarded and simply falls back to following the system. */
   function storedTheme() {
     var saved;
     try { saved = localStorage.getItem(THEME_KEY); } catch (e) { saved = null; }
-    return (saved === 'light' || saved === 'dark') ? saved : 'auto';
+    return (saved === 'light' || saved === 'dark') ? saved : null;
   }
 
   function storeTheme(choice) {
     try {
-      if (choice === 'auto') localStorage.removeItem(THEME_KEY);
-      else localStorage.setItem(THEME_KEY, choice);
+      if (choice) localStorage.setItem(THEME_KEY, choice);
+      else localStorage.removeItem(THEME_KEY);
     } catch (e) {}
   }
 
-  function applyTheme(choice) {
+  function applyTheme() {
+    var chosen = storedTheme();
+    var showing = chosen || (darkQuery.matches ? 'dark' : 'light');
     var root = document.documentElement;
-    if (choice === 'auto') root.removeAttribute('data-theme');
-    else root.setAttribute('data-theme', choice);
+
+    /* No attribute at all means the stylesheet's color-scheme stays
+       "light dark", which is what lets the system keep deciding. */
+    if (chosen) root.setAttribute('data-theme', chosen);
+    else root.removeAttribute('data-theme');
 
     /* Both theme-color tags carry a media attribute, so the browser uses
-       whichever one the OS matches. Writing the resolved colour to both
-       means the answer is right even when the reader has overridden the OS. */
-    var ground = THEME_GROUND[choice === 'auto' ? (darkQuery.matches ? 'dark' : 'light') : choice];
+       whichever one the OS matches. Writing the showing colour to both means
+       the answer is right even when the reader has overridden the OS. */
     var metas = document.querySelectorAll('meta[name="theme-color"]');
-    for (var i = 0; i < metas.length; i++) metas[i].setAttribute('content', ground);
+    for (var i = 0; i < metas.length; i++) {
+      metas[i].setAttribute('content', THEME_GROUND[showing]);
+    }
 
-    var btn = document.getElementById('theme-toggle');
-    if (!btn) return;
-    btn.setAttribute('data-state', choice);
-    btn.querySelector('.theme-label').textContent = choice;
-    btn.setAttribute('aria-label', 'Colour theme: ' + choice + '. Activate to change.');
+    var light = document.getElementById('theme-light');
+    var dark = document.getElementById('theme-dark');
+    if (light) light.setAttribute('aria-pressed', showing === 'light' ? 'true' : 'false');
+    if (dark) dark.setAttribute('aria-pressed', showing === 'dark' ? 'true' : 'false');
+
+    var note = document.getElementById('theme-note');
+    if (note) {
+      note.textContent = chosen
+        ? 'Press again to follow your system'
+        : 'Following your system';
+    }
   }
 
   function initTheme() {
-    var btn = document.getElementById('theme-toggle');
-    if (btn) {
-      btn.addEventListener('click', function () {
-        var next = THEME_CYCLE[(THEME_CYCLE.indexOf(storedTheme()) + 1) % THEME_CYCLE.length];
-        storeTheme(next);
-        applyTheme(next);
-      });
-    }
-
-    /* On auto, keep up with the system as it changes under us — macOS Auto
-       flips at dusk while the page is open. */
-    var onSystemChange = function () {
-      if (storedTheme() === 'auto') applyTheme('auto');
+    var pick = function (choice) {
+      return function () {
+        storeTheme(storedTheme() === choice ? null : choice);
+        applyTheme();
+      };
     };
-    if (darkQuery.addEventListener) darkQuery.addEventListener('change', onSystemChange);
-    else if (darkQuery.addListener) darkQuery.addListener(onSystemChange);
 
-    applyTheme(storedTheme());
+    var light = document.getElementById('theme-light');
+    var dark = document.getElementById('theme-dark');
+    if (light) light.addEventListener('click', pick('light'));
+    if (dark) dark.addEventListener('click', pick('dark'));
+
+    /* Keep up with the system while the page is open — it can switch under
+       us at dusk. Harmless when an override is set: applyTheme reads the
+       stored choice first and the system answer is only the fallback. */
+    if (darkQuery.addEventListener) darkQuery.addEventListener('change', applyTheme);
+    else if (darkQuery.addListener) darkQuery.addListener(applyTheme);
+
+    applyTheme();
   }
 
   /* =====================================================================
