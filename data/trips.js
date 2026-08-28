@@ -35,6 +35,15 @@ window.TRIPS = [
     title: "Aj's London, Sorted Day by Day",
     lede: 'Four nights, five days — bridges and boats, a Chelsea away-day watch party, and the West African corners of South London. Built around the Park Plaza Waterloo.',
 
+    /* ---- where it is. Used to look up the live forecast, and for the
+       seasonal averages shown until the trip is inside forecast range. ---- */
+    place: {
+      lat: 51.5045,
+      lon: -0.1136,
+      timezone: 'Europe/London',
+      normals: { high: 21, low: 13, summary: 'Typical for early September' }
+    },
+
     /* ---- the info grid ---- */
     info: [
       {
@@ -104,6 +113,8 @@ window.TRIPS = [
         id: 'day-1',
         counter: 'Day 1 / 5',
         date: 'Thursday, September 3',
+        iso: '2026-09-03',
+        outfit: 'Off a red-eye and on camera by 2:30, so wear the one thing that survives both. Dark jeans or chinos, a plain crew or a soft shirt that reads clean on a video call, and trainers you can cross Westminster Bridge in without thinking about it. Nothing you would regret sleeping in on the plane.',
         title: 'Landing, a quick look around, then straight to work',
         lede: 'An overnight flight out on the 2nd lands you in London the morning of the 3rd — before your Eastern workday even starts. That gap is today\'s whole sightseeing window, so it\'s deliberately light: land, drop bags, one iconic walk, then you\'re logged on by 2:30pm London time.',
         rows: [
@@ -143,6 +154,8 @@ window.TRIPS = [
         id: 'day-2',
         counter: 'Day 2 / 5',
         date: 'Friday, September 4',
+        iso: '2026-09-04',
+        outfit: 'One outfit has to cover an open boat deck at 10am and a Shoreditch cocktail bar near midnight. Dark jeans, a shirt or fine knit, clean trainers or boots. The river runs colder than the street, so the whole trick is a light jacket you are willing to carry all day.',
         title: 'Parliament, the river, and Borough Market — before 2:30',
         lede: 'Same work window as yesterday, so today\'s sightseeing is a tight, self-contained morning loop: Parliament up close, the Uber Boat your friends told you about, and Borough Market for lunch. Tower Bridge, which would\'ve followed this afternoon, now lives on Sunday morning instead. Once you\'re off the clock at 10:30 there\'s a short window to go see Shoreditch, which is worth taking — just kept brief on purpose, since Saturday is the big night.',
         rows: [
@@ -201,6 +214,8 @@ window.TRIPS = [
         id: 'day-3',
         counter: 'Day 3 / 5',
         date: 'Saturday, September 5',
+        iso: '2026-09-05',
+        outfit: 'The longest day on your feet, ending at a Soho door. Trainers you can stand in for eight hours but that will not get you turned away — dark, clean, not running shoes. Layer a shirt over a tee so you can drop one before the dancefloor. Skip the backpack: Rye Lane and a packed club are both better with your hands free.',
         title: 'Peckham first and longest, Brixton in the afternoon, Soho at night',
         lede: 'The biggest day of the trip, split deliberately in Peckham\'s favour — it\'s genuinely London\'s biggest West African hub, where the Ghanaian and Nigerian communities concentrate, so it gets the morning, the long browse, and lunch. Brixton is a different story — Black British and Windrush-generation history — and gets the afternoon plus a Caribbean dinner instead of a second Ghanaian meal, since you\'ve already got that covered in Peckham. Then straight out to Soho for the night.',
         rows: [
@@ -278,6 +293,8 @@ window.TRIPS = [
         id: 'day-4',
         counter: 'Day 4 / 5',
         date: 'Sunday, September 6',
+        iso: '2026-09-06',
+        outfit: 'Tower Bridge in the morning wind, then a pub packed shoulder to shoulder for kickoff. Keep it unfussy — jeans, trainers, a jacket you would not mind wearing a spilled pint. Blue if you want to belong in that room, and nothing red: you are watching the Arsenal game surrounded by Chelsea.',
         title: 'Tower Bridge, then match day: Arsenal v Chelsea, 4:30pm KO',
         lede: 'Chelsea are away at the Emirates, so the goal isn\'t getting <em>into</em> a stadium — it\'s getting into a room full of Chelsea supporters. The move for that is a Stamford Bridge-area pub, where fans without an away ticket gather for every game, home or away. This is also where the Tower Bridge visit bumped from Friday lands — it sits on the same District line as Fulham, so the morning flows straight into the afternoon. Start time is pushed back an hour from the original plan, given last night.',
         rows: [
@@ -330,6 +347,8 @@ window.TRIPS = [
         id: 'day-5',
         counter: 'Day 5 / 5',
         date: 'Monday, September 7',
+        iso: '2026-09-07',
+        outfit: 'Travel day. Whatever you can sit in for eight hours and still walk the South Bank in — soft layers, shoes that come off easily at security, and the rain shell in an outside pocket rather than buried in the case.',
         title: 'One last look, then home',
         lede: 'A short, flexible morning built around checkout — scale it to your actual flight time.',
         rows: [
@@ -385,6 +404,15 @@ window.TRIPS = [
       dates: '30 Oct – 4 Nov 2026 · Morocco',
       blurb: "A friend's birthday trip — Agafay desert camp, a hot air balloon, and a beach club day, planned together with the gaps worked out ahead of time.",
       cover: { src: null, placeholder: 'Cover photograph to come' }
+    },
+
+    /* ---- where it is. Used to look up the live forecast, and for the
+       seasonal averages shown until the trip is inside forecast range. ---- */
+    place: {
+      lat: 31.6295,
+      lon: -7.9811,
+      timezone: 'Africa/Casablanca',
+      normals: { high: 26, low: 13, summary: 'Typical for late October' }
     },
 
     /* ---- the trip page masthead ---- */
@@ -450,6 +478,8 @@ window.TRIPS = [
         id: 'day-1',
         counter: 'Day 1 / 6',
         date: 'Friday, October 30',
+        iso: '2026-10-30',
+        outfit: 'Straight off a flight into the souks, so comfort first — but the medina is the one part of today where covering up matters. Shoulders and knees covered, loose rather than tight: long linen trousers or a midi skirt beat shorts, and you will be cooler in them anyway. Closed shoes, because the derb underfoot is uneven and not always clean. La Trattoria is a smarter room, so a shirt or a dress finishes the day without needing anything formal.',
         title: 'Landing, the road south, and straight into the medina',
         lede: 'An early landing in Casablanca leaves the whole day free — road trip down to Marrakech, check in, and the first walk through the souks before dinner.',
         rows: [
@@ -483,6 +513,8 @@ window.TRIPS = [
         id: 'day-2',
         counter: 'Day 2 / 6',
         date: 'Saturday, October 31',
+        iso: '2026-10-31',
+        outfit: 'Swimwear under something you can walk through a lobby in — a kaftan, a shirt dress, linen shorts. Normal poolwear is fine inside the beach club, which is private and relaxed, but that stops at the gate, so keep the cover-up for the drive each way. Palais Dar Soukkar is the grandest room of the trip and worth changing properly for, and it will be genuinely cold by the time you leave it.',
         title: 'Famous Beach Club, then real rest before the desert',
         lede: "A full pool-club day, then deliberate downtime — tomorrow is the big Agafay day, so tonight's gap is recovery, not a second outing.",
         rows: [
@@ -511,6 +543,8 @@ window.TRIPS = [
         id: 'day-3',
         counter: 'Day 3 / 6',
         date: 'Sunday, November 1',
+        iso: '2026-11-01',
+        outfit: 'The hardest day to pack for: shirtsleeves at the pool and close to freezing under the stars. Long trousers are not optional for the quad bikes or the camel — stones kick up and the saddle chafes bare legs. Closed shoes, sunglasses, and something over your head and neck for the ride. Then bring an actual coat for the evening: the desert drops fast after sunset and the camp is open to the sky. Swimwear for midday and warm layers go in the same bag.',
         title: 'Agafay Desert — the full lineup',
         lede: "Basically the whole day. Pool and lunch at camp, then the three classic Agafay activities back to back before sunset, then dinner under the stars.",
         rows: [
@@ -562,6 +596,8 @@ window.TRIPS = [
         id: 'day-4',
         counter: 'Day 4 / 6',
         date: 'Monday, November 2',
+        iso: '2026-11-02',
+        outfit: 'A pre-dawn pickup means the coldest hour of the trip, so a proper jacket, and gloves are not overkill in the basket. The burner throws real heat overhead, which a cap takes the edge off. Everything in layers you can shed by mid-morning. Trousers again for the afternoon quad bikes and camels. DarDar\'s roof is open and it is November — whatever you wear for dinner, bring the layer that goes over it.',
         title: 'Hot air balloon, a proper nap, then the Palmeraie',
         lede: "A 5:30am pickup earns a real nap before anything else. Dinner is assumed at 5pm, which makes for a tight turnaround after the afternoon's quad bike ride — see the flag above.",
         rows: [
@@ -603,6 +639,8 @@ window.TRIPS = [
         id: 'day-5',
         counter: 'Day 5 / 6',
         date: 'Tuesday, November 3',
+        iso: '2026-11-03',
+        outfit: 'The day to actually dress. Marrakech\'s golden hour is low and warm and forgiving, and solid colours hold up against the pink walls and tilework far better than busy prints — the light around five does most of the work for you. Pick something that carries from the café through the spa to dinner on one change rather than three. It will be cool by the time the photos are done, so make the layer part of the look instead of an afterthought.',
         title: 'Birthday girl 🎂',
         lede: "Her day. The plan stays exactly as originally set, night out included — nothing added on top.",
         rows: [
@@ -641,6 +679,8 @@ window.TRIPS = [
         id: 'day-6',
         counter: 'Day 6 / 6',
         date: 'Wednesday, November 4',
+        iso: '2026-11-04',
+        outfit: 'Travel clothes. Whatever you want to spend three hours on the Casablanca road in — soft, loose, and layered, because the car will be cold and the airport will not be.',
         title: 'Marrakech → Casablanca',
         lede: 'A short morning, then the drive back north for the flight home.',
         rows: [

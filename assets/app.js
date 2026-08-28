@@ -110,7 +110,8 @@
   function renderInfo(info) {
     if (!info || !info.length) return '';
     return '<div class="info-grid">' + info.map(function (cell) {
-      return '<div class="info-cell">' +
+      var live = /^weather$/i.test(cell.label) ? ' info-cell--weather' : '';
+      return '<div class="info-cell' + live + '">' +
                '<div class="info-label">' + cell.label + '</div>' +
                '<div class="info-value">' + cell.value + '</div>' +
                '<div class="info-detail">' + cell.detail + '</div>' +
@@ -157,7 +158,187 @@
            '</div>';
   }
 
-  function renderDay(day) {
+  /* ---------------------------------------------------------------------
+     WEATHER & WHAT TO WEAR
+
+     Open-Meteo needs no key and allows requests straight from the browser,
+     which is the only reason this works on a static site with no backend.
+     Its forecast reaches roughly sixteen days out, so a trip further off
+     than that simply has no forecast to show — those days fall back to the
+     seasonal averages in trips.js and say so on the label rather than
+     dressing a guess up as a prediction.
+
+     Nothing waits on the network. The averages render with the page and the
+     forecast replaces them if and when it lands, so a blocked request or a
+     dead connection costs the reader nothing.
+
+     The outfit itself is written per day in trips.js, grounded in what that
+     day actually holds and how people dress there — neither of which the
+     weather knows. What the forecast adds is only the part that could not
+     be written in advance: real rain, a cold snap, a wide day-to-night swing.
+     --------------------------------------------------------------------- */
+
+  var FORECAST_URL = 'https://api.open-meteo.com/v1/forecast';
+  var forecastCache = {};
+
+  /* WMO weather codes, collapsed to the distinctions worth dressing for. */
+  var SKY = {
+    0: 'Clear', 1: 'Mostly clear', 2: 'Partly cloudy', 3: 'Overcast',
+    45: 'Fog', 48: 'Freezing fog',
+    51: 'Light drizzle', 53: 'Drizzle', 55: 'Heavy drizzle',
+    56: 'Freezing drizzle', 57: 'Freezing drizzle',
+    61: 'Light rain', 63: 'Rain', 65: 'Heavy rain',
+    66: 'Freezing rain', 67: 'Freezing rain',
+    71: 'Light snow', 73: 'Snow', 75: 'Heavy snow', 77: 'Snow grains',
+    80: 'Showers', 81: 'Showers', 82: 'Heavy showers',
+    85: 'Snow showers', 86: 'Snow showers',
+    95: 'Thunderstorms', 96: 'Thunderstorms', 99: 'Thunderstorms'
+  };
+
+  function fetchForecast(trip) {
+    var place = trip.place;
+    var days = trip.days || [];
+    if (!place || !days.length || !window.fetch) return Promise.resolve(null);
+    if (forecastCache[trip.id]) return Promise.resolve(forecastCache[trip.id]);
+
+    var first = days[0].iso;
+    var last = days[days.length - 1].iso;
+    if (!first || !last) return Promise.resolve(null);
+
+    var url = FORECAST_URL +
+      '?latitude=' + encodeURIComponent(place.lat) +
+      '&longitude=' + encodeURIComponent(place.lon) +
+      '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max' +
+      '&timezone=' + encodeURIComponent(place.timezone) +
+      '&start_date=' + first + '&end_date=' + last;
+
+    return fetch(url)
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        var daily = data && data.daily;
+        var byDate = {};
+        if (daily && daily.time) {
+          daily.time.forEach(function (iso, i) {
+            var high = daily.temperature_2m_max[i];
+            var low = daily.temperature_2m_min[i];
+            /* Past the forecast horizon the arrays still hold the dates but
+               the readings come back null. Those days keep their average. */
+            if (high === null || low === null) return;
+            var rain = daily.precipitation_probability_max;
+            var code = daily.weather_code[i];
+            byDate[iso] = {
+              high: Math.round(high),
+              low: Math.round(low),
+              sky: SKY[code] || '',
+              /* The code is the better signal: London can read 26% and still
+                 be forecast as drizzle all day. */
+              wet: (code >= 51 && code <= 67) || (code >= 80 && code <= 82) || code >= 95,
+              rain: rain ? rain[i] : null
+            };
+          });
+        }
+        forecastCache[trip.id] = byDate;
+        return byDate;
+      })
+      .catch(function () { return null; });
+  }
+
+  /* Only ever run against a real forecast — a seasonal average is far too
+     blunt a number to tell someone to pack a coat on. */
+  function forecastNotes(w) {
+    var notes = [];
+
+    var chance = w.rain === null ? '' : ', ' + w.rain + '% chance';
+
+    if (w.wet && w.rain !== null && w.rain >= 50) {
+      notes.push(w.sky + ' forecast' + chance + ' — take the waterproof layer, not the good jacket.');
+    } else if (w.wet) {
+      notes.push(w.sky + ' forecast' + chance + ' — something packable in a pocket covers it.');
+    } else if (w.rain !== null && w.rain >= 40) {
+      notes.push('A shower is possible' + chance + ' — worth a light shell.');
+    }
+
+    if (w.low <= 6) {
+      notes.push('Down to ' + w.low + '° overnight — hat-and-gloves cold once the sun goes.');
+    } else if (w.low <= 12) {
+      notes.push('Down to ' + w.low + '° after dark, so plan the evening layer as a coat rather than a shirt.');
+    }
+
+    if (w.high >= 28) {
+      notes.push('Up to ' + w.high + '° — sun cover, and more water than you think you need.');
+    }
+
+    var swing = w.high - w.low;
+    if (swing >= 12) {
+      notes.push('A ' + swing + '° swing between afternoon and night — layers you can peel off and put back on.');
+    }
+
+    return notes;
+  }
+
+  function renderDayKit(trip, day) {
+    if (!day.outfit) return '';
+    var normals = (trip.place && trip.place.normals) || null;
+
+    return '<div class="daykit" data-iso="' + attr(day.iso || '') + '">' +
+             '<div class="daykit-weather">' +
+               '<div class="daykit-label">Weather</div>' +
+               '<div class="daykit-temp">' +
+                 (normals ? normals.high + '° / ' + normals.low + '°' : '—') +
+               '</div>' +
+               '<div class="daykit-sky">' + (normals ? normals.summary : '') + '</div>' +
+               '<div class="daykit-tag">Seasonal average</div>' +
+             '</div>' +
+             '<div class="daykit-wear">' +
+               '<div class="daykit-label">What to wear</div>' +
+               '<p class="daykit-outfit">' + day.outfit + '</p>' +
+               '<ul class="daykit-notes"></ul>' +
+             '</div>' +
+           '</div>';
+  }
+
+  /* Swap averages for the forecast once it arrives, if the reader is still
+     on the trip it was fetched for. */
+  function hydrateForecast(trip) {
+    fetchForecast(trip).then(function (byDate) {
+      if (!byDate || currentTripId !== trip.id) return;
+
+      var kits = view.querySelectorAll('.daykit[data-iso]');
+      var highs = [];
+      var lows = [];
+
+      for (var i = 0; i < kits.length; i++) {
+        var kit = kits[i];
+        var w = byDate[kit.getAttribute('data-iso')];
+        if (!w) continue;
+
+        highs.push(w.high);
+        lows.push(w.low);
+
+        kit.querySelector('.daykit-temp').textContent = w.high + '° / ' + w.low + '°';
+
+        var sky = w.sky;
+        if (w.rain !== null && w.rain >= 20) sky += ' · ' + w.rain + '% rain';
+        kit.querySelector('.daykit-sky').textContent = sky;
+
+        kit.querySelector('.daykit-tag').textContent = 'Live forecast';
+        kit.classList.add('daykit--live');
+
+        kit.querySelector('.daykit-notes').innerHTML =
+          forecastNotes(w).map(function (n) { return '<li>' + n + '</li>'; }).join('');
+      }
+
+      /* The masthead's weather cell was written months ago. If a forecast
+         now covers the trip, say what it actually is. */
+      var cell = view.querySelector('.info-cell--weather .info-value');
+      if (cell && highs.length) {
+        cell.textContent = Math.min.apply(null, lows) + '°–' + Math.max.apply(null, highs) +
+                           '°C across the trip';
+      }
+    });
+  }
+
+  function renderDay(trip, day) {
     return '<section class="day" id="' + attr(day.id) + '">' +
              '<div class="day-head">' +
                '<div class="day-counter">' + day.counter + '</div>' +
@@ -165,6 +346,7 @@
              '</div>' +
              '<h2>' + day.title + '</h2>' +
              '<p class="day-lede">' + day.lede + '</p>' +
+             renderDayKit(trip, day) +
              '<div class="day-rows">' + (day.rows || []).map(renderRow).join('') + '</div>' +
            '</section>';
   }
@@ -208,7 +390,7 @@
       renderInfo(trip.info) +
       renderCallouts(trip.callouts) +
       renderNav(trip) +
-      (trip.days || []).map(renderDay).join('') +
+      (trip.days || []).map(function (d) { return renderDay(trip, d); }).join('') +
       renderPending(trip.pending) +
       renderPhotos(trip) +
       '<div class="strip trip-footer">' +
@@ -217,6 +399,8 @@
       '</div>';
 
     document.title = decode(trip.card.title) + ' · ' + SITE;
+
+    hydrateForecast(trip);
   }
 
   /* =====================================================================

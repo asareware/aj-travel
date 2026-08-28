@@ -479,6 +479,89 @@ a:hover { color: var(--link-hover); }
 .chip--blue  { background: var(--chip-blue-bg); color: var(--link); }
 .chip--amber { background: var(--chip-amber-bg); color: var(--accent); }
 
+/* --- weather & what to wear ----------------------------------------------
+   The averages and the forecast share one layout, so the block does not
+   jump when the live reading lands and replaces them. */
+
+.daykit {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 30px;
+  margin-top: 26px;
+  padding: 22px 24px 24px;
+  border: 1px solid var(--rule);
+  background: var(--bg-raised);
+}
+
+.daykit-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.daykit-temp {
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1;
+  color: var(--ink-bright);
+  font-variant-numeric: tabular-nums;
+}
+
+.daykit-sky {
+  margin-top: 9px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+}
+
+.daykit-tag {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: var(--chip-grey-bg);
+  color: var(--chip-grey-fg);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.daykit--live .daykit-tag { background: var(--chip-blue-bg); color: var(--link); }
+
+.daykit-outfit {
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.daykit-notes {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.daykit-notes:empty { display: none; }
+
+.daykit-notes li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-mute);
+}
+.daykit-notes li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  color: var(--accent);
+}
+
 /* --- days still to come --------------------------------------------------- */
 
 .day--pending { padding: 64px 0 40px; }
@@ -669,6 +752,7 @@ body.lb-open { overflow: hidden; }
   .trip-hero h1 { font-size: 48px; }
 
   .trip-card-head h2 { font-size: 32px; }
+  .daykit { grid-template-columns: 160px 1fr; gap: 22px; }
 
   .day h2, .photos-intro h2 { font-size: 34px; }
   .day-nav { gap: 12px 32px; }
@@ -685,6 +769,8 @@ body.lb-open { overflow: hidden; }
 
   .trip-card-head { flex-direction: column; align-items: flex-start; gap: 8px; }
   .trip-card-head h2 { font-size: 30px; }
+
+  .daykit { grid-template-columns: 1fr; gap: 20px; padding: 20px 18px 22px; }
 
   .trip-hero { padding: 44px 0 40px; }
 
