@@ -1,29 +1,92 @@
 /* ===========================================================================
-   Travel Log — dark editorial
+   Travel Log — editorial, in daylight and after dark
    Values transcribed from the Claude Design source (Travel Log.dc.html).
+
+   THEME
+   The page follows the reader's system setting: :root carries the light
+   palette, and the prefers-color-scheme block below restates the same token
+   names in the original dark values. Nothing outside these two blocks names
+   a colour directly — style through the tokens and both themes stay in step.
    =========================================================================== */
 
 :root {
-  --accent: #d8a34a;   /* amber — swap for #74b6d4 / #c98a7a / #8fae7a */
+  color-scheme: light dark;
+
   --cols: 4;           /* photo grid columns */
   --pad: 26px;         /* day-row density: 26px airy, 16px compact */
-
-  --ink:        #e8ecef;
-  --ink-bright: #f2f5f7;
-  --ink-soft:   #b9c2c9;
-  --ink-mute:   #98a2aa;
-  --ink-faint:  #7d888f;
-  --ink-dim:    #6b757c;
-  --ink-dimmer: #5b656c;
-  --link:       #74b6d4;
-  --rule:       #232b33;
-  --rule-soft:  #1d242b;
-  --bg:         #0e1317;
-  --bg-raised:  #121820;
 
   --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --sans: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* The lightbox keeps its own near-black ground in both themes — a
+     photograph is judged against dark, whatever the rest of the page is. */
+  --lb-ground:  #080b0dfa;
+  --lb-fg:      #c8d0d6;
+  --lb-fg-dim:  #8b959c;
+
+  /* ---- light: printed paper, cool neutral, ink-on-stock ---- */
+  --accent:     #8a5d18;   /* amber, darkened to hold on paper */
+  --ink:        #1a2126;
+  --ink-bright: #0d1317;
+  --ink-soft:   #3a464f;
+  --ink-mute:   #4f5c65;
+  --ink-faint:  #64717a;
+  --ink-dim:    #77838b;
+  --ink-dimmer: #8c979e;
+  --link:       #1d6484;
+  --link-hover: #124f6b;
+  --rule:       #d7dee2;
+  --rule-soft:  #e6ebee;
+  --bg:         #f5f7f8;
+  --bg-raised:  #ffffff;
+
+  --callout-fg:      #3a464f;
+  --callout-fix-bg:  #fbf6e8;
+  --callout-fix-rule:#e3d3a4;
+  --callout-note-bg: #eef6fa;
+  --callout-note-rule:#bcd7e2;
+  --callout-warn-bg: #fcefee;
+  --callout-warn-rule:#e6c6c3;
+  --callout-warn-mark:#a4423b;
+
+  --chip-grey-bg:  #e5eaed;
+  --chip-grey-fg:  #56636b;
+  --chip-blue-bg:  #e0eef5;
+  --chip-amber-bg: #f7edd9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent:     #d8a34a;   /* amber — swap for #74b6d4 / #c98a7a / #8fae7a */
+    --ink:        #e8ecef;
+    --ink-bright: #f2f5f7;
+    --ink-soft:   #b9c2c9;
+    --ink-mute:   #98a2aa;
+    --ink-faint:  #7d888f;
+    --ink-dim:    #6b757c;
+    --ink-dimmer: #5b656c;
+    --link:       #74b6d4;
+    --link-hover: #a5d3e6;
+    --rule:       #232b33;
+    --rule-soft:  #1d242b;
+    --bg:         #0e1317;
+    --bg-raised:  #121820;
+
+    --callout-fg:      #d9dfe4;
+    --callout-fix-bg:  #1e1809;
+    --callout-fix-rule:#4a3a14;
+    --callout-note-bg: #0d1a20;
+    --callout-note-rule:#23414c;
+    --callout-warn-bg: #1c1214;
+    --callout-warn-rule:#43262a;
+    --callout-warn-mark:#d98a86;
+
+    --chip-grey-bg:  #1c2329;
+    --chip-grey-fg:  #9aa4ab;
+    --chip-blue-bg:  #12222b;
+    --chip-amber-bg: #221b0e;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -40,7 +103,7 @@ body {
 }
 
 a { color: var(--link); text-decoration: none; }
-a:hover { color: #a5d3e6; }
+a:hover { color: var(--link-hover); }
 
 :focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
 
@@ -256,17 +319,17 @@ a:hover { color: #a5d3e6; }
 .callout:first-of-type { margin-top: 26px; }
 
 .callout-mark { font-family: var(--mono); }
-.callout-text { font-size: 16px; line-height: 1.6; color: #d9dfe4; }
+.callout-text { font-size: 16px; line-height: 1.6; color: var(--callout-fg); }
 .callout-text strong { color: var(--ink-bright); }
 
-.callout--fix { border: 1px solid #4a3a14; background: #1e1809; }
+.callout--fix { border: 1px solid var(--callout-fix-rule); background: var(--callout-fix-bg); }
 .callout--fix .callout-mark { font-size: 12px; letter-spacing: 0.14em; color: var(--accent); padding-top: 3px; }
 
-.callout--note { border: 1px solid #23414c; background: #0d1a20; }
+.callout--note { border: 1px solid var(--callout-note-rule); background: var(--callout-note-bg); }
 .callout--note .callout-mark { font-size: 15px; color: var(--link); padding-top: 1px; }
 
-.callout--warn { border: 1px solid #43262a; background: #1c1214; }
-.callout--warn .callout-mark { font-size: 15px; color: #d98a86; padding-top: 1px; }
+.callout--warn { border: 1px solid var(--callout-warn-rule); background: var(--callout-warn-bg); }
+.callout--warn .callout-mark { font-size: 15px; color: var(--callout-warn-mark); padding-top: 1px; }
 
 /* --- day nav -------------------------------------------------------------- */
 
@@ -351,9 +414,9 @@ a:hover { color: #a5d3e6; }
 }
 .chip:has(+ .chip) { margin-right: 8px; }
 
-.chip--grey  { background: #1c2329; color: #9aa4ab; }
-.chip--blue  { background: #12222b; color: var(--link); }
-.chip--amber { background: #221b0e; color: var(--accent); }
+.chip--grey  { background: var(--chip-grey-bg); color: var(--chip-grey-fg); }
+.chip--blue  { background: var(--chip-blue-bg); color: var(--link); }
+.chip--amber { background: var(--chip-amber-bg); color: var(--accent); }
 
 /* --- days still to come --------------------------------------------------- */
 
@@ -438,7 +501,7 @@ a:hover { color: #a5d3e6; }
   position: fixed;
   inset: 0;
   z-index: 80;
-  background: #080b0dfa;
+  background: var(--lb-ground);
   display: grid;
   /* minmax(0, 1fr), not 1fr: a plain 1fr track keeps an automatic minimum
      and grows to fit an oversized photograph, so nothing ever clamps. */
@@ -490,7 +553,7 @@ a:hover { color: #a5d3e6; }
   background: none;
   border: 0;
   cursor: pointer;
-  color: #c8d0d6;
+  color: var(--lb-fg);
   opacity: 0.6;
 }
 .lb-nav:hover { opacity: 1; }
@@ -508,7 +571,7 @@ a:hover { color: #a5d3e6; }
   background: none;
   border: 0;
   cursor: pointer;
-  color: #c8d0d6;
+  color: var(--lb-fg);
   opacity: 0.6;
   font-family: var(--sans);
   font-size: 22px;
@@ -527,8 +590,8 @@ a:hover { color: #a5d3e6; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
-.lb-caption { color: #c8d0d6; }
-.lb-counter { color: var(--ink-faint); letter-spacing: 0.14em; }
+.lb-caption { color: var(--lb-fg); }
+.lb-counter { color: var(--lb-fg-dim); letter-spacing: 0.14em; }
 
 body.lb-open { overflow: hidden; }
 
