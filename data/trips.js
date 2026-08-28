@@ -373,6 +373,309 @@ window.TRIPS = [
 
     /* ---- the strip that closes the trip page ---- */
     footer: { left: "Aj's First London", right: '3–7 Sept 2026' }
+  },
+
+  {
+    id: 'morocco',
+
+    /* ---- how the trip shows up on the index page ---- */
+    card: {
+      title: 'Marrakech, Birthday Edition',
+      length: '6 days',
+      dates: '30 Oct – 4 Nov 2026 · Morocco',
+      blurb: "A friend's birthday trip — Agafay desert camp, a hot air balloon, and a beach club day, planned together with the gaps worked out ahead of time.",
+      cover: { src: null, placeholder: 'Cover photograph to come' }
+    },
+
+    /* ---- the trip page masthead ---- */
+    eyebrow: 'Birthday trip to Marrakech · 30 Oct – 4 Nov 2026',
+    title: 'Marrakech, Day by Day',
+    lede: "Six days built on a friend's original plan — beach club, Agafay desert camp, a hot air balloon, and her birthday on day five — with the open stretches (rest blocks, free afternoons, the nightcap) worked out and locked in ahead of time.",
+
+    /* ---- the info grid ---- */
+    info: [
+      {
+        label: 'Length',
+        value: '6 days / 5 nights',
+        detail: '30 Oct – 4 Nov 2026'
+      },
+      {
+        label: 'Weather',
+        value: '~78°F days, ~57°F nights',
+        detail: 'Early November — warm afternoons, cool evenings after sundown'
+      },
+      {
+        label: 'Currency',
+        value: 'Moroccan Dirham (MAD)',
+        detail: 'Beach clubs and desert camps often run a minimum-spend model rather than a flat entry fee'
+      },
+      {
+        label: 'The birthday',
+        value: 'Tuesday, Nov 3',
+        detail: 'The whole day stays exactly as originally planned — hers to run'
+      }
+    ],
+
+    callouts: [
+      {
+        tone: 'note',
+        mark: '+',
+        text: "<strong>\"Famous Beach\" is a real place, not a placeholder:</strong> it's Famous Beach Marrakech on Route de l'Ourika — 20,000 m², three pools, a restaurant and cocktail bar, and a stage running live shows and DJ sets. Saturday's whole midday is already spoken for by the venue itself."
+      },
+      {
+        tone: 'fix',
+        mark: '!',
+        text: "<strong>Monday's evening is tight:</strong> the Palmeraie quad bike ride ends around 4pm, and dinner at Safran by Kôya is assumed to start around 5pm — that's about an hour to get back, shower, and cross town. Worth confirming the reservation time directly and arranging a car back rather than cutting it close."
+      },
+      {
+        tone: 'note',
+        mark: '🎂',
+        text: "<strong>Tuesday is intentionally untouched:</strong> it's her birthday, so the day runs exactly as originally planned, including the night out afterward — no suggestions plugged in on top of it."
+      }
+    ],
+
+    nav: [
+      { label: 'Day 1 · Fri', title: 'Casablanca → Marrakech', href: 'day-1' },
+      { label: 'Day 2 · Sat', title: 'Beach club + rest',      href: 'day-2' },
+      { label: 'Day 3 · Sun', title: 'Agafay desert',          href: 'day-3' },
+      { label: 'Day 4 · Mon', title: 'Balloon + Palmeraie',    href: 'day-4' },
+      { label: 'Day 5 · Tue', title: 'Birthday girl',          href: 'day-5' },
+      { label: 'Day 6 · Wed', title: 'Marrakech → Casablanca', href: 'day-6' }
+    ],
+
+    /* ---- the written days ----
+       chip tone: 'grey' | 'blue' | 'amber'                             ---- */
+    days: [
+      {
+        id: 'day-1',
+        counter: 'Day 1 / 6',
+        date: 'Friday, October 30',
+        title: 'Landing, the road south, and straight into the medina',
+        lede: 'An early landing in Casablanca leaves the whole day free — road trip down to Marrakech, check in, and the first walk through the souks before dinner.',
+        rows: [
+          {
+            time: '7:30 AM',
+            title: 'Land in Casablanca',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'First stop after landing is the road south to Marrakech — roughly 2.5–3 hours by car.'
+          },
+          {
+            time: 'midday',
+            title: 'Road trip to Marrakech, check in',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'Arrive, drop bags, settle into the riad before heading back out.'
+          },
+          {
+            time: 'afternoon',
+            title: 'Medina &amp; the souks',
+            chips: [{ label: 'Culture', tone: 'blue' }],
+            body: "First walk through the medina's souks — spices, leather, lanterns, the whole maze. No fixed plan needed here, just wander."
+          },
+          {
+            time: 'evening',
+            title: 'Dinner: La Trattoria',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'First dinner in Marrakech.'
+          }
+        ]
+      },
+      {
+        id: 'day-2',
+        counter: 'Day 2 / 6',
+        date: 'Saturday, October 31',
+        title: 'Famous Beach Club, then real rest before the desert',
+        lede: "A full pool-club day, then deliberate downtime — tomorrow is the big Agafay day, so tonight's gap is recovery, not a second outing.",
+        rows: [
+          {
+            time: '11:00 AM – 4:30 PM',
+            title: 'Famous Beach Club',
+            chips: [{ label: 'Beach club', tone: 'blue' }],
+            body: "20,000 m² grounds, three pools with loungers, a restaurant (Mediterranean/international plus Moroccan dishes) and cocktail bar, and a stage running live shows and DJ sets through the afternoon. A quieter lounge zone on one side, a livelier dance-floor zone on the other.",
+            address: "Route de l'Ourika, Marrakech"
+          },
+          {
+            time: '5:15 – 7:15 PM',
+            title: 'Rest, back at the riad',
+            chips: [{ label: 'Rest', tone: 'grey' }],
+            body: 'Shower, nap, let the sun exposure wear off. Nothing else planned here on purpose.'
+          },
+          {
+            time: '~8:30 PM',
+            title: 'Dinner: Palais Dar Soukkar',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: ''
+          }
+        ]
+      },
+      {
+        id: 'day-3',
+        counter: 'Day 3 / 6',
+        date: 'Sunday, November 1',
+        title: 'Agafay Desert — the full lineup',
+        lede: "Basically the whole day. Pool and lunch at camp, then the three classic Agafay activities back to back before sunset, then dinner under the stars.",
+        rows: [
+          {
+            time: 'late morning',
+            title: 'Arrive at Agafay Luxury Camp',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: ''
+          },
+          {
+            time: 'midday',
+            title: 'Pool &amp; lunch',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: ''
+          },
+          {
+            time: '~2:00 PM',
+            title: 'Quad biking',
+            chips: [{ label: 'Adventure', tone: 'blue' }],
+            body: 'Rocky Agafay terrain, built for it — about an hour.'
+          },
+          {
+            time: '~3:15 PM',
+            title: 'Camel or horseback ride',
+            chips: [{ label: 'Adventure', tone: 'blue' }],
+            body: 'Slower pace after the quads — the classic desert-camp photo op, about 45 minutes.'
+          },
+          {
+            time: '~4:15 PM',
+            title: 'Berber tea ceremony',
+            chips: [{ label: 'Culture', tone: 'blue' }],
+            body: 'A sit-down close to the afternoon — mint tea prepared traditionally with the camp hosts, about 30 minutes.'
+          },
+          {
+            time: 'sunset',
+            title: 'Sunset viewpoint',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: ''
+          },
+          {
+            time: 'evening',
+            title: 'Dinner &amp; stargazing',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'Stargazing at Agafay is usually telescope-guided given how little light pollution there is, often paired with Berber music and dance around dinner.'
+          }
+        ]
+      },
+      {
+        id: 'day-4',
+        counter: 'Day 4 / 6',
+        date: 'Monday, November 2',
+        title: 'Hot air balloon, a proper nap, then the Palmeraie',
+        lede: "A 5:30am pickup earns a real nap before anything else. Dinner is assumed at 5pm, which makes for a tight turnaround after the afternoon's quad bike ride — see the flag above.",
+        rows: [
+          {
+            time: '~5:30 AM pickup',
+            title: 'Hot air balloon flight',
+            chips: [{ label: 'Adventure', tone: 'blue' }],
+            body: 'Balloon flight, landing champagne/Berber breakfast, transfer back — roughly 9:30am back at the riad.'
+          },
+          {
+            time: '10:00 AM – 2:00 PM',
+            title: 'Nap, back at the riad',
+            chips: [{ label: 'Rest', tone: 'grey' }],
+            body: ''
+          },
+          {
+            time: '2:00 – 4:00 PM',
+            title: 'Quad bike &amp; camel ride, the Palmeraie',
+            chips: [{ label: 'Adventure', tone: 'blue' }],
+            body: 'Palm groves outside the city, about two hours.'
+          },
+          {
+            time: '~5:00 PM',
+            title: 'Dinner: Safran by Kôya',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: "A rooftop restaurant built around a live show, so the evening is already extended by the venue itself.",
+            address: 'Rue Jbel Lakhdar, Marrakech'
+          },
+          {
+            time: 'nightcap',
+            title: 'DarDar Rooftop',
+            chips: [{ label: 'Nightlife', tone: 'blue' }],
+            body: 'Central medina, quieter and more bohemian than a club scene.',
+            address: '4 Rue Riad Zitoun el Kdim, Marrakech 40000'
+          }
+        ]
+      },
+      {
+        id: 'day-5',
+        counter: 'Day 5 / 6',
+        date: 'Tuesday, November 3',
+        title: 'Birthday girl 🎂',
+        lede: "Her day. The plan stays exactly as originally set, night out included — nothing added on top.",
+        rows: [
+          {
+            time: 'morning',
+            title: 'Breakfast',
+            body: ''
+          },
+          {
+            time: 'late morning',
+            title: "Café D'Elmer",
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: ''
+          },
+          {
+            time: 'afternoon',
+            title: 'Spa / relax &amp; get ready',
+            chips: [{ label: 'Rest', tone: 'grey' }],
+            body: ''
+          },
+          {
+            time: 'golden hour',
+            title: 'Birthday photos',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: ''
+          },
+          {
+            time: 'evening',
+            title: 'Birthday dinner',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: ''
+          }
+        ]
+      },
+      {
+        id: 'day-6',
+        counter: 'Day 6 / 6',
+        date: 'Wednesday, November 4',
+        title: 'Marrakech → Casablanca',
+        lede: 'A short morning, then the drive back north for the flight home.',
+        rows: [
+          {
+            time: 'morning',
+            title: 'Breakfast, check out',
+            body: ''
+          },
+          {
+            time: '10:00 AM',
+            title: 'Leave Marrakech',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'Road trip back to Casablanca for the flight.'
+          }
+        ]
+      }
+    ],
+
+    /* ---- the photo grid ---- */
+    photosIntro: {
+      eyebrow: 'Photographs',
+      title: 'From the trip',
+      lede: 'Click any photograph to open it full-screen.'
+    },
+    photos: [
+      { caption: 'Day 1 · Marrakech medina', src: null },
+      { caption: 'Day 2 · Famous Beach Club', src: null },
+      { caption: 'Day 3 · Agafay Desert',     src: null },
+      { caption: 'Day 3 · Sunset at the camp', src: null },
+      { caption: 'Day 4 · Hot air balloon',   src: null },
+      { caption: 'Day 5 · Birthday',          src: null }
+    ],
+
+    /* ---- the strip that closes the trip page ---- */
+    footer: { left: 'Marrakech, Birthday Edition', right: '30 Oct – 4 Nov 2026' }
   }
 
 ];
