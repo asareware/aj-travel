@@ -249,10 +249,8 @@ a:hover { color: var(--link-hover); }
 }
 
 .trip-card {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 32px;
-  padding: 26px 0;
+  display: block;
+  padding: 30px 0 36px;
   border-top: 1px solid var(--rule);
   cursor: pointer;
   color: inherit;
@@ -261,19 +259,14 @@ a:hover { color: var(--link-hover); }
 
 .trip-card-cover {
   position: relative;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 16 / 9;
+  margin-top: 20px;
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--rule);
 }
 
-.trip-card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 22px;
-  padding: 4px 0 10px;
-}
+.trip-card-body { padding: 0 0 2px; }
 
 .trip-card-head {
   display: flex;
@@ -293,7 +286,7 @@ a:hover { color: var(--link-hover); }
 }
 
 .trip-card-dates {
-  margin-top: 12px;
+  margin-top: 22px;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.16em;
@@ -310,6 +303,7 @@ a:hover { color: var(--link-hover); }
 }
 
 .trip-card-open {
+  margin-top: 20px;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.16em;
@@ -674,7 +668,6 @@ body.lb-open { overflow: hidden; }
   .index-hero h1,
   .trip-hero h1 { font-size: 48px; }
 
-  .trip-card { grid-template-columns: 260px 1fr; gap: 24px; }
   .trip-card-head h2 { font-size: 32px; }
 
   .day h2, .photos-intro h2 { font-size: 34px; }
@@ -690,7 +683,6 @@ body.lb-open { overflow: hidden; }
   .index-hero p,
   .trip-hero p { font-size: 17px; }
 
-  .trip-card { grid-template-columns: 1fr; gap: 18px; }
   .trip-card-head { flex-direction: column; align-items: flex-start; gap: 8px; }
   .trip-card-head h2 { font-size: 30px; }
 

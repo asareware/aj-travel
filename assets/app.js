@@ -76,16 +76,14 @@
       var cover = t.card.cover || {};
       return '' +
         '<a class="trip-card" href="#/' + attr(t.id) + '">' +
+          '<div class="trip-card-head">' +
+            '<h2 class="display">' + t.card.title + '</h2>' +
+            '<div class="trip-card-length">' + t.card.length + '</div>' +
+          '</div>' +
           '<div class="trip-card-cover">' + frame(cover, cover.placeholder) + '</div>' +
           '<div class="trip-card-body">' +
-            '<div>' +
-              '<div class="trip-card-head">' +
-                '<h2 class="display">' + t.card.title + '</h2>' +
-                '<div class="trip-card-length">' + t.card.length + '</div>' +
-              '</div>' +
-              '<div class="trip-card-dates">' + t.card.dates + '</div>' +
-              '<p class="trip-card-blurb">' + t.card.blurb + '</p>' +
-            '</div>' +
+            '<div class="trip-card-dates">' + t.card.dates + '</div>' +
+            '<p class="trip-card-blurb">' + t.card.blurb + '</p>' +
             '<div class="trip-card-open">Open itinerary →</div>' +
           '</div>' +
         '</a>';
