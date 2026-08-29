@@ -453,7 +453,7 @@ window.TRIPS = [
       {
         tone: 'fix',
         mark: '!',
-        text: "<strong>Monday's evening is tight:</strong> the Palmeraie quad bike ride ends around 4pm, and dinner at Safran by Kôya is assumed to start around 5pm — that's about an hour to get back, shower, and cross town. Worth confirming the reservation time directly and arranging a car back rather than cutting it close."
+        text: "<strong>Monday's evening is tight:</strong> the garden closes at 5pm and you want to be out by 4, and dinner at Safran by Kôya is assumed to start around 5pm — that's about an hour to get back, shower, and cross town. Worth confirming the reservation time directly and arranging a car back rather than cutting it close."
       },
       {
         tone: 'note',
@@ -466,7 +466,7 @@ window.TRIPS = [
       { label: 'Day 1 · Fri', title: 'Casablanca → Marrakech', href: 'day-1' },
       { label: 'Day 2 · Sat', title: 'Beach club + rest',      href: 'day-2' },
       { label: 'Day 3 · Sun', title: 'Agafay desert',          href: 'day-3' },
-      { label: 'Day 4 · Mon', title: 'Balloon + Palmeraie',    href: 'day-4' },
+      { label: 'Day 4 · Mon', title: 'Balloon + Majorelle',    href: 'day-4' },
       { label: 'Day 5 · Tue', title: 'Birthday girl',          href: 'day-5' },
       { label: 'Day 6 · Wed', title: 'Marrakech → Casablanca', href: 'day-6' }
     ],
@@ -597,9 +597,9 @@ window.TRIPS = [
         counter: 'Day 4 / 6',
         date: 'Monday, November 2',
         iso: '2026-11-02',
-        outfit: 'A pre-dawn pickup means the coldest hour of the trip, so a proper jacket, and gloves are not overkill in the basket. The burner throws real heat overhead, which a cap takes the edge off. Everything in layers you can shed by mid-morning. Trousers again for the afternoon quad bikes and camels. DarDar\'s roof is open and it is November — whatever you wear for dinner, bring the layer that goes over it.',
-        title: 'Hot air balloon, a proper nap, then the Palmeraie',
-        lede: "A 5:30am pickup earns a real nap before anything else. Dinner is assumed at 5pm, which makes for a tight turnaround after the afternoon's quad bike ride — see the flag above.",
+        outfit: 'A pre-dawn pickup means the coldest hour of the trip, so a proper jacket, and gloves are not overkill in the basket. The burner throws real heat overhead, which a cap takes the edge off. Everything in layers you can shed by mid-morning. Majorelle is narrow gravel paths the whole way round, so shoes you can wander slowly in beat anything you have to think about. DarDar\'s roof is open and it is November — whatever you wear for dinner, bring the layer that goes over it.',
+        title: 'Hot air balloon, a proper nap, then the blue garden',
+        lede: "A 5:30am pickup earns a real nap before anything else. The afternoon is deliberately the calmest of the trip: quad bikes and a camel the day after Agafay would only be Sunday played back, so this is the green half of Marrakech instead. Dinner is still assumed at 5pm, which makes for a tight turnaround — see the flag above.",
         rows: [
           {
             time: '~5:30 AM pickup',
@@ -615,9 +615,10 @@ window.TRIPS = [
           },
           {
             time: '2:00 – 4:00 PM',
-            title: 'Quad bike &amp; camel ride, the Palmeraie',
+            title: 'Jardin Majorelle &amp; the Yves Saint Laurent Museum',
             chips: [{ label: 'Adventure', tone: 'blue' }],
-            body: 'Palm groves outside the city, about two hours.'
+            body: 'The half of Marrakech you have not seen yet — not desert, not souk, but the cool green city. Two and a half acres of cactus, bamboo and that particular cobalt blue, laid out by Jacques Majorelle across forty years and later rescued by Yves Saint Laurent; the museum devoted to him sits next door and takes about forty minutes. Shaded, flat and slow, which is all a day that started at 5:30am can reasonably ask for. <strong>Book the timed entry in advance</strong> — it sells out days ahead and the walk-up queue is not worth joining.',
+            address: 'Rue Yves Saint Laurent, Gueliz'
           },
           {
             time: '~5:00 PM',
