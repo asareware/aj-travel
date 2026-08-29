@@ -41,7 +41,7 @@ window.TRIPS = [
       lat: 51.5045,
       lon: -0.1136,
       timezone: 'Europe/London',
-      normals: { high: 21, low: 13, summary: 'Typical for early September' }
+      normals: { high: 70, low: 55, summary: 'Typical for early September' }
     },
 
     /* ---- the info grid ---- */
@@ -68,7 +68,7 @@ window.TRIPS = [
       },
       {
         label: 'Weather',
-        value: 'Early autumn, ~15–20°C',
+        value: '~70°F days, ~55°F nights',
         detail: 'Pack a light rain layer — always a fair bet in London'
       }
     ],
@@ -412,7 +412,7 @@ window.TRIPS = [
       lat: 31.6295,
       lon: -7.9811,
       timezone: 'Africa/Casablanca',
-      normals: { high: 26, low: 13, summary: 'Typical for late October' }
+      normals: { high: 79, low: 55, summary: 'Typical for late October' }
     },
 
     /* ---- the trip page masthead ---- */
@@ -429,7 +429,7 @@ window.TRIPS = [
       },
       {
         label: 'Weather',
-        value: '~78°F days, ~57°F nights',
+        value: '~79°F days, ~55°F nights',
         detail: 'Early November — warm afternoons, cool evenings after sundown'
       },
       {

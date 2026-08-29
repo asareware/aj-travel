@@ -209,6 +209,7 @@
       '?latitude=' + encodeURIComponent(place.lat) +
       '&longitude=' + encodeURIComponent(place.lon) +
       '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max' +
+      '&temperature_unit=fahrenheit' +
       '&timezone=' + encodeURIComponent(place.timezone) +
       '&start_date=' + first + '&end_date=' + last;
 
@@ -258,19 +259,19 @@
       notes.push('A shower is possible' + chance + ' — worth a light shell.');
     }
 
-    if (w.low <= 6) {
-      notes.push('Down to ' + w.low + '° overnight — hat-and-gloves cold once the sun goes.');
-    } else if (w.low <= 12) {
-      notes.push('Down to ' + w.low + '° after dark, so plan the evening layer as a coat rather than a shirt.');
+    if (w.low <= 43) {
+      notes.push('Down to ' + w.low + '\u00B0F overnight — hat-and-gloves cold once the sun goes.');
+    } else if (w.low <= 54) {
+      notes.push('Down to ' + w.low + '\u00B0F after dark, so plan the evening layer as a coat rather than a shirt.');
     }
 
-    if (w.high >= 28) {
-      notes.push('Up to ' + w.high + '° — sun cover, and more water than you think you need.');
+    if (w.high >= 82) {
+      notes.push('Up to ' + w.high + '\u00B0F — sun cover, and more water than you think you need.');
     }
 
     var swing = w.high - w.low;
-    if (swing >= 12) {
-      notes.push('A ' + swing + '° swing between afternoon and night — layers you can peel off and put back on.');
+    if (swing >= 22) {
+      notes.push('A ' + swing + '\u00B0F swing between afternoon and night — layers you can peel off and put back on.');
     }
 
     return notes;
@@ -282,7 +283,7 @@
 
     return '<div class="daykit" data-iso="' + attr(day.iso || '') + '">' +
              '<div class="daykit-weather">' +
-               '<div class="daykit-label">Weather</div>' +
+               '<div class="daykit-label">Weather · °F</div>' +
                '<div class="daykit-temp">' +
                  (normals ? normals.high + '° / ' + normals.low + '°' : '—') +
                '</div>' +
@@ -333,7 +334,7 @@
       var cell = view.querySelector('.info-cell--weather .info-value');
       if (cell && highs.length) {
         cell.textContent = Math.min.apply(null, lows) + '°–' + Math.max.apply(null, highs) +
-                           '°C across the trip';
+                           '°F across the trip';
       }
     });
   }
