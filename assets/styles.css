@@ -368,6 +368,101 @@ a:hover { color: var(--link-hover); }
 .info-value { margin-top: 10px; font-size: 17px; font-weight: 700; color: var(--ink-bright); }
 .info-detail { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--ink-mute); }
 
+/* --- folds ----------------------------------------------------------------
+   Closed, a fold is one line of type: what it holds and the short answer,
+   so a reader who only wants the plan never has to scroll past the
+   reasoning behind it. Open, it is the whole thing, unabridged.
+
+   The head is a grid rather than a flex row so the meta line can drop
+   below the label on a narrow screen without the sign moving with it. */
+
+.fold {
+  margin-top: 14px;
+  border: 1px solid var(--rule);
+  background: var(--bg-raised);
+}
+.fold:first-of-type { margin-top: 26px; }
+
+.fold-head {
+  display: grid;
+  grid-template-columns: auto 1fr 13px;
+  align-items: baseline;
+  gap: 16px;
+  padding: 18px 24px;
+  cursor: pointer;
+  list-style: none;
+}
+/* Safari keeps drawing its own triangle unless both of these are set. */
+.fold-head::-webkit-details-marker { display: none; }
+.fold-head::marker { content: ""; }
+.fold-head:hover .fold-title { color: var(--accent); }
+.fold-head:focus-visible { outline: 2px solid var(--link); outline-offset: -3px; }
+
+.fold-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.fold-meta {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+}
+
+/* A plus that loses its stem when the fold opens. */
+.fold-sign {
+  position: relative;
+  align-self: center;
+  justify-self: end;
+  width: 13px;
+  height: 13px;
+}
+.fold-sign::before,
+.fold-sign::after {
+  content: "";
+  position: absolute;
+  background: var(--ink-faint);
+}
+.fold-sign::before { top: 6px; left: 0; width: 13px; height: 1px; }
+.fold-sign::after  { left: 6px; top: 0; width: 1px; height: 13px; }
+.fold[open] .fold-sign::after { opacity: 0; }
+.fold-head:hover .fold-sign::before,
+.fold-head:hover .fold-sign::after { background: var(--accent); }
+
+.fold-body { padding: 2px 24px 22px; }
+.fold--callouts .fold-body { padding: 0 20px 20px; }
+
+/* --- what to wear --------------------------------------------------------- */
+
+.wear { display: grid; gap: 20px; padding-top: 8px; }
+
+.wear-block {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 22px;
+}
+
+.wear-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: 3px;
+}
+
+.wear-text {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.wear-text strong { color: var(--ink-bright); }
+
 /* --- callouts ------------------------------------------------------------- */
 
 .callout {
@@ -378,6 +473,8 @@ a:hover { color: var(--link-hover); }
   padding: 20px 24px 22px;
 }
 .callout:first-of-type { margin-top: 26px; }
+/* Inside a fold the head has already introduced them. */
+.fold .callout:first-of-type { margin-top: 0; }
 
 .callout-mark { font-family: var(--mono); }
 .callout-text { font-size: 16px; line-height: 1.6; color: var(--callout-fg); }
@@ -531,12 +628,40 @@ a:hover { color: var(--link-hover); }
 }
 .daykit--live .daykit-tag { background: var(--chip-blue-bg); color: var(--link); }
 
+/* One line. Anything that needs a paragraph belongs in the What to wear
+   fold at the top, which the button below this links to. */
 .daykit-outfit {
   margin: 12px 0 0;
   font-size: 16px;
   line-height: 1.6;
   color: var(--ink-soft);
 }
+
+/* The exception a day carries on its own — long trousers for the quad
+   bikes, nothing red in the Chelsea pub. One line, and rarely. */
+.daykit-flag {
+  margin: 9px 0 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-mute);
+}
+.daykit-flag strong { color: var(--ink-bright); }
+
+.daykit-more {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--link);
+  cursor: pointer;
+}
+.daykit-more::after { content: " \2191"; }
+.daykit-more:hover { color: var(--link-hover); }
 
 .daykit-notes {
   display: grid;
@@ -783,6 +908,22 @@ body.lb-open { overflow: hidden; }
   .info-cell:last-child { border-bottom: 0 !important; }
 
   .callout { grid-template-columns: 28px 1fr; padding: 18px 18px 20px; }
+
+  /* The label keeps the top line to itself and the meta wraps beneath it,
+     so the sign stays pinned to the corner it started in. */
+  .fold-head {
+    grid-template-columns: 1fr 13px;
+    gap: 9px 16px;
+    padding: 16px 18px;
+  }
+  .fold-title { grid-column: 1; grid-row: 1; }
+  .fold-sign  { grid-column: 2; grid-row: 1; }
+  .fold-meta  { grid-column: 1 / -1; grid-row: 2; }
+  .fold-body { padding: 2px 18px 18px; }
+  .fold--callouts .fold-body { padding: 0 14px 16px; }
+
+  .wear-block { grid-template-columns: 1fr; gap: 7px; }
+  .wear-label { padding-top: 0; }
 
   .day { padding: 48px 0 0; }
   .day h2, .photos-intro h2 { font-size: 28px; }

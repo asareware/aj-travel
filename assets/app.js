@@ -119,14 +119,73 @@
     }).join('') + '</div>';
   }
 
+  /* ---------------------------------------------------------------------
+     FOLDS
+
+     The first readers of this site all said the same thing: too much at
+     once. None of them wanted less detail once they went looking for it —
+     they wanted to not be handed all of it on arrival.
+
+     So the long material lives in folds. Closed, a fold is a single line:
+     what it holds, and the short answer. That line is the point — it has to
+     be useful on its own, so that opening the fold is a choice rather than
+     the only way to learn anything.
+
+     Plain <details>, which means it works with the keyboard, survives with
+     JavaScript off, and needs nothing to keep in sync.
+     --------------------------------------------------------------------- */
+
+  function fold(opts) {
+    return '<details class="fold' + (opts.cls ? ' ' + opts.cls : '') + '"' +
+             (opts.id ? ' id="' + attr(opts.id) + '"' : '') + '>' +
+             '<summary class="fold-head">' +
+               '<span class="fold-title">' + opts.title + '</span>' +
+               '<span class="fold-meta">' + (opts.meta || '') + '</span>' +
+               '<span class="fold-sign" aria-hidden="true"></span>' +
+             '</summary>' +
+             '<div class="fold-body">' + opts.body + '</div>' +
+           '</details>';
+  }
+
   function renderCallouts(callouts) {
     if (!callouts || !callouts.length) return '';
-    return '<div class="callouts">' + callouts.map(function (c) {
+
+    var body = '<div class="callouts">' + callouts.map(function (c) {
       return '<div class="callout callout--' + attr(c.tone) + '">' +
                '<div class="callout-mark">' + c.mark + '</div>' +
                '<div class="callout-text">' + c.text + '</div>' +
              '</div>';
     }).join('') + '</div>';
+
+    var n = callouts.length;
+    return fold({
+      cls: 'fold--callouts',
+      title: 'Worth knowing',
+      meta: n + (n === 1 ? ' note on this plan' : ' notes on this plan') +
+            ' — timing, bookings, and the things that caught us out',
+      body: body
+    });
+  }
+
+  /* The dress guidance for the whole trip, in one place. Each day carries
+     only its own one-line version and points back here. */
+  function renderWear(wear) {
+    if (!wear) return '';
+
+    var blocks = (wear.blocks || []).map(function (b) {
+      return '<div class="wear-block">' +
+               '<div class="wear-label">' + b.label + '</div>' +
+               '<p class="wear-text">' + b.text + '</p>' +
+             '</div>';
+    }).join('');
+
+    return fold({
+      id: 'wear',
+      cls: 'fold--wear',
+      title: 'What to wear',
+      meta: wear.summary,
+      body: '<div class="wear">' + blocks + '</div>'
+    });
   }
 
   function renderNav(trip) {
@@ -176,6 +235,10 @@
      day actually holds and how people dress there — neither of which the
      weather knows. What the forecast adds is only the part that could not
      be written in advance: real rain, a cold snap, a wide day-to-night swing.
+
+     Both halves stay short here on purpose. The day answers "what do I put
+     on"; the full reasoning lives in the What to wear fold at the top, one
+     click away from every day that needs it.
      --------------------------------------------------------------------- */
 
   var FORECAST_URL = 'https://api.open-meteo.com/v1/forecast';
@@ -274,7 +337,10 @@
       notes.push('A ' + swing + '\u00B0F swing between afternoon and night — layers you can peel off and put back on.');
     }
 
-    return notes;
+    /* Two at most. A day that trips every rule at once would otherwise
+       rebuild the wall of text this block exists to avoid, and they are
+       pushed in the order worth acting on. */
+    return notes.slice(0, 2);
   }
 
   function renderDayKit(trip, day) {
@@ -293,7 +359,11 @@
              '<div class="daykit-wear">' +
                '<div class="daykit-label">What to wear</div>' +
                '<p class="daykit-outfit">' + day.outfit + '</p>' +
+               (day.outfitNote ? '<p class="daykit-flag">' + day.outfitNote + '</p>' : '') +
                '<ul class="daykit-notes"></ul>' +
+               (trip.wear
+                 ? '<button type="button" class="daykit-more" data-open="wear">Full guide</button>'
+                 : '') +
              '</div>' +
            '</div>';
   }
@@ -389,6 +459,7 @@
         '<p>' + trip.lede + '</p>' +
       '</div>' +
       renderInfo(trip.info) +
+      renderWear(trip.wear) +
       renderCallouts(trip.callouts) +
       renderNav(trip) +
       (trip.days || []).map(function (d) { return renderDay(trip, d); }).join('') +
@@ -638,6 +709,19 @@
        stage, so the letterboxed margins beside a photograph still close. */
     if (lb.open) {
       if (e.target !== lbHost.querySelector('.lb-photo')) closeLightbox();
+      return;
+    }
+
+    /* A day's "Full guide" opens the fold it refers to and takes the reader
+       there, rather than leaving them to find it and open it themselves. */
+    var opener = e.target.closest('[data-open]');
+    if (opener) {
+      e.preventDefault();
+      var panel = document.getElementById(opener.getAttribute('data-open'));
+      if (panel) {
+        panel.open = true;
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
       return;
     }
 

@@ -28,6 +28,34 @@ yet are listed in `nav` with `pending: true`, which renders them dimmed, and the
 `pending` block covers them until they arrive. Delete the `pending` block once
 every day is written.
 
+## How much to say, and where
+
+Readers kept saying the same thing about the first version: overwhelming. The
+detail was the good part, so none of it was cut — it moved. Every trip is
+written to the same shape, and a new one should follow it.
+
+**Always visible.** The `info` grid (five or six facts) and the days
+themselves. That is the plan, and it should be skimmable in about a minute.
+
+**Collapsed, one line each.** Two cards sit under the info grid:
+
+- `wear` — the dress guidance for the whole trip. Its `summary` is the line
+  shown while the card is closed, so write it to stand on its own; that is
+  what most people will ever read. The `blocks` inside are for whoever opens
+  it: cultural rules, the temperature swing, shoes, the one dressy night.
+- `callouts` — timing traps, closed booking windows, anything left alone on
+  purpose. Collapsed behind *Worth knowing*.
+
+**In the days.** A day's `outfit` is **one short line** — "Loose linen,
+shoulders and knees covered, closed shoes." If it wants a paragraph, the
+paragraph belongs in `wear` and the day keeps the short version. `outfitNote`
+is optional and rare: one line for a genuine exception, like long trousers
+being mandatory on the quad bikes. Every day links back up to the full card
+on its own, so no day has to explain itself.
+
+The test before adding a sentence to a day: could someone skim this page in a
+minute and still know what they're doing? If not, it belongs in a fold.
+
 ## Adding photographs
 
 See `photos/README.md`. Short version: drop the file in `photos/`, then swap

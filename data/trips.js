@@ -2,6 +2,39 @@
    TRIPS — the whole website's content lives in this one file.
    Add a trip by adding an object to the array. Nothing else needs editing.
 
+   HOW MUCH TO SAY, AND WHERE
+   The first people this site was sent to all said the same thing: it was
+   overwhelming. Not wrong, not lacking — too much at once. The detail is
+   the good part, so none of it was cut. It moved.
+
+   Every trip is written to the same shape, and a new one should follow it:
+
+     info      Five or six cells, always visible. Base, weather, money,
+               getting around, the one date that anchors the trip. Facts a
+               reader wants without asking.
+
+     wear      One collapsed card holding the dress guidance for the whole
+               trip. `summary` is the single line shown while it is closed,
+               so write it to stand alone — it is what most readers will
+               ever see. `blocks` are for whoever opens it: cultural rules,
+               the temperature swing, shoes, the one dressy night.
+
+     callouts  Collapsed behind "Worth knowing". Timing traps, closed
+               booking windows, anything deliberately left alone. Reasoning
+               belongs here, not in the days.
+
+     days      The plan, and nothing else. `outfit` is ONE SHORT LINE —
+               "Loose linen, shoulders and knees covered, closed shoes." If
+               it needs a paragraph, the paragraph belongs in `wear` and the
+               day says the short version. `outfitNote` is optional and rare:
+               one line for a real exception, like long trousers being
+               mandatory on the quad bikes. Every day links back up to the
+               full card on its own, so a day never has to explain itself.
+
+   The test before adding a sentence to a day: could someone skim this page
+   in a minute and still know what they are doing? If not, it belongs in a
+   fold.
+
    PHOTOS
    Every photo starts as `src: null`, which renders an empty frame.
    To fill one: drop the image file into the photos/ folder, then change
@@ -73,6 +106,40 @@ window.TRIPS = [
       }
     ],
 
+    /* ---- what to wear, for the whole trip ----
+       The summary is the line that shows while the card is closed, so it
+       has to answer the question on its own. The blocks are for the reader
+       who opens it.                                                    ---- */
+    wear: {
+      summary: 'Layers you can peel off, one packable rain shell, and shoes that survive an eight-hour day.',
+      blocks: [
+        {
+          label: 'The one rule',
+          text: 'London changes its mind faster than you can get back to the hotel. A <strong>packable waterproof</strong> lives in your bag every single day, whatever it looked like out of the window at breakfast. Not the good jacket — the one you would not mind wringing out.'
+        },
+        {
+          label: 'The daily base',
+          text: 'Dark jeans or chinos, a tee with a shirt or fine knit over the top. September afternoons sit around <strong>70°F</strong> and drop to the mid-50s once the sun goes, so the layer you shed at noon is the one you want at nine.'
+        },
+        {
+          label: 'Shoes',
+          text: 'You will walk much further than the plan makes it look — Rye Lane, the South Bank, Borough Market, the whole of Day 3. One pair has to be comfortable enough for that and dark and clean enough for a Soho door, which rules out running shoes.'
+        },
+        {
+          label: 'Going out',
+          text: 'Soho leans smart-casual and the doors do actually turn people away: a collared shirt or a dress, nothing sportswear-shaped. Shoreditch on Day 2 is looser and will not care.'
+        },
+        {
+          label: 'Match day',
+          text: 'You are watching Arsenal v Chelsea in a room that is <strong>entirely Chelsea</strong>. Blue if you want to belong in it. Nothing red, which in that pub reads as the wrong side of the fixture.'
+        },
+        {
+          label: 'The work days',
+          text: 'Thursday and Friday you are on camera from 2:30pm. Anything that reads clean on video from the waist up does the job — no one is asking you to change twice.'
+        }
+      ]
+    },
+
 
     callouts: [
       {
@@ -114,7 +181,8 @@ window.TRIPS = [
         counter: 'Day 1 / 5',
         date: 'Thursday, September 3',
         iso: '2026-09-03',
-        outfit: 'Off a red-eye and on camera by 2:30, so wear the one thing that survives both. Dark jeans or chinos, a plain crew or a soft shirt that reads clean on a video call, and trainers you can cross Westminster Bridge in without thinking about it. Nothing you would regret sleeping in on the plane.',
+        outfit: 'Dark jeans, a shirt that reads clean on camera, trainers you can walk in.',
+        outfitNote: 'Nothing you would regret sleeping in on the plane — you land and go straight into the day.',
         title: 'Landing, a quick look around, then straight to work',
         lede: 'An overnight flight out on the 2nd lands you in London the morning of the 3rd — before your Eastern workday even starts. That gap is today\'s whole sightseeing window, so it\'s deliberately light: land, drop bags, one iconic walk, then you\'re logged on by 2:30pm London time.',
         rows: [
@@ -155,7 +223,8 @@ window.TRIPS = [
         counter: 'Day 2 / 5',
         date: 'Friday, September 4',
         iso: '2026-09-04',
-        outfit: 'One outfit has to cover an open boat deck at 10am and a Shoreditch cocktail bar near midnight. Dark jeans, a shirt or fine knit, clean trainers or boots. The river runs colder than the street, so the whole trick is a light jacket you are willing to carry all day.',
+        outfit: 'Same jeans-and-shirt, plus the light jacket.',
+        outfitNote: 'The open boat deck runs colder than the street, and you are out again near midnight.',
         title: 'Parliament, the river, and Borough Market — before 2:30',
         lede: 'Same work window as yesterday, so today\'s sightseeing is a tight, self-contained morning loop: Parliament up close, the Uber Boat your friends told you about, and Borough Market for lunch. Tower Bridge, which would\'ve followed this afternoon, now lives on Sunday morning instead. Once you\'re off the clock at 10:30 there\'s a short window to go see Shoreditch, which is worth taking — just kept brief on purpose, since Saturday is the big night.',
         rows: [
@@ -215,7 +284,8 @@ window.TRIPS = [
         counter: 'Day 3 / 5',
         date: 'Saturday, September 5',
         iso: '2026-09-05',
-        outfit: 'The longest day on your feet, ending at a Soho door. Trainers you can stand in for eight hours but that will not get you turned away — dark, clean, not running shoes. Layer a shirt over a tee so you can drop one before the dancefloor. Skip the backpack: Rye Lane and a packed club are both better with your hands free.',
+        outfit: 'Comfortable enough for eight hours on your feet, smart enough for a Soho door.',
+        outfitNote: 'Dark, clean trainers rather than running shoes — the doors are picky about this one.',
         title: 'Peckham first and longest, Brixton in the afternoon, Soho at night',
         lede: 'The biggest day of the trip, split deliberately in Peckham\'s favour — it\'s genuinely London\'s biggest West African hub, where the Ghanaian and Nigerian communities concentrate, so it gets the morning, the long browse, and lunch. Brixton is a different story — Black British and Windrush-generation history — and gets the afternoon plus a Caribbean dinner instead of a second Ghanaian meal, since you\'ve already got that covered in Peckham. Then straight out to Soho for the night.',
         rows: [
@@ -294,7 +364,8 @@ window.TRIPS = [
         counter: 'Day 4 / 5',
         date: 'Sunday, September 6',
         iso: '2026-09-06',
-        outfit: 'Tower Bridge in the morning wind, then a pub packed shoulder to shoulder for kickoff. Keep it unfussy — jeans, trainers, a jacket you would not mind wearing a spilled pint. Blue if you want to belong in that room, and nothing red: you are watching the Arsenal game surrounded by Chelsea.',
+        outfit: 'Jeans, trainers, a jacket you would not mind a spilled pint on.',
+        outfitNote: 'Blue works, red does not — the pub will be wall-to-wall Chelsea.',
         title: 'Tower Bridge, then match day: Arsenal v Chelsea, 4:30pm KO',
         lede: 'Chelsea are away at the Emirates, so the goal isn\'t getting <em>into</em> a stadium — it\'s getting into a room full of Chelsea supporters. The move for that is a Stamford Bridge-area pub, where fans without an away ticket gather for every game, home or away. This is also where the Tower Bridge visit bumped from Friday lands — it sits on the same District line as Fulham, so the morning flows straight into the afternoon. Start time is pushed back an hour from the original plan, given last night.',
         rows: [
@@ -348,7 +419,7 @@ window.TRIPS = [
         counter: 'Day 5 / 5',
         date: 'Monday, September 7',
         iso: '2026-09-07',
-        outfit: 'Travel day. Whatever you can sit in for eight hours and still walk the South Bank in — soft layers, shoes that come off easily at security, and the rain shell in an outside pocket rather than buried in the case.',
+        outfit: 'Soft travel layers and shoes that come off easily at security.',
         title: 'One last look, then home',
         lede: 'A short, flexible morning built around checkout — scale it to your actual flight time.',
         rows: [
@@ -444,6 +515,40 @@ window.TRIPS = [
       }
     ],
 
+    /* ---- what to wear, for the whole trip ----
+       The summary is the line that shows while the card is closed, so it
+       has to answer the question on its own. The blocks are for the reader
+       who opens it.                                                    ---- */
+    wear: {
+      summary: 'Loose and covered in the city; wear what you like inside the riad, the beach club and the camp.',
+      blocks: [
+        {
+          label: 'The rule that matters',
+          text: 'Marrakech is a conservative Muslim city and the medina is where that shows most. <strong>Shoulders and knees covered, loose rather than tight</strong> — long linen trousers, a maxi skirt, a midi dress. Nobody enforces this and nobody will stop you, but it is the difference between moving through the souks easily and being looked at all afternoon. You will also be cooler in it than in shorts.'
+        },
+        {
+          label: 'Where it relaxes',
+          text: 'Private space plays by its own rules. Inside the riad, at the beach club, at the desert camp and in most restaurants, wear whatever you want — swimwear at the pool included. The cover-up goes back on for the drive there and back.'
+        },
+        {
+          label: 'The temperature swing',
+          text: 'Early November runs about <strong>78°F in the afternoon and mid-50s at night</strong>, and Agafay drops further than the city does. Every day is a layers day, including the ones that start hot enough to make that feel unnecessary.'
+        },
+        {
+          label: 'Shoes',
+          text: 'The medina underfoot is uneven, dusty, and wet in places you will not see coming. Closed shoes you can walk a long way in, and nothing you would mind scuffing. Sandals are for the pool.'
+        },
+        {
+          label: 'Sun',
+          text: 'The light is stronger than the temperature suggests, and two of these days are spent fully exposed. Sunglasses always; something for your head on the desert and balloon mornings.'
+        },
+        {
+          label: 'The dressy night',
+          text: 'The birthday dinner is the one night to actually dress. Marrakech\'s golden hour is low, warm and forgiving, and solid colours hold up against the pink walls and tilework far better than busy prints do.'
+        }
+      ]
+    },
+
     callouts: [
       {
         tone: 'note',
@@ -479,7 +584,8 @@ window.TRIPS = [
         counter: 'Day 1 / 6',
         date: 'Friday, October 30',
         iso: '2026-10-30',
-        outfit: 'Straight off a flight into the souks, so comfort first — but the medina is the one part of today where covering up matters. Shoulders and knees covered, loose rather than tight: long linen trousers or a midi skirt beat shorts, and you will be cooler in them anyway. Closed shoes, because the derb underfoot is uneven and not always clean. La Trattoria is a smarter room, so a shirt or a dress finishes the day without needing anything formal.',
+        outfit: 'Loose linen, shoulders and knees covered, closed shoes.',
+        outfitNote: 'First walk through the medina — open the full guide if you want the detail on what covering up means here.',
         title: 'Landing, the road south, and straight into the medina',
         lede: 'An early landing in Casablanca leaves the whole day free — road trip down to Marrakech, check in, and the first walk through the souks before dinner.',
         rows: [
@@ -514,7 +620,8 @@ window.TRIPS = [
         counter: 'Day 2 / 6',
         date: 'Saturday, October 31',
         iso: '2026-10-31',
-        outfit: 'Swimwear under something you can walk through a lobby in — a kaftan, a shirt dress, linen shorts. Normal poolwear is fine inside the beach club, which is private and relaxed, but that stops at the gate, so keep the cover-up for the drive each way. Palais Dar Soukkar is the grandest room of the trip and worth changing properly for, and it will be genuinely cold by the time you leave it.',
+        outfit: 'Swimwear under a cover-up you can travel in.',
+        outfitNote: 'Dinner is the grandest room of the trip, and it will be genuinely cold by the time you leave it.',
         title: 'Famous Beach Club, then real rest before the desert',
         lede: "A full pool-club day, then deliberate downtime — tomorrow is the big Agafay day, so tonight's gap is recovery, not a second outing.",
         rows: [
@@ -544,7 +651,8 @@ window.TRIPS = [
         counter: 'Day 3 / 6',
         date: 'Sunday, November 1',
         iso: '2026-11-01',
-        outfit: 'The hardest day to pack for: shirtsleeves at the pool and close to freezing under the stars. Long trousers are not optional for the quad bikes or the camel — stones kick up and the saddle chafes bare legs. Closed shoes, sunglasses, and something over your head and neck for the ride. Then bring an actual coat for the evening: the desert drops fast after sunset and the camp is open to the sky. Swimwear for midday and warm layers go in the same bag.',
+        outfit: 'Long trousers, closed shoes, and a real jacket for after dark.',
+        outfitNote: '<strong>Long trousers are not optional</strong> on the quad bikes or the camel — stones kick up and the saddle chafes.',
         title: 'Agafay Desert — the full lineup',
         lede: "Basically the whole day. Pool and lunch at camp, then the three classic Agafay activities back to back before sunset, then dinner under the stars.",
         rows: [
@@ -597,7 +705,8 @@ window.TRIPS = [
         counter: 'Day 4 / 6',
         date: 'Monday, November 2',
         iso: '2026-11-02',
-        outfit: 'A pre-dawn pickup means the coldest hour of the trip, so a proper jacket, and gloves are not overkill in the basket. The burner throws real heat overhead, which a cap takes the edge off. Everything in layers you can shed by mid-morning. Majorelle is narrow gravel paths the whole way round, so shoes you can wander slowly in beat anything you have to think about. DarDar\'s roof is open and it is November — whatever you wear for dinner, bring the layer that goes over it.',
+        outfit: 'Layers you can shed — near-freezing at dawn, warm by ten.',
+        outfitNote: 'Gloves are not overkill in the balloon basket at that hour.',
         title: 'Hot air balloon, a proper nap, then the blue garden',
         lede: "A 5:30am pickup earns a real nap before anything else. The afternoon is deliberately the calmest of the trip: quad bikes and a camel the day after Agafay would only be Sunday played back, so this is the green half of Marrakech instead. Dinner is still assumed at 5pm, which makes for a tight turnaround — see the flag above.",
         rows: [
@@ -641,7 +750,8 @@ window.TRIPS = [
         counter: 'Day 5 / 6',
         date: 'Tuesday, November 3',
         iso: '2026-11-03',
-        outfit: 'The day to actually dress. Marrakech\'s golden hour is low and warm and forgiving, and solid colours hold up against the pink walls and tilework far better than busy prints — the light around five does most of the work for you. Pick something that carries from the café through the spa to dinner on one change rather than three. It will be cool by the time the photos are done, so make the layer part of the look instead of an afterthought.',
+        outfit: 'The night to actually dress. Solid colours over busy prints.',
+        outfitNote: 'Marrakech\'s golden hour does most of the work in photographs; prints fight the tilework.',
         title: 'Birthday girl 🎂',
         lede: "Her day. The plan stays exactly as originally set, night out included — nothing added on top.",
         rows: [
@@ -681,7 +791,8 @@ window.TRIPS = [
         counter: 'Day 6 / 6',
         date: 'Wednesday, November 4',
         iso: '2026-11-04',
-        outfit: 'Travel clothes. Whatever you want to spend three hours on the Casablanca road in — soft, loose, and layered, because the car will be cold and the airport will not be.',
+        outfit: 'Soft, loose travel clothes, layered.',
+        outfitNote: 'The car will be cold and the airport will not be.',
         title: 'Marrakech → Casablanca',
         lede: 'A short morning, then the drive back north for the flight home.',
         rows: [
