@@ -83,7 +83,6 @@
           '<div class="trip-card-cover">' + frame(cover, cover.placeholder) + '</div>' +
           '<div class="trip-card-body">' +
             '<div class="trip-card-dates">' + t.card.dates + '</div>' +
-            '<p class="trip-card-blurb">' + t.card.blurb + '</p>' +
             '<div class="trip-card-open">Open itinerary →</div>' +
           '</div>' +
         '</a>';
@@ -97,7 +96,7 @@
         '<h1 class="display">Where we have been</h1>' +
         '<p>Itineraries as they were planned, photographs as they came back. Pick a trip to open it.</p>' +
       '</div>' +
-      cards +
+      '<div class="trip-list">' + cards + '</div>' +
       '<div class="strip index-footer"><div>Travel log</div><div>' + count + '</div></div>';
 
     document.title = SITE;
@@ -416,7 +415,6 @@
                '<div class="day-date">' + day.date + '</div>' +
              '</div>' +
              '<h2>' + day.title + '</h2>' +
-             '<p class="day-lede">' + day.lede + '</p>' +
              renderDayKit(trip, day) +
              '<div class="day-rows">' + (day.rows || []).map(renderRow).join('') + '</div>' +
            '</section>';
@@ -430,7 +428,6 @@
                '<div class="day-date">' + p.date + '</div>' +
              '</div>' +
              '<h2>' + p.title + '</h2>' +
-             '<p class="day-lede">' + p.lede + '</p>' +
            '</section>';
   }
 
