@@ -56,6 +56,38 @@ on its own, so no day has to explain itself.
 The test before adding a sentence to a day: could someone skim this page in a
 minute and still know what they're doing? If not, it belongs in a fold.
 
+## Write it for strangers
+
+**This site is public, and so is the repository.** Every trip is written to be
+handed to anyone — a friend, a group chat, a stranger who finds the link. That
+rules some things out, and they apply to every itinerary here and every one
+added later.
+
+**Never publish where you are sleeping.** No hotel or riad name, no street
+address, no postcode. A neighbourhood is enough: "Waterloo, South Bank" tells a
+reader what they need and tells no one where to find you. Exact dates plus an
+exact address is the combination to avoid.
+
+**Leave personal logistics out.** Working hours, time zones, employers, flight
+numbers, who booked what. If a block of the day is committed, say it is
+committed — "Blocked out, 2:30–10:30pm" — and stop there.
+
+**Describe the place, not the preference.** A row says what somewhere is and
+what it costs in time; it does not say why the traveller wanted it. Write
+"Soho Zebrano (cocktail bar upstairs, dancefloor basement), Thirst Soho and Bar
+Soho, walkable around Greek Street" — not what kind of night out anyone was
+hoping for. The venue names are the useful part; keep them.
+
+Second person is still fine for guidance that applies to any reader — the
+`wear` card telling someone to pack a rain layer reads naturally as "your bag".
+It stops being fine the moment it describes what *this* traveller wants.
+
+**A day heading goes straight into its timeline.** No summary paragraph under
+the title, and no description on the index cards: title, length, dates, cover,
+link. The `lede` fields still exist in `data/trips.js` and are simply not
+rendered — remember the repository is public too, so anything left in there is
+readable even when the page never shows it.
+
 ## Adding photographs
 
 See `photos/README.md`. Short version: drop the file in `photos/`, then swap
