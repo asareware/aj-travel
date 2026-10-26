@@ -45,6 +45,13 @@ themselves. That is the plan, and it should be skimmable in about a minute.
   it: cultural rules, the temperature swing, shoes, the one dressy night.
 - `callouts` — timing traps, closed booking windows, anything left alone on
   purpose. Collapsed behind *Worth knowing*.
+- `stay` — optional. Which neighbourhoods to look in, same shape as `wear`
+  (a `summary` that stands alone, `blocks` behind it). Areas only, never the
+  booking itself — see *Write it for strangers* below.
+
+A trip that moves between cities gives the later days their own `place`
+(lat, lon, timezone, normals), so each day's weather is for the city it is
+spent in.
 
 **In the days.** A day's `outfit` is **one short line** — "Loose linen,
 shoulders and knees covered, closed shoes." If it wants a paragraph, the

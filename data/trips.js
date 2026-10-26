@@ -19,6 +19,9 @@
                ever see. `blocks` are for whoever opens it: cultural rules,
                the temperature swing, shoes, the one dressy night.
 
+     stay      Optional, same shape as wear: which neighbourhoods to look
+               in. Areas only, never the booking itself.
+
      callouts  Collapsed behind "Worth knowing". Timing traps, closed
                booking windows, anything deliberately left alone. Reasoning
                belongs here, not in the days.
@@ -827,6 +830,529 @@ window.TRIPS = [
 
     /* ---- the strip that closes the trip page ---- */
     footer: { left: 'Marrakech, Birthday Edition', right: '30 Oct – 4 Nov 2026' }
+  },
+
+  {
+    id: 'amsterdam-belgium',
+
+    /* ---- how the trip shows up on the index page ---- */
+    card: {
+      title: 'Amsterdam &amp; Belgium',
+      length: '6 days',
+      dates: '29 Oct – 3 Nov 2026 · Netherlands &amp; Belgium',
+      blurb: 'Rembrandt and the canals, Halloween in Amsterdam, then the train south to Brussels, Bruges and Ghent.',
+      cover: { src: null, placeholder: 'Cover photograph to come' }
+    },
+
+    /* ---- where it is. Used to look up the live forecast, and for the
+       seasonal averages shown until the trip is inside forecast range.
+       The Belgian days carry their own `place` further down.        ---- */
+    place: {
+      lat: 52.3676,
+      lon: 4.9041,
+      timezone: 'Europe/Amsterdam',
+      normals: { high: 55, low: 45, summary: 'Typical for late October' }
+    },
+
+    /* ---- the trip page masthead ---- */
+    eyebrow: 'Two countries by train · 29 Oct – 3 Nov 2026',
+    title: 'Amsterdam to Brussels, Day by Day',
+    lede: 'Five nights: three in Amsterdam across the weekend, two in Brussels with a day in Bruges and Ghent. Museums and old towns by day, a rest before dark, out after ten.',
+
+    /* ---- the info grid ---- */
+    info: [
+      {
+        label: 'Bases',
+        value: 'Amsterdam 3 nights · Brussels 2',
+        detail: 'One train between them on Sunday; the flight home leaves from Brussels'
+      },
+      {
+        label: 'Weather',
+        value: '~55°F days, ~45°F nights',
+        detail: 'Grey, breezy, showers likely — and dark by about 5pm'
+      },
+      {
+        label: 'Currency',
+        value: 'Euro (€), both countries',
+        detail: 'Cards almost everywhere; cash is rarely needed'
+      },
+      {
+        label: 'Getting around',
+        value: 'On foot, then tram',
+        detail: 'Tap a contactless card on Amsterdam trams and metro; Belgian trains on the SNCB app or station machines'
+      },
+      {
+        label: 'Halloween',
+        value: 'Saturday, Oct 31 — Amsterdam',
+        detail: 'The biggest night of the trip. Party tickets sell in advance'
+      }
+    ],
+
+    /* ---- what to wear, for the whole trip ---- */
+    wear: {
+      summary: 'Warm layers under a real waterproof, shoes for wet cobblestones, one step smarter after dark.',
+      blocks: [
+        {
+          label: 'The one rule',
+          text: 'Rain here comes sideways off the canals more often than straight down, and an umbrella turns inside out on the first bridge. A <strong>hooded waterproof jacket</strong> does the job an umbrella cannot. Wear it every day, whatever the morning looks like.'
+        },
+        {
+          label: 'The daily base',
+          text: 'Around <strong>55°F by day and mid-40s at night</strong>, with wind that makes it feel colder. Jeans or chinos, a knit or a hoodie, and a coat over the top. You will be outside from late morning to well past midnight, so dress for the walk home, not the walk out.'
+        },
+        {
+          label: 'Shoes',
+          text: 'Cobblestones in all four cities, usually wet. One pair that grips, can walk ten miles, and is clean and dark enough for a club door — leather trainers or boots, not running shoes.'
+        },
+        {
+          label: 'Going out',
+          text: 'Amsterdam and Brussels both run smart-casual at the door. Club doors on Rembrandtplein and Leidseplein can turn away sportswear and sliders; bars do not care. Most clubs have a coat check, so bring the coat and stop worrying about it.'
+        },
+        {
+          label: 'Halloween',
+          text: 'Costumes are normal at Halloween parties here, but most people go simple rather than full American-style. Pick something that still works with a jacket over it and survives a shower on the way between bars.'
+        },
+        {
+          label: 'Pockets',
+          text: 'Pickpockets work the busiest spots — Dam Square, Amsterdam Centraal, the Red Light District, and Grand-Place in Brussels. A zipped crossbody bag or an inside pocket for your phone and cards.'
+        }
+      ]
+    },
+
+    /* ---- where to stay. Neighbourhoods only, never the booking. ---- */
+    stay: {
+      summary: 'Amsterdam: De Pijp or the Jordaan. Brussels: near Brussels-Central or Saint-Géry. All walkable to the sights and the bars.',
+      blocks: [
+        {
+          label: 'Amsterdam · Best pick',
+          text: '<strong>De Pijp.</strong> Lively, safe, and full of bars and restaurants, with the Albert Cuyp Market at its centre. Ten to fifteen minutes on foot to the Rijksmuseum, the Van Gogh Museum and Leidseplein, so most nights you walk home. Usually a little cheaper than the canal ring.'
+        },
+        {
+          label: 'Amsterdam · Prettiest',
+          text: '<strong>The Jordaan and the canal ring.</strong> The postcard Amsterdam: old canal houses, quiet at night, very safe, and walkable to almost everything. Also the most expensive.'
+        },
+        {
+          label: 'Amsterdam · Quiet &amp; upscale',
+          text: '<strong>Museum Quarter (Oud-Zuid).</strong> Leafy and calm, with the museums on the doorstep and Leidseplein about ten minutes away on foot.'
+        },
+        {
+          label: 'Amsterdam · Cheaper, still safe',
+          text: '<strong>Oud-West</strong> (around De Hallen), fifteen minutes on foot to Leidseplein. Or <strong>Amsterdam Noord</strong>, a few minutes across the river on the free ferry from behind Centraal, which runs day and night. Both cost less than the centre and are safe; Noord means a ferry ride every evening.'
+        },
+        {
+          label: 'Amsterdam · Skip',
+          text: '<strong>The Red Light District and the Damrak strip</strong> by Centraal: loud all night, crowded, and the pickpocket capital of the city. Hotels near Schiphol or out in the suburbs look cheap until you add up the trips in.'
+        },
+        {
+          label: 'Brussels · Best pick',
+          text: '<strong>Near Brussels-Central station.</strong> Five minutes on foot to Grand-Place, direct trains to Bruges, Ghent and the airport, and the Saint-Géry bars about ten minutes away. That covers both the day trip and the trip home without a single transfer.'
+        },
+        {
+          label: 'Brussels · Nightlife',
+          text: '<strong>Saint-Géry and Dansaert.</strong> The bar quarter of the old centre: walk out of the door and you are there. Busier and louder on weekends, and still central for everything else.'
+        },
+        {
+          label: 'Brussels · Quiet &amp; upscale',
+          text: '<strong>Sablon.</strong> Antique shops, chocolatiers and a quiet square, about ten minutes on foot from Grand-Place. Safe and calm, and priced to match.'
+        },
+        {
+          label: 'Brussels · Cheaper, still safe',
+          text: '<strong>Ixelles</strong>, around Porte de Namur and Place Flagey. Lively, residential and well served by metro and tram, about ten minutes to the centre. Matongé, the Congolese and Central African quarter, sits right here.'
+        },
+        {
+          label: 'Brussels · Skip',
+          text: '<strong>The streets right around Brussels-Midi and Brussels-Nord stations.</strong> Fine to pass through, rough to come back to after dark, and the cheap rooms there are cheap for a reason. The same goes for the stretch along the canal to the west of the centre.'
+        }
+      ]
+    },
+
+    callouts: [
+      {
+        tone: 'fix',
+        mark: 'Book',
+        text: '<strong>Book these ahead, online:</strong> the <strong>Rijksmuseum</strong> and <strong>Van Gogh Museum</strong> sell timed entry slots, and the Van Gogh Museum sells no tickets at the door. <strong>Anne Frank House</strong> tickets are online only and usually sell out weeks ahead — check the official site anyway; Day 3 has a fallback if not. Also the <strong>Halloween party</strong> ticket, the <strong>Amsterdam–Brussels train</strong> (cheaper the earlier you book), and the <strong>Bruges Belfry</strong> climb.'
+      },
+      {
+        tone: 'note',
+        mark: '1/11',
+        text: '<strong>Sunday is a holiday in Belgium:</strong> All Saints\' Day, 1 November. Some shops and museums close; bars and restaurants stay open. And <strong>most Belgian museums close on Mondays</strong>, which is why Monday is built around the Belfry, the canals and a castle that open every day.'
+      },
+      {
+        tone: 'warn',
+        mark: '!',
+        text: '<strong>The Red Light District has rules:</strong> no photographs of the windows, no smoking cannabis on the street, and the bars there close earlier than in the rest of the city. It is worth walking through for the Oude Kerk and the old streets — Day 3 does it in daylight. The night out happens elsewhere.'
+      },
+      {
+        tone: 'warn',
+        mark: 'Bike',
+        text: '<strong>The red lanes are for bikes,</strong> and Amsterdam cyclists do not slow down. Look both ways before stepping off any kerb, and never stand in a red lane for a photograph.'
+      },
+      {
+        tone: 'note',
+        mark: '✈',
+        text: '<strong>In one city, out of another:</strong> a multi-city ticket (New York to Amsterdam, then Brussels to New York) usually costs about the same as a round trip and saves backtracking. Brussels Airport is about 20 minutes by train from Brussels-Central.'
+      }
+    ],
+
+    nav: [
+      { label: 'Day 1 · Thu', title: 'Canals &amp; the Jordaan',  href: 'day-1' },
+      { label: 'Day 2 · Fri', title: 'Rembrandt + Van Gogh',       href: 'day-2' },
+      { label: 'Day 3 · Sat', title: 'Old city + Halloween',       href: 'day-3' },
+      { label: 'Day 4 · Sun', title: 'Amsterdam → Brussels',       href: 'day-4' },
+      { label: 'Day 5 · Mon', title: 'Bruges + Ghent',             href: 'day-5' },
+      { label: 'Day 6 · Tue', title: 'Brussels → home',            href: 'day-6' }
+    ],
+
+    /* ---- the written days ----
+       chip tone: 'grey' | 'blue' | 'amber'                             ---- */
+    days: [
+      {
+        id: 'day-1',
+        counter: 'Day 1 / 6',
+        date: 'Thursday, October 29',
+        iso: '2026-10-29',
+        outfit: 'Soft travel layers, the waterproof, shoes you can walk all afternoon in.',
+        outfitNote: 'You land and keep going — nothing you would regret sleeping in on the plane.',
+        title: 'Landing, the canals, and the brown cafés',
+        rows: [
+          {
+            time: 'morning',
+            title: 'Schiphol → Amsterdam Centraal',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'Direct train, about 15 minutes, every few minutes. Tap in and out with a contactless card. Most hotels hold bags before check-in.'
+          },
+          {
+            time: 'late morning',
+            title: 'Sleep off the flight',
+            chips: [{ label: 'Rest', tone: 'grey' }],
+            body: 'A few hours, alarm set — enough to take the edge off without wrecking tonight\'s sleep.'
+          },
+          {
+            time: '2:00 PM',
+            title: 'Dam Square &amp; the Royal Palace',
+            chips: [{ label: 'History', tone: 'blue' }],
+            body: 'The square the city grew around. The palace was built in the 1600s as the city hall, when Amsterdam was the richest port in the world; the interior is open most days when there is no royal event on.'
+          },
+          {
+            time: '3:00 PM',
+            title: 'The canal ring &amp; the Jordaan, on foot',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: 'Prinsengracht and Keizersgracht, the Westerkerk (where Rembrandt is buried), and the Nine Streets for small shops. The canal ring is a UNESCO World Heritage site, and the light is best before it goes at about five.'
+          },
+          {
+            time: '5:00 – 8:00 PM',
+            title: 'Rest',
+            chips: [{ label: 'Rest', tone: 'grey' }],
+            body: ''
+          },
+          {
+            time: '8:30 PM',
+            title: 'Dinner: Indonesian rijsttafel',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'A "rice table" of a dozen small dishes — the most Amsterdam meal there is, and a direct line back to Dutch colonial history in Indonesia.'
+          },
+          {
+            time: '10:00 PM',
+            title: 'Brown cafés in the Jordaan',
+            chips: [{ label: 'Nightlife', tone: 'blue' }],
+            body: 'Old, wood-panelled Dutch pubs, named for walls stained by centuries of smoke. <strong>Café \'t Smalle</strong> (canal-side, from 1780), <strong>Café Chris</strong> near the Westerkerk, and <strong>De Twee Zwaantjes</strong> on Prinsengracht, where the room sings along to Dutch songs. An easy first night.'
+          }
+        ]
+      },
+      {
+        id: 'day-2',
+        counter: 'Day 2 / 6',
+        date: 'Friday, October 30',
+        iso: '2026-10-30',
+        outfit: 'Jeans, a knit, the coat — and shoes that pass a club door.',
+        outfitNote: 'You go straight from dinner to the clubs, so leave the hotel dressed for the night.',
+        title: 'Rembrandt, Van Gogh, and the first big night',
+        rows: [
+          {
+            time: '10:30 AM',
+            title: 'Rijksmuseum',
+            chips: [{ label: 'Museum', tone: 'blue' }],
+            body: 'The national museum: Rembrandt\'s <em>Night Watch</em>, Vermeer, and the whole Dutch Golden Age. Two and a half to three hours covers the highlights. Timed tickets.',
+            address: 'Museumstraat 1, Museumplein'
+          },
+          {
+            time: '1:30 PM',
+            title: 'Lunch on Museumplein',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'The museum cafés or the streets behind the square — quick, not a sit-down.'
+          },
+          {
+            time: '2:30 PM',
+            title: 'Van Gogh Museum',
+            chips: [{ label: 'Museum', tone: 'blue' }],
+            body: 'The largest Van Gogh collection in the world — <em>Sunflowers</em>, the self-portraits, the letters — hung in the order he painted them. About ninety minutes. Timed tickets only.',
+            address: 'Museumplein 6'
+          },
+          {
+            time: '4:30 – 8:00 PM',
+            title: 'Rest',
+            chips: [{ label: 'Rest', tone: 'grey' }],
+            body: 'Back to the hotel. Nap now; the night runs late.'
+          },
+          {
+            time: '8:30 PM',
+            title: 'Dinner in De Pijp',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'The densest run of restaurants in the city, ten minutes on foot from Leidseplein.'
+          },
+          {
+            time: '10:30 PM',
+            title: 'Leidseplein',
+            chips: [{ label: 'Nightlife', tone: 'blue' }],
+            body: 'A square packed with bars. <strong>Paradiso</strong> (club nights in a converted church) and <strong>Melkweg</strong> (a former dairy, now concerts and club nights) are both here — check what is on that night.'
+          },
+          {
+            time: '~1:00 AM',
+            title: 'Rembrandtplein, for the late part',
+            chips: [{ label: 'Nightlife', tone: 'blue' }],
+            body: 'Fifteen minutes on foot. Late bars around the square, with <strong>Escape</strong> and <strong>AIR</strong> as the big clubs. Queues build after midnight; cover charges vary.'
+          }
+        ]
+      },
+      {
+        id: 'day-3',
+        counter: 'Day 3 / 6',
+        date: 'Saturday, October 31',
+        iso: '2026-10-31',
+        outfit: 'Daytime layers, then the costume — something that works under a coat.',
+        outfitNote: 'Leave room in the afternoon for a long rest; this is the latest night of the trip.',
+        title: 'Anne Frank, the old city, and Halloween night',
+        rows: [
+          {
+            time: '11:00 AM',
+            title: 'Anne Frank House',
+            chips: [{ label: 'History', tone: 'blue' }],
+            body: 'The canal house where Anne Frank hid for two years during the Second World War, behind a bookcase in the back annex. About an hour. Online tickets only. <strong>If sold out:</strong> the Dutch Resistance Museum in Plantage tells the wider story of the occupation, and is far easier to get into.',
+            address: 'Westermarkt 20'
+          },
+          {
+            time: '12:30 PM',
+            title: 'Lunch',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'Dutch pancakes or a broodje (filled roll) on the way across the old centre.'
+          },
+          {
+            time: '1:30 PM',
+            title: 'Our Lord in the Attic',
+            chips: [{ label: 'History', tone: 'blue' }],
+            body: 'A whole Catholic church hidden in the attic of a 1600s canal house, built when Catholic worship was banned in public. About an hour, and one of the most surprising rooms in the city.',
+            address: 'Oudezijds Voorburgwal 38'
+          },
+          {
+            time: '2:45 PM',
+            title: 'The Oude Kerk, De Wallen &amp; Nieuwmarkt, in daylight',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: 'The Oude Kerk is the oldest building in Amsterdam, from the 1300s, standing in the middle of the Red Light District. Then on to Nieuwmarkt and De Waag, a 15th-century city gate.'
+          },
+          {
+            time: '4:00 – 9:00 PM',
+            title: 'Long rest &amp; get ready',
+            chips: [{ label: 'Rest', tone: 'grey' }],
+            body: 'Five hours on purpose. Costume on at the end of it.'
+          },
+          {
+            time: '9:00 PM',
+            title: 'Dinner',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'Near wherever the party is.'
+          },
+          {
+            time: '11:00 PM',
+            title: 'Halloween night',
+            chips: [{ label: 'Nightlife', tone: 'blue' }],
+            body: 'Most clubs run themed Halloween parties with advance tickets — check the listings on Resident Advisor and the venues\' own sites for <strong>Paradiso</strong>, <strong>Melkweg</strong> and <strong>Shelter</strong> (a club under the A\'DAM Tower in Noord, reached by the free 24-hour ferry). Or skip the ticket and crawl the bars of <strong>Rembrandtplein</strong> in costume.'
+          }
+        ]
+      },
+      {
+        id: 'day-4',
+        counter: 'Day 4 / 6',
+        date: 'Sunday, November 1',
+        iso: '2026-11-01',
+        place: {
+          lat: 50.8467,
+          lon: 4.3525,
+          timezone: 'Europe/Brussels',
+          normals: { high: 55, low: 45, summary: 'Typical for early November' }
+        },
+        outfit: 'Comfortable travel layers, then the coat for an evening out.',
+        outfitNote: 'Grand-Place is at its best after dark, and it is cold out on the cobbles.',
+        title: 'A canal cruise, the train south, and Grand-Place lit up',
+        rows: [
+          {
+            time: '11:00 AM',
+            title: 'Sleep in, check out, brunch',
+            chips: [{ label: 'Rest', tone: 'grey' }],
+            body: 'Lockers at Amsterdam Centraal if the bags need to go somewhere.'
+          },
+          {
+            time: '12:30 PM',
+            title: 'Canal cruise',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: 'An hour on the water through the canal ring — sightseeing sitting down. Boats leave from in front of Centraal and along the Damrak.'
+          },
+          {
+            time: '2:00 PM',
+            title: 'Train: Amsterdam → Brussels',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: '<strong>Eurostar</strong>, about 1 hour 50 minutes into Brussels-Midi, or the slower, usually cheaper <strong>Eurocity Direct</strong>, about 2 hours 50, which also stops at Brussels-Central. A good stretch to nap.'
+          },
+          {
+            time: '4:30 PM',
+            title: 'Check in near Brussels-Central',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'From Brussels-Midi, a local train hops to Brussels-Central in about five minutes.'
+          },
+          {
+            time: '5:30 PM',
+            title: 'Grand-Place, the Galeries &amp; Manneken Pis',
+            chips: [{ label: 'History', tone: 'blue' }],
+            body: 'Grand-Place is one of the most beautiful squares in Europe: gilded guildhalls and a Gothic town hall from the 1400s, lit up after dark. Next door, the <strong>Galeries Royales Saint-Hubert</strong> — glass-roofed shopping arcades from 1847. Manneken Pis is five minutes away, and smaller than anyone expects.'
+          },
+          {
+            time: '6:30 – 8:30 PM',
+            title: 'Rest',
+            chips: [{ label: 'Rest', tone: 'grey' }],
+            body: ''
+          },
+          {
+            time: '8:30 PM',
+            title: 'Dinner: moules-frites, or Matongé',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: 'Mussels and frites, the Belgian classic, anywhere in the centre — avoid the touts on Rue des Bouchers. Or <strong>Matongé</strong> in Ixelles, the Congolese and Central African quarter around Porte de Namur, about ten minutes by metro.'
+          },
+          {
+            time: '10:30 PM',
+            title: 'Delirium Café, then Saint-Géry',
+            chips: [{ label: 'Nightlife', tone: 'blue' }],
+            body: '<strong>Delirium Café</strong>, down an alley off Rue des Bouchers, pours from a list of more than two thousand beers across several floors. Then the bars around <strong>Place Saint-Géry</strong>, a few minutes away. Sunday is a quieter night everywhere; Delirium stays busy regardless.',
+            address: 'Impasse de la Fidélité 4'
+          }
+        ]
+      },
+      {
+        id: 'day-5',
+        counter: 'Day 5 / 6',
+        date: 'Monday, November 2',
+        iso: '2026-11-02',
+        place: {
+          lat: 50.8467,
+          lon: 4.3525,
+          timezone: 'Europe/Brussels',
+          normals: { high: 55, low: 45, summary: 'Typical for early November' }
+        },
+        outfit: 'The waterproof and the walking shoes — this is the longest day on foot.',
+        outfitNote: 'Bruges is almost all cobblestones, and the Belfry is 366 narrow steps.',
+        title: 'Bruges by day, Ghent at dusk, a last night in Brussels',
+        rows: [
+          {
+            time: '9:30 AM',
+            title: 'Train: Brussels-Central → Bruges',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'About an hour, direct, several an hour. Buy on the SNCB app or at the station.'
+          },
+          {
+            time: '10:45 AM',
+            title: 'The Markt &amp; the Belfry',
+            chips: [{ label: 'History', tone: 'blue' }],
+            body: 'The medieval centre of Bruges is a UNESCO World Heritage site and the most-visited place in Belgium. The 13th-century Belfry towers over the Markt; the climb is 366 steps, with timed tickets.'
+          },
+          {
+            time: '12:00 PM',
+            title: 'The Burg, the canals &amp; the Rozenhoedkaai',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: 'The Basilica of the Holy Blood on the Burg square, then the Rozenhoedkaai, the most photographed corner of the canals. Canal boats run from the quays when the season allows.'
+          },
+          {
+            time: '1:00 PM',
+            title: 'Lunch: frites, waffles, chocolate',
+            chips: [{ label: 'Food', tone: 'amber' }],
+            body: ''
+          },
+          {
+            time: '2:00 PM',
+            title: 'Minnewater &amp; the Begijnhof',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: 'The "Lake of Love" and the whitewashed beguinage beside it, a walled community of religious women from the 1200s. The quietest half hour of the trip.'
+          },
+          {
+            time: '3:00 PM',
+            title: 'Train: Bruges → Ghent',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'About 25 minutes. Then a tram or a twenty-minute walk into the centre.'
+          },
+          {
+            time: '3:45 PM',
+            title: 'Gravensteen, then the Graslei at dusk',
+            chips: [{ label: 'History', tone: 'blue' }],
+            body: '<strong>Gravensteen</strong>, the Castle of the Counts, is a moated stone castle from 1180 in the middle of the city, open every day. Then the <strong>Graslei and Korenlei</strong>, the medieval guild houses along the water, as the lights come on.'
+          },
+          {
+            time: '5:30 PM',
+            title: 'Train: Ghent → Brussels, then rest',
+            chips: [{ label: 'Rest', tone: 'grey' }],
+            body: 'About 30 minutes back to Brussels-Central, then a rest until dinner. <strong>Or stay in Ghent:</strong> it is a big student city, and the bars around Overpoortstraat and the Vrijdagmarkt are busiest on weeknights. Check the time of the last train back before heading out.'
+          },
+          {
+            time: '9:00 PM',
+            title: 'Last night out: Saint-Géry &amp; Rue du Marché au Charbon',
+            chips: [{ label: 'Nightlife', tone: 'blue' }],
+            body: 'The two busiest bar streets in central Brussels, a few minutes apart. Monday means bars rather than clubs.'
+          }
+        ]
+      },
+      {
+        id: 'day-6',
+        counter: 'Day 6 / 6',
+        date: 'Tuesday, November 3',
+        iso: '2026-11-03',
+        place: {
+          lat: 50.8467,
+          lon: 4.3525,
+          timezone: 'Europe/Brussels',
+          normals: { high: 55, low: 45, summary: 'Typical for early November' }
+        },
+        outfit: 'Soft, loose travel clothes, layered.',
+        title: 'Brussels → home',
+        rows: [
+          {
+            time: 'morning',
+            title: 'Breakfast, a last waffle, the Mont des Arts',
+            chips: [{ label: 'Sightseeing', tone: 'blue' }],
+            body: 'The Mont des Arts, five minutes from Brussels-Central, has the best free view over the old city — on the way to the station.'
+          },
+          {
+            time: 'late morning',
+            title: 'Train: Brussels-Central → Brussels Airport',
+            chips: [{ label: 'Transit', tone: 'grey' }],
+            body: 'About 20 minutes, several an hour. Allow three hours at the airport for a flight to the US.'
+          }
+        ]
+      }
+    ],
+
+    /* ---- the photo grid ---- */
+    photosIntro: {
+      eyebrow: 'Photographs',
+      title: 'From the trip',
+      lede: 'Click any photograph to open it full-screen.'
+    },
+    photos: [
+      { caption: 'Day 1 · The canal ring',      src: null },
+      { caption: 'Day 2 · Rijksmuseum',         src: null },
+      { caption: 'Day 3 · Halloween night',     src: null },
+      { caption: 'Day 4 · Grand-Place, Brussels', src: null },
+      { caption: 'Day 5 · Bruges',              src: null },
+      { caption: 'Day 5 · Ghent',               src: null }
+    ],
+
+    /* ---- the strip that closes the trip page ---- */
+    footer: { left: 'Amsterdam &amp; Belgium', right: '29 Oct – 3 Nov 2026' }
   }
 
 ];

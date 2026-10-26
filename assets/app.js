@@ -166,24 +166,38 @@
     });
   }
 
-  /* The dress guidance for the whole trip, in one place. Each day carries
-     only its own one-line version and points back here. */
-  function renderWear(wear) {
-    if (!wear) return '';
-
-    var blocks = (wear.blocks || []).map(function (b) {
+  function renderBlocks(blocks) {
+    return '<div class="wear">' + (blocks || []).map(function (b) {
       return '<div class="wear-block">' +
                '<div class="wear-label">' + b.label + '</div>' +
                '<p class="wear-text">' + b.text + '</p>' +
              '</div>';
-    }).join('');
+    }).join('') + '</div>';
+  }
 
+  /* The dress guidance for the whole trip, in one place. Each day carries
+     only its own one-line version and points back here. */
+  function renderWear(wear) {
+    if (!wear) return '';
     return fold({
       id: 'wear',
       cls: 'fold--wear',
       title: 'What to wear',
       meta: wear.summary,
-      body: '<div class="wear">' + blocks + '</div>'
+      body: renderBlocks(wear.blocks)
+    });
+  }
+
+  /* Which neighbourhoods to look in — never the booking itself. Same
+     shape as the wear card: a summary that stands alone, blocks behind it. */
+  function renderStay(stay) {
+    if (!stay) return '';
+    return fold({
+      id: 'stay',
+      cls: 'fold--wear',
+      title: 'Where to stay',
+      meta: stay.summary,
+      body: renderBlocks(stay.blocks)
     });
   }
 
@@ -257,16 +271,47 @@
     95: 'Thunderstorms', 96: 'Thunderstorms', 99: 'Thunderstorms'
   };
 
+  /* A trip that moves between cities gives the later days their own
+     `place`. Each place gets one request covering its own days, and each
+     day keeps only the reading for the city it is actually spent in. */
+  function placeFor(trip, day) { return day.place || trip.place; }
+
   function fetchForecast(trip) {
-    var place = trip.place;
     var days = trip.days || [];
-    if (!place || !days.length || !window.fetch) return Promise.resolve(null);
+    if (!trip.place || !days.length || !window.fetch) return Promise.resolve(null);
     if (forecastCache[trip.id]) return Promise.resolve(forecastCache[trip.id]);
 
-    var first = days[0].iso;
-    var last = days[days.length - 1].iso;
-    if (!first || !last) return Promise.resolve(null);
+    var groups = {};
+    days.forEach(function (day) {
+      var place = placeFor(trip, day);
+      if (!day.iso) return;
+      var key = place.lat + ',' + place.lon;
+      (groups[key] = groups[key] || { place: place, isos: [] }).isos.push(day.iso);
+    });
 
+    var requests = Object.keys(groups).map(function (key) {
+      var g = groups[key];
+      return fetchPlace(g.place, g.isos[0], g.isos[g.isos.length - 1]).then(function (byDate) {
+        var mine = {};
+        g.isos.forEach(function (iso) { if (byDate && byDate[iso]) mine[iso] = byDate[iso]; });
+        return byDate ? mine : null;
+      });
+    });
+    if (!requests.length) return Promise.resolve(null);
+
+    return Promise.all(requests).then(function (parts) {
+      var byDate = null;
+      parts.forEach(function (part) {
+        if (!part) return;
+        byDate = byDate || {};
+        for (var iso in part) byDate[iso] = part[iso];
+      });
+      if (byDate) forecastCache[trip.id] = byDate;
+      return byDate;
+    });
+  }
+
+  function fetchPlace(place, first, last) {
     var url = FORECAST_URL +
       '?latitude=' + encodeURIComponent(place.lat) +
       '&longitude=' + encodeURIComponent(place.lon) +
@@ -300,7 +345,6 @@
             };
           });
         }
-        forecastCache[trip.id] = byDate;
         return byDate;
       })
       .catch(function () { return null; });
@@ -344,7 +388,8 @@
 
   function renderDayKit(trip, day) {
     if (!day.outfit) return '';
-    var normals = (trip.place && trip.place.normals) || null;
+    var place = placeFor(trip, day);
+    var normals = (place && place.normals) || null;
 
     return '<div class="daykit" data-iso="' + attr(day.iso || '') + '">' +
              '<div class="daykit-weather">' +
@@ -457,6 +502,7 @@
       '</div>' +
       renderInfo(trip.info) +
       renderWear(trip.wear) +
+      renderStay(trip.stay) +
       renderCallouts(trip.callouts) +
       renderNav(trip) +
       (trip.days || []).map(function (d) { return renderDay(trip, d); }).join('') +
